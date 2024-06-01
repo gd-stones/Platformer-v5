@@ -4,6 +4,7 @@ using UnityEngine;
 namespace StonesGaming
 {
     [RequireComponent(typeof(BoxCollider2D))]
+    //[RequireComponent(typeof(CapsuleCollider2D))]
     public class PlatformerEngine : MonoBehaviour
     {
         #region Public
