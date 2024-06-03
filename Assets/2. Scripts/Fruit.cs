@@ -9,7 +9,7 @@ namespace StonesGaming
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.name.Contains("Player"))
+			if (other.name.Contains("Player") || other.CompareTag("Player"))
 			{
 				var collected = Instantiate
 				(

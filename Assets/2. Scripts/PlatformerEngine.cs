@@ -3307,117 +3307,117 @@ namespace StonesGaming
             return Mathf.RoundToInt(Globals.GetFrameCount(time) / (timeScale != 0 ? timeScale : _savedTimeScale));
         }
 
-        void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(_ladderTopArea.center, _ladderTopArea.size);
-            Gizmos.DrawWireCube(_ladderBottomArea.center, _ladderBottomArea.size);
+        //void OnDrawGizmosSelected()
+        //{
+        //    Gizmos.color = Color.yellow;
+        //    Gizmos.DrawWireCube(_ladderTopArea.center, _ladderTopArea.size);
+        //    Gizmos.DrawWireCube(_ladderBottomArea.center, _ladderBottomArea.size);
 
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(_restrictedArea.center, _restrictedArea.size);
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireCube(_restrictedArea.center, _restrictedArea.size);
 
-            Gizmos.color = Color.white;
+        //    Gizmos.color = Color.white;
 
-            // Ground check.
-            Bounds box = GetComponent<Collider2D>().bounds;
-            Vector2 min;
-            Vector2 max;
+        //    // Ground check.
+        //    Bounds box = GetComponent<Collider2D>().bounds;
+        //    Vector2 min;
+        //    Vector2 max;
 
-            // Ground check box
-            min = box.min;
-            max = box.max;
-            min.y -= envCheckDistance;
-            max.y = box.min.y;
-            Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //    // Ground check box
+        //    min = box.min;
+        //    max = box.max;
+        //    min.y -= envCheckDistance;
+        //    max.y = box.min.y;
+        //    Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
 
-            // Left check box
-            min = box.min;
-            max = box.max;
-            min.x -= envCheckDistance;
-            max.x = box.min.x;
-            Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //    // Left check box
+        //    min = box.min;
+        //    max = box.max;
+        //    min.x -= envCheckDistance;
+        //    max.x = box.min.x;
+        //    Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
 
-            // Right check box
-            min = box.min;
-            max = box.max;
-            min.x = box.max.x;
-            max.x += envCheckDistance;
-            Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //    // Right check box
+        //    min = box.min;
+        //    max = box.max;
+        //    min.x = box.max.x;
+        //    max.x += envCheckDistance;
+        //    Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
 
-            if (enableCornerGrabs)
-            {
-                min = box.min;
-                max = box.max;
-                min.y = max.y;
-                max.y += cornerDistanceCheck;
-                max.x = min.x;
-                min.x -= cornerDistanceCheck;
-                Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //    if (enableCornerGrabs)
+        //    {
+        //        min = box.min;
+        //        max = box.max;
+        //        min.y = max.y;
+        //        max.y += cornerDistanceCheck;
+        //        max.x = min.x;
+        //        min.x -= cornerDistanceCheck;
+        //        Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
 
-                min = box.min;
-                max = box.max;
-                min.y = max.y;
-                max.y += cornerDistanceCheck;
-                min.x = max.x;
-                max.x += cornerDistanceCheck;
-                Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //        min = box.min;
+        //        max = box.max;
+        //        min.y = max.y;
+        //        max.y += cornerDistanceCheck;
+        //        min.x = max.x;
+        //        max.x += cornerDistanceCheck;
+        //        Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
 
-                // Draw valid corner grab area
-                Gizmos.color = Color.yellow;
-                min = box.min;
-                max = box.max;
-                min.y = max.y - box.size.y * normalizedValidWallInteraction;
-                min.x = max.x;
-                max.x += cornerDistanceCheck;
-                Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //        // Draw valid corner grab area
+        //        Gizmos.color = Color.yellow;
+        //        min = box.min;
+        //        max = box.max;
+        //        min.y = max.y - box.size.y * normalizedValidWallInteraction;
+        //        min.x = max.x;
+        //        max.x += cornerDistanceCheck;
+        //        Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
 
-                min = box.min;
-                max = box.max;
-                min.y = max.y - box.size.y * normalizedValidWallInteraction;
-                max.x = min.x;
-                min.x -= cornerDistanceCheck;
-                Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
-            }
+        //        min = box.min;
+        //        max = box.max;
+        //        min.y = max.y - box.size.y * normalizedValidWallInteraction;
+        //        max.x = min.x;
+        //        min.x -= cornerDistanceCheck;
+        //        Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
+        //    }
 
-            // Show the distance that it will take for the _engine to stop on the ground and air.
-            Vector2 from = new Vector2(box.max.x, box.min.y);
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(from, from + Vector2.right * groundStopDistance);
+        //    // Show the distance that it will take for the _engine to stop on the ground and air.
+        //    Vector2 from = new Vector2(box.max.x, box.min.y);
+        //    Gizmos.color = Color.green;
+        //    Gizmos.DrawLine(from, from + Vector2.right * groundStopDistance);
 
-            from = box.max;
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(from, from + Vector2.right * airStopDistance);
+        //    from = box.max;
+        //    Gizmos.color = Color.blue;
+        //    Gizmos.DrawLine(from, from + Vector2.right * airStopDistance);
 
-            if (movingPlatformDebug)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawSphere(_point, 0.01f);
-                Gizmos.DrawWireCube(_prevPosPlat.center, _prevPosPlat.size);
+        //    if (movingPlatformDebug)
+        //    {
+        //        Gizmos.color = Color.red;
+        //        Gizmos.DrawSphere(_point, 0.01f);
+        //        Gizmos.DrawWireCube(_prevPosPlat.center, _prevPosPlat.size);
 
-                Gizmos.color = Color.blue;
-                Gizmos.DrawWireCube(_startPosEngine.center, _startPosEngine.size);
+        //        Gizmos.color = Color.blue;
+        //        Gizmos.DrawWireCube(_startPosEngine.center, _startPosEngine.size);
 
-                Gizmos.color = Color.green;
-                Gizmos.DrawSphere(_point2, 0.01f);
-                Gizmos.DrawWireCube(_movedPosEngine.center, _movedPosEngine.size);
-            }
+        //        Gizmos.color = Color.green;
+        //        Gizmos.DrawSphere(_point2, 0.01f);
+        //        Gizmos.DrawWireCube(_movedPosEngine.center, _movedPosEngine.size);
+        //    }
 
-            if (iterationDebug && _iterationBounds != null)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireCube(_iterationBounds[0].center, _iterationBounds[0].size);
+        //    if (iterationDebug && _iterationBounds != null)
+        //    {
+        //        Gizmos.color = Color.red;
+        //        Gizmos.DrawWireCube(_iterationBounds[0].center, _iterationBounds[0].size);
 
-                Gizmos.color = Color.blue;
+        //        Gizmos.color = Color.blue;
 
-                for (int i = 2; i < _iterationsUsed + 2; i++)
-                {
-                    Gizmos.DrawWireCube(_iterationBounds[i].center, _iterationBounds[i].size);
-                }
+        //        for (int i = 2; i < _iterationsUsed + 2; i++)
+        //        {
+        //            Gizmos.DrawWireCube(_iterationBounds[i].center, _iterationBounds[i].size);
+        //        }
 
-                Gizmos.color = Color.green;
-                Gizmos.DrawWireCube(_iterationBounds[1].center, _iterationBounds[1].size);
-            }
-        }
+        //        Gizmos.color = Color.green;
+        //        Gizmos.DrawWireCube(_iterationBounds[1].center, _iterationBounds[1].size);
+        //    }
+        //}
 
         private void ChangeState(EngineState newState)
         {
