@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 namespace StonesGaming
 {
-    public class Player : MonoBehaviour
+    public class PlayerCustomize : MonoBehaviour
     {
+        public PlatformerEngine platformerEngine;
         public GameObject playerHitPrefab;
+
         public AudioClip jumpClip;
         public AudioClip hitClip;
         public bool isSkipJumpSe;
@@ -30,8 +32,7 @@ namespace StonesGaming
 
         private void Awake()
         {
-            var engine = GetComponent<PlatformerEngine>();
-            engine.onJump += OnJump;
+            platformerEngine.onJump += OnJump;
         }
 
         private void OnJump()
@@ -47,14 +48,17 @@ namespace StonesGaming
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            Debug.Log("eeeeeee");
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("WWWWWWWWWWWW");
+            if (collision.CompareTag("StartMP"))
+            {
+                platformerEngine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+            }
+
+            if(collision.CompareTag("EndMP"))
+            {
+                platformerEngine.movingPlatformLayerMask = 0;
+            }
         }
     }
 }

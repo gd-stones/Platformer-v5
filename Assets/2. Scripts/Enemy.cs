@@ -57,12 +57,12 @@ namespace StonesGaming
 					Instantiate(hitPrefab, transform.position, Quaternion.identity);
 					var audioSource = FindObjectOfType<AudioSource>();
 					audioSource.PlayOneShot(hitClip);
-					var player = other.GetComponent<Player>();
+					var player = other.GetComponent<PlayerCustomize>();
 					player.isSkipJumpSe = true;
 				}
 				else
 				{
-					var player = other.GetComponent<Player>();
+					var player = other.GetComponent<PlayerCustomize>();
 					player.Dead();
 				}
 			}

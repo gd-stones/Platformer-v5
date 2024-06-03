@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: -8622760973989577470}
   - component: {fileID: 654808610525224847}
   - component: {fileID: 8524258448393923789}
-  - component: {fileID: 958795129043411030}
   - component: {fileID: 1163411139832451209}
+  - component: {fileID: 958795129043411030}
+  - component: {fileID: 9206338017735092502}
   m_Layer: 0
   m_Name: Character v3
   m_TagString: Player
@@ -182,18 +183,6 @@ MonoBehaviour:
   movingPlatformDebug: 0
   iterationDebug: 0
   slopeNormal: {x: 0, y: 0}
---- !u!114 &958795129043411030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4485071752438213241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ee1224ee819bd6418867d9a5171806d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1163411139832451209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +197,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpRotationSpeed: 0
   visualChild: {fileID: 8816708708232880534}
+--- !u!114 &958795129043411030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485071752438213241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee1224ee819bd6418867d9a5171806d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9206338017735092502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485071752438213241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d7cc8c457e2ff489f9bfa2cc050f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformerEngine: {fileID: 8524258448393923789}
+  playerHitPrefab: {fileID: 2011833101734743391, guid: 4de03a97b8f41c845bc85e9dcde3193d,
+    type: 3}
+  jumpClip: {fileID: 8300000, guid: 28b649ebe5d58f34fa323a32e56d15e4, type: 3}
+  hitClip: {fileID: 8300000, guid: 46f97a01e901f3744b9bfbb6899e78ef, type: 3}
+  isSkipJumpSe: 0
 --- !u!1 &8816708708232880534
 GameObject:
   m_ObjectHideFlags: 0
