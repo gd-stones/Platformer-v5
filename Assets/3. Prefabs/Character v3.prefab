@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformerEngine: {fileID: 8524258448393923789}
-  playerHitPrefab: {fileID: 2011833101734743391, guid: 4de03a97b8f41c845bc85e9dcde3193d,
+  playerHitPrefab: {fileID: 2011833101734743391, guid: bb12d88d9f022f846803fef842fc12f8,
     type: 3}
   jumpClip: {fileID: 8300000, guid: 28b649ebe5d58f34fa323a32e56d15e4, type: 3}
   hitClip: {fileID: 8300000, guid: 46f97a01e901f3744b9bfbb6899e78ef, type: 3}
