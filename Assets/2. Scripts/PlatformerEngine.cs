@@ -432,8 +432,7 @@ namespace StonesGaming
         public float normalizedXMovement { get; set; }
 
         /// <summary>
-        /// Set the y movement direction. This is multiplied by the max speed. -1 is full left, 1 is full right. Higher numbers will
-        /// result in faster speed.
+        /// Set the y movement direction. This is multiplied by the max speed. -1 is full left, 1 is full right. Higher numbers will result in faster speed.
         /// Only used for ladders
         /// </summary>
         public float normalizedYMovement { get; set; }
@@ -472,8 +471,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// The velocity of the _engine. This should be queried instead of the rigidbody's velocity. Setting this during a dash doesn't
-        /// have any meaning.
+        /// The velocity of the _engine. This should be queried instead of the rigidbody's velocity. Setting this during a dash doesn't have any meaning.
         /// </summary>
         public Vector2 velocity
         {
@@ -505,8 +503,7 @@ namespace StonesGaming
 
 
         /// <summary>
-        /// Since the _engine needs to know the facing of the object, this information is made available to anyone else who might need
-        /// it.
+        /// Since the _engine needs to know the facing of the object, this information is made available to anyone else who might need it.
         /// </summary>
         public bool facingLeft { get; set; }
 
@@ -533,8 +530,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// This is the distance calculated for dashed. Not be confused with distanceDashed. This doesn't care if the _engine has
-        /// hit a wall.
+        /// This is the distance calculated for dashed. Not be confused with distanceDashed. This doesn't care if the _engine has hit a wall.
         /// </summary>
         public float dashDistanceCalculated
         {
@@ -645,8 +641,7 @@ namespace StonesGaming
         public Vector2 slopeNormal;
 
         /// <summary>
-        /// Call this to have the GameObject try to jump, once called it will be handled in the FixedUpdate tick. The y axis is
-        /// considered jump.
+        /// Call this to have the GameObject try to jump, once called it will be handled in the FixedUpdate tick. The y axis is considered jump.
         /// </summary>
         public void Jump()
         {
@@ -1078,8 +1073,7 @@ namespace StonesGaming
         private Vector2 _prevMoveDirection;
         private bool _isValidWallInteraction;
 
-        // This is the unconverted _engine velocity. This ignores slopes. It is converted into the appropriate vector before
-        // moving.
+        // This is the unconverted _engine velocity. This ignores slopes. It is converted into the appropriate vector before moving.
         private Vector2 _velocity;
 
         // The function is cached to avoid unnecessary memory allocation.
@@ -1226,7 +1220,8 @@ namespace StonesGaming
         private void Start()
         {
             _prevLocation = _collider2D.bounds.center;
-            // initial set, do not use ChangeState
+            
+            // Initial set, do not use ChangeState
             engineState = EngineState.Falling;
             _wallJumpVector = Quaternion.AngleAxis(wallJumpAngle, Vector3.forward) * Vector3.right;
             _currentWallJumpDegree = wallJumpAngle;
@@ -1414,8 +1409,7 @@ namespace StonesGaming
         {
             if (IsDashing())
             {
-                float normalizedTime = (float)(GetFrameCount(dashDuration) - _dashing.dashingFrames) /
-                    GetFrameCount(dashDuration);
+                float normalizedTime = (float)(GetFrameCount(dashDuration) - _dashing.dashingFrames) / GetFrameCount(dashDuration);
 
                 if (_currentDashEasingFunction != dashEasingFunction)
                 {
@@ -1453,8 +1447,7 @@ namespace StonesGaming
                 return 0;
             }
 
-            return Mathf.Lerp(_currentDeltaTime, 0,
-                (_collider2D.bounds.center - curPos).magnitude / (targetPos - curPos).magnitude);
+            return Mathf.Lerp(_currentDeltaTime, 0, (_collider2D.bounds.center - curPos).magnitude / (targetPos - curPos).magnitude);
         }
 
         private void UpdateSurroundings(bool forceCheck)
@@ -1502,8 +1495,7 @@ namespace StonesGaming
                 currentOnSlope != onSlope))
             {
 
-                // With our velocity pointing upwards, IsGrounded will return false. Since we want to stick to environments
-                // this will fix our velocity.
+                // With our velocity pointing upwards, IsGrounded will return false. Since we want to stick to environments this will fix our velocity.
                 float speed;
                 float maxSpeed;
 
@@ -1514,9 +1506,7 @@ namespace StonesGaming
 
             _disallowedSlopeNormal = Vector2.zero;
 
-            if (wasGrounded &&
-                !wasSlipping &&
-                IsForceSlipping())
+            if (wasGrounded && !wasSlipping && IsForceSlipping())
             {
                 Vector2 moveDir = _prevMoveDirection;
 
@@ -1635,7 +1625,7 @@ namespace StonesGaming
 
             UpdateTimers();
 
-            // update _collisionMask in case it's updated by user
+            // Update _collisionMask in case it's updated by user
             _collisionMask = staticEnvLayerMask | movingPlatformLayerMask;
 
             float time = Time.fixedDeltaTime;
@@ -1652,7 +1642,7 @@ namespace StonesGaming
                     _iterationBounds[(_iterationsUsed++) + 2] = _collider2D.bounds;
                 }
             }
-            // check ladder zone
+            // Check ladder zone
             if (_ladderBottomArea.Contains(_collider2D.bounds.center))
             {
                 ladderZone = LadderZone.Bottom;
@@ -1732,25 +1722,19 @@ namespace StonesGaming
             }
 
             Bounds checkBounds = _collider2D.bounds;
-            checkBounds.extents += new Vector3(
-                minDistanceFromEnv,
-                minDistanceFromEnv);
-
-            Collider2D col = Physics2D.OverlapArea(
-                checkBounds.min,
-                checkBounds.max,
-                _collisionMask);
+            checkBounds.extents += new Vector3(minDistanceFromEnv, minDistanceFromEnv);
+            Collider2D col = Physics2D.OverlapArea(checkBounds.min, checkBounds.max, _collisionMask);
 
             if (col != null)
             {
-                SeparateFromEnvirionment();
+                SeparateFromEnvironment();
                 return true;
             }
 
             return false;
         }
 
-        private void SeparateFromEnvirionment()
+        private void SeparateFromEnvironment()
         {
             // We'll start with the corners
             RaycastAndSeparate(
@@ -1809,7 +1793,6 @@ namespace StonesGaming
             if (hit.collider != null)
             {
                 Vector2 pointOnCol = GetPointOnBounds(_collider2D.bounds, -hit.normal);
-
                 Vector3 toPointOnCol = pointOnCol - hit.point;
                 Vector3 pointToSepFrom = (Vector3)hit.point + Vector3.Project(toPointOnCol, -hit.normal);
 
@@ -1995,8 +1978,7 @@ namespace StonesGaming
                 PressingIntoLeftWall() &&
                 IsMovingPlatform(_collidersUpAgainst[DIRECTION_LEFT].gameObject))
             {
-                // We allow the _engine to attach when pressing into a moving platform. This prevent jitter as it's moving away from
-                // the _engine.
+                // We allow the _engine to attach when pressing into a moving platform. This prevent jitter as it's moving away from the _engine.
                 _movingPlatformState.platform = _collidersUpAgainst[DIRECTION_LEFT].GetComponent<MovingPlatformEngine>();
                 _movingPlatformState.stuckToWall = CollidedSurface.LeftWall;
             }
@@ -2404,9 +2386,7 @@ namespace StonesGaming
 
                     if (timeToGroundSpeed > 0)
                     {
-                        // If we're moving faster than our normalizedXMovement * groundSpeed then decelerate rather than
-                        // accelerate.
-                        //
+                        // If we're moving faster than our normalizedXMovement * groundSpeed then decelerate rather than accelerate.
                         // Or if we are trying to move in the direction opposite of where we are facing.
 
                         if (speed > 0 &&
@@ -2603,15 +2583,11 @@ namespace StonesGaming
                 {
                     if (moveDir.y > 0)
                     {
-                        maxSpeed = groundSpeed *
-                            Vector3.Dot(Vector3.right * Mathf.Sign(moveDir.x), moveDir) *
-                            speedMultiplierOnSlope;
+                        maxSpeed = groundSpeed * Vector3.Dot(Vector3.right * Mathf.Sign(moveDir.x), moveDir) * speedMultiplierOnSlope;
                     }
                     else
                     {
-                        maxSpeed = groundSpeed *
-                            (2f - Vector3.Dot(Vector3.right * Mathf.Sign(moveDir.x), moveDir) *
-                            speedMultiplierOnSlope);
+                        maxSpeed = groundSpeed * (2f - Vector3.Dot(Vector3.right * Mathf.Sign(moveDir.x), moveDir) * speedMultiplierOnSlope);
                     }
                 }
                 else
@@ -2698,9 +2674,7 @@ namespace StonesGaming
 
         private float GetDashSpeed()
         {
-            float normalizedTime = (float)(GetFrameCount(dashDuration) - _dashing.dashingFrames) /
-                GetFrameCount(dashDuration);
-
+            float normalizedTime = (float)(GetFrameCount(dashDuration) - _dashing.dashingFrames) / GetFrameCount(dashDuration);
             float speed = _dashDerivativeFunction(0, dashDistance, normalizedTime) / dashDuration;
 
             // Some of the easing functions may result in infinity, we'll uh, lower our expectations and make it maxfloat.
@@ -2727,7 +2701,6 @@ namespace StonesGaming
 
             Vector3 toNewPos = newPos - _collider2D.bounds.center;
             float distance = toNewPos.magnitude;
-
             RaycastHit2D hit = GetClosestHit(_collider2D.bounds.center, toNewPos / distance, distance);
 
             _prevLocation = _collider2D.bounds.center;
@@ -2741,7 +2714,7 @@ namespace StonesGaming
                 transform.position = _toTransform + newPos;
             }
 
-            // at the end if there is a restricted area, force the _engine inside
+            // At the end if there is a restricted area, force the _engine inside
             // TODO handle rotation, unrotate transform.position, check, rotate
             if (IsRestricted())
             {
@@ -2755,7 +2728,6 @@ namespace StonesGaming
         private Vector3 GetMovementDir(float speed)
         {
             Vector3 moveDir = Vector3.zero;
-
             float multiplier = Mathf.Sign(speed);
 
             if (speed == 0)
@@ -2816,7 +2788,6 @@ namespace StonesGaming
         private bool CheckIfAtCorner()
         {
             Bounds box = _collider2D.bounds;
-
             Vector2 min = box.min;
             Vector2 max = box.max;
 
@@ -2844,18 +2815,9 @@ namespace StonesGaming
             return (col == null);
         }
 
-        private int GetNearbyHitsBox(
-            Vector2 direction,
-            float distance)
+        private int GetNearbyHitsBox(Vector2 direction, float distance)
         {
-            int num = Physics2D.BoxCastNonAlloc(
-                _collider2D.bounds.center,
-                _collider2D.bounds.size,
-                0f,
-                direction,
-                _hits,
-                distance,
-                _collisionMask);
+            int num = Physics2D.BoxCastNonAlloc(_collider2D.bounds.center, _collider2D.bounds.size, 0f, direction, _hits, distance, _collisionMask);
 
             if (num <= _hits.Length)
             {
@@ -2864,29 +2826,14 @@ namespace StonesGaming
 
             _hits = new RaycastHit2D[(int)(INCREASE_ARRAY_SIZE_MULTIPLIER * num)];
 
-            num = Physics2D.BoxCastNonAlloc(
-                _collider2D.bounds.center,
-                _collider2D.bounds.size,
-                0f,
-                direction,
-                _hits,
-                distance,
-                _collisionMask);
+            num = Physics2D.BoxCastNonAlloc(_collider2D.bounds.center, _collider2D.bounds.size, 0f, direction, _hits, distance, _collisionMask);
 
             return num;
         }
 
-        private int GetNearbyHitsRay(
-            Vector2 origin,
-            Vector2 direction,
-            float distance)
+        private int GetNearbyHitsRay(Vector2 origin, Vector2 direction, float distance)
         {
-            int num = Physics2D.RaycastNonAlloc(
-                origin,
-                direction,
-                _hits,
-                distance,
-                _collisionMask);
+            int num = Physics2D.RaycastNonAlloc(origin, direction, _hits, distance, _collisionMask);
 
             if (num <= _hits.Length)
             {
@@ -2895,12 +2842,7 @@ namespace StonesGaming
 
             _hits = new RaycastHit2D[(int)(INCREASE_ARRAY_SIZE_MULTIPLIER * num)];
 
-            return Physics2D.RaycastNonAlloc(
-                origin,
-                direction,
-                 _hits,
-                distance,
-                _collisionMask);
+            return Physics2D.RaycastNonAlloc(origin, direction, _hits, distance, _collisionMask);
         }
 
         private int GetOverlappingColliders()
@@ -2925,25 +2867,14 @@ namespace StonesGaming
                 _collisionMask);
         }
 
-        private RaycastHit2D GetClosestHit(
-            Vector2 origin,
-            Vector3 direction,
-            float distance,
-            bool useBox = true,
-            bool checkWereTouching = false)
+        private RaycastHit2D GetClosestHit(Vector2 origin, Vector3 direction, float distance, bool useBox = true, bool checkWereTouching = false)
         {
             if (!enableOneWayPlatforms && oneWayPlatformsAreWalls)
             {
                 // This is much easier if we don't care about one way platforms.
                 if (useBox)
                 {
-                    return Physics2D.BoxCast(
-                        origin,
-                        _collider2D.bounds.size,
-                        0f,
-                        direction,
-                        distance,
-                        _collisionMask);
+                    return Physics2D.BoxCast(origin, _collider2D.bounds.size, 0f, direction, distance, _collisionMask);
                 }
 
                 return Physics2D.Raycast(origin, direction, distance, _collisionMask);
@@ -2955,21 +2886,15 @@ namespace StonesGaming
 
             if (useBox)
             {
-                numOfHits = GetNearbyHitsBox(
-                    direction,
-                    distance);
+                numOfHits = GetNearbyHitsBox(direction, distance);
             }
             else
             {
-                numOfHits = GetNearbyHitsRay(
-                    origin,
-                    direction,
-                    distance);
+                numOfHits = GetNearbyHitsRay(origin, direction, distance);
             }
 
             RaycastHit2D closestHit = new RaycastHit2D();
             float closeBy = float.MaxValue;
-
             bool haveGotOverlapping = false;
             int numOfNoDistanceHits = 0;
 
@@ -3010,7 +2935,6 @@ namespace StonesGaming
 
                             numOfNoDistanceHits = GetOverlappingColliders();
                             haveGotOverlapping = false;
-
                             mpEngine.transform.position = curPos;
 
                             for (int j = 0; j < numOfNoDistanceHits; j++)
@@ -3026,7 +2950,6 @@ namespace StonesGaming
                             {
                                 continue;
                             }
-
                         }
                         else
                         {
@@ -3039,9 +2962,7 @@ namespace StonesGaming
 
                     if (_velocity != Vector2.zero)
                     {
-                        dot = Vector3.Dot(
-                            oneWayPlatformForward,
-                            _velocity);
+                        dot = Vector3.Dot(oneWayPlatformForward, _velocity);
                     }
                     else if (((1 << _hits[i].collider.gameObject.layer) & movingPlatformLayerMask) != 0)
                     {
@@ -3084,7 +3005,6 @@ namespace StonesGaming
         private CollidedSurface CheckGround(float distance, bool forceDistance = false)
         {
             CollidedSurface surfaces = CollidedSurface.None;
-
             RaycastHit2D closestHit = GetClosestHit(_collider2D.bounds.center, Vector3.down, distance);
 
             _collidersUpAgainst[DIRECTION_DOWN] = closestHit.collider;
@@ -3113,7 +3033,6 @@ namespace StonesGaming
         private CollidedSurface CheckSurroundings(bool forceCheck)
         {
             CollidedSurface surfaces = CollidedSurface.None;
-
             Vector2 vecToCheck = _velocity;
 
             if (!forceCheck)
@@ -3144,7 +3063,6 @@ namespace StonesGaming
                             (_collider2D.bounds.center.x - closestHit.centroid.x)) * Vector3.right;
                     }
                 }
-
             }
 
             // Ceiling
@@ -3167,9 +3085,9 @@ namespace StonesGaming
                 }
             }
 
+            // Right
             if (forceCheck || vecToCheck.x >= -NEAR_ZERO)
             {
-                // Right
                 closestHit = GetClosestHit(_collider2D.bounds.center, Vector3.right, envCheckDistance);
 
                 _collidersUpAgainst[DIRECTION_RIGHT] = closestHit.collider;
@@ -3187,12 +3105,12 @@ namespace StonesGaming
                 }
             }
 
+            // Ground
             if (forceCheck ||
                 -vecToCheck.y >= -NEAR_ZERO ||
                 onSlope ||
                 (HasFlag(CollidedSurface.Ground) && IsJumping()))
             {
-                // Ground
                 surfaces |= CheckGround(envCheckDistance);
 
                 if (enableSlopes &&
