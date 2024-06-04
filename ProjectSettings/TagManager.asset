@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StartMP
   - EndMP
+  - Barrel
   layers:
   - Default
   - TransparentFX

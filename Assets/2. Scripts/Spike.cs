@@ -8,7 +8,7 @@ namespace StonesGaming
 		{
 			if (other.name.Contains("Player") || other.CompareTag("Player"))
 			{
-				var player = other.GetComponent<PlayerCustomize>();
+				var player = other.GetComponent<PlatformerCustomize>();
 				player.Dead();
 			}
 		}

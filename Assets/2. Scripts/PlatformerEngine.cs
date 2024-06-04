@@ -79,20 +79,17 @@ namespace StonesGaming
         public float airSpeed = 5f;
 
         /// <summary>
-        /// If true, then the player can change x direction while jumping. If false, then
-        /// the x velocity when leaving the ground will be held while in the air
+        /// If true, then the player can change x direction while jumping. If false, then the x velocity when leaving the ground will be held while in the air
         /// </summary>
         public bool changeDirectionInAir = true;
 
         /// <summary>
-        /// The time it takes to move from zero horizontal speed to the maximum speed. This value is
-        /// used to calculate the acceleration.
+        /// The time it takes to move from zero horizontal speed to the maximum speed. This value is used to calculate the acceleration.
         /// </summary>
         public float timeToAirSpeed = 0.2f;
 
         /// <summary>
-        /// The distance the engine will 'slide' to a stop while in the air. Only effects horizontal
-        /// movement.
+        /// The distance the engine will 'slide' to a stop while in the air. Only effects horizontal movement.
         /// </summary>
         public float airStopDistance = 2f;
 
@@ -164,8 +161,7 @@ namespace StonesGaming
         public float minimumSpeedToMoveUpSlipperySlope = 7.5f;
 
         /// <summary>
-        /// Should the speed of the engine change depending of the angle of the slope. This only impacts walking on slopes, not
-        /// while sliding.
+        /// Should the speed of the engine change depending of the angle of the slope. This only impacts walking on slopes, not while sliding.
         /// </summary>
         public bool changeSpeedOnSlopes = true;
 

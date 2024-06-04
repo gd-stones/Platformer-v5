@@ -22,6 +22,9 @@ namespace StonesGaming
 
         public static bool LadderFlag = false;
         public static bool HighJumpFlag = false;
+        public static bool PushFlag = false;
+        public static bool TeleportFlag = false;
+        public static bool PortalIn = true;
 
         public static int GetFrameCount(float time)
         {

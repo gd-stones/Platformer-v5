@@ -94,6 +94,22 @@ namespace StonesGaming
                         _animator.Play("Climb");
                     }
                 }
+                else if(Globals.PushFlag)
+                {
+                    _animator.Play("Push");
+                }
+                else if (Globals.TeleportFlag)
+                {
+                    if (Globals.PortalIn)
+                    {
+                        _animator.Play("Portal In");
+                    }
+                    else
+                    {
+                        _animator.Play("Portal Out");
+                        Globals.TeleportFlag = false;
+                    }
+                }
                 else
                 {
                     Globals.LadderFlag = false;
