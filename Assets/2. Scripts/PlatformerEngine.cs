@@ -473,7 +473,7 @@ namespace StonesGaming
         {
             get
             {
-                return IsDashing() ? _dashing.dashDir * GetDashSpeed() : _velocity;
+                return IsDashing() ? _dashing.dashDirection * GetDashSpeed() : _velocity;
             }
             set
             {
@@ -510,7 +510,7 @@ namespace StonesGaming
         {
             get
             {
-                return IsDashing() ? _dashing.dashDir : Vector2.zero;
+                return IsDashing() ? _dashing.dashDirection : Vector2.zero;
             }
         }
 
@@ -746,7 +746,7 @@ namespace StonesGaming
         {
             _dashing.pressed = true;
             _dashing.dashWithDirection = true;
-            _dashing.dashDir = dir;
+            _dashing.dashDirection = dir;
         }
 
         /// <summary>
@@ -771,7 +771,7 @@ namespace StonesGaming
                 _dashing.pressed = false;
                 _dashing.gravityEnabledFrames = GetFrameCount(endDashNoGravityDuration);
 
-                _velocity = _dashing.dashDir * GetDashSpeed();
+                _velocity = _dashing.dashDirection * GetDashSpeed();
 
                 ChangeState(IsGrounded() ? EngineState.OnGround : EngineState.Falling);
             }
@@ -1152,7 +1152,7 @@ namespace StonesGaming
             public float cooldownFrames;
             public int dashingFrames;
             public bool dashWithDirection;
-            public Vector2 dashDir = Vector2.zero;
+            public Vector2 dashDirection = Vector2.zero;
             public float distanceCalculated;
             public float distanceDashed;
             public bool force;
@@ -1415,8 +1415,8 @@ namespace StonesGaming
 
                 float distance = _dashFunction(0, dashDistance, normalizedTime);
 
-                _velocity = _dashing.dashDir * GetDashSpeed();
-                MovePosition(_collider2D.bounds.center + (Vector3)_dashing.dashDir * (distance - _dashing.distanceCalculated));
+                _velocity = _dashing.dashDirection * GetDashSpeed();
+                MovePosition(_collider2D.bounds.center + (Vector3)_dashing.dashDirection * (distance - _dashing.distanceCalculated));
                 _dashing.distanceCalculated = distance;
                 // Right now dash only moves along a line, doesn't ever need to adjust. We don't need multiple iterations for that.
                 return 0;
@@ -2654,7 +2654,7 @@ namespace StonesGaming
             if (!_dashing.dashWithDirection)
             {
                 // We dash depending on our direction.
-                _dashing.dashDir = facingLeft ? Vector2.left : Vector2.right;
+                _dashing.dashDirection = facingLeft ? Vector2.left : Vector2.right;
             }
 
             _dashing.distanceDashed = 0;

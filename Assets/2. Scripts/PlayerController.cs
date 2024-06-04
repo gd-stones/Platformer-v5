@@ -28,7 +28,8 @@ namespace StonesGaming
             _enableOneWayPlatforms = engine.enableOneWayPlatforms;
             _oneWayPlatformsAreWalls = engine.oneWayPlatformsAreWalls;
         }
-        // after leave freedom state for ladders
+        
+        // After leave freedom state for ladders
         void FreedomStateRestore(PlatformerEngine engine)
         {
             if (_restored) // do not enter twice
@@ -39,7 +40,6 @@ namespace StonesGaming
             engine.oneWayPlatformsAreWalls = _oneWayPlatformsAreWalls;
         }
 
-        // Update is called once per frame
         void Update()
         {
             // use last state to restore some ladder specific values
@@ -94,7 +94,6 @@ namespace StonesGaming
                     else
                     {
                         Globals.LadderFlag = true;
-                        Debug.Log("44444444444444444444444");
 
                         _engine.FreedomStateEnter(); // enter freedomState to disable gravity
                         _engine.EnableRestrictedArea();  // movements is retricted to a specific sprite bounds
@@ -115,10 +114,12 @@ namespace StonesGaming
                 _engine.fallFast = false;
             }
 
-            if (UnityEngine.Input.GetKeyDown(KeyCode.E) /*UnityEngine.Input.GetButtonDown(StonesGaming.Input.DASH)*/)
+            if (UnityEngine.Input.GetKeyDown(KeyCode.E))
             {
                 _engine.Dash();
             }
+
+            Debug.Log(_engine.facingLeft);
         }
     }
 }

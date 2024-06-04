@@ -174,7 +174,7 @@ MonoBehaviour:
   ignoreMovementAfterJump: 0.2
   wallInteractionCooldown: 0.1
   wallInteractionThreshold: 0.75
-  enableDashes: 0
+  enableDashes: 1
   dashDistance: 3
   dashDuration: 0.2
   dashCooldown: 1
@@ -221,12 +221,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d7cc8c457e2ff489f9bfa2cc050f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformerEngine: {fileID: 8524258448393923789}
+  engine: {fileID: 8524258448393923789}
   playerHitPrefab: {fileID: 2011833101734743391, guid: bb12d88d9f022f846803fef842fc12f8,
     type: 3}
   jumpClip: {fileID: 8300000, guid: 28b649ebe5d58f34fa323a32e56d15e4, type: 3}
   hitClip: {fileID: 8300000, guid: 46f97a01e901f3744b9bfbb6899e78ef, type: 3}
   isSkipJumpSe: 0
+  pushSpeed: 0.5
 --- !u!1 &8816708708232880534
 GameObject:
   m_ObjectHideFlags: 0

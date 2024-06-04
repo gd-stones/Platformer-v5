@@ -7,12 +7,6 @@ namespace StonesGaming
     {
         public Transform destination;
         public GameObject player;
-        Rigidbody2D playerRb;
-
-        private void Awake()
-        {
-            playerRb = player.GetComponent<Rigidbody2D>();
-        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
