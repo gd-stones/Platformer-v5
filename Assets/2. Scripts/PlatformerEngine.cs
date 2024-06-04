@@ -1220,7 +1220,7 @@ namespace StonesGaming
         private void Start()
         {
             _prevLocation = _collider2D.bounds.center;
-            
+
             // Initial set, do not use ChangeState
             engineState = EngineState.Falling;
             _wallJumpVector = Quaternion.AngleAxis(wallJumpAngle, Vector3.forward) * Vector3.right;
@@ -2012,8 +2012,7 @@ namespace StonesGaming
                 _currentWallJumpDegree = wallJumpAngle;
             }
 
-            // If we're currently jumping and the jump button is still held down ignore gravity to allow us to achieve the extra
-            // height.
+            // If we're currently jumping and the jump button is still held down ignore gravity to allow us to achieve the extra height.
             if (IsJumping() && _jumping.held && _jumping.allowExtraFrames > 0)
             {
                 _ignoreGravity = true;
@@ -2095,6 +2094,7 @@ namespace StonesGaming
                 {
                     _velocity.y = CalculateSpeedNeeded(_jumping.height);
                     _jumping.numAirJumps++;
+                    Globals.HighJumpFlag = true;
 
                     if (onAirJump != null)
                     {

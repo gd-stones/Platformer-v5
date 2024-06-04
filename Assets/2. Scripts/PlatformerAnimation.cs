@@ -13,10 +13,10 @@ namespace StonesGaming
         public float jumpRotationSpeed;
         public GameObject visualChild;
 
-        private PlatformerEngine _engine;
-        private Animator _animator;
-        private bool _isJumping;
-        private bool _currentFacingLeft;
+        PlatformerEngine _engine;
+        Animator _animator;
+        bool _isJumping;
+        bool _currentFacingLeft;
 
         void Start()
         {
@@ -29,31 +29,19 @@ namespace StonesGaming
 
         void Update()
         {
-            if (_engine.engineState == PlatformerEngine.EngineState.Jumping /*||*/
-               /* _isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling || _engine.engineState == PlatformerEngine.EngineState.FallingFast)*/)
+            if (_engine.engineState == PlatformerEngine.EngineState.Jumping ||
+                _isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling || _engine.engineState == PlatformerEngine.EngineState.FallingFast))
             {
-                Debug.Log("11111111111");
                 _isJumping = true;
-                _animator.Play("Jump");
 
-                if (_engine.velocity.x <= -0.1f)
+                if (Globals.HighJumpFlag)
                 {
-                    _currentFacingLeft = true;
+                    _animator.Play("High Jump");
                 }
-                else if (_engine.velocity.x >= 0.1f)
+                else
                 {
-                    _currentFacingLeft = false;
+                    _animator.Play("Jump");
                 }
-
-                Vector3 rotateDirection = _currentFacingLeft ? Vector3.forward : Vector3.back;
-                visualChild.transform.Rotate(rotateDirection, jumpRotationSpeed * Time.deltaTime);
-            }
-            else if (_isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling || _engine.engineState == PlatformerEngine.EngineState.FallingFast))
-            {
-                Debug.Log("222222222");
-
-                _isJumping = true;
-                _animator.Play("High Jump");
 
                 if (_engine.velocity.x <= -0.1f)
                 {
@@ -76,6 +64,7 @@ namespace StonesGaming
                     _engine.engineState == PlatformerEngine.EngineState.FallingFast)
                 {
                     _animator.Play("Fall");
+                    Globals.LadderFlag = false;
                 }
                 else if (_engine.engineState == PlatformerEngine.EngineState.WallSliding ||
                          _engine.engineState == PlatformerEngine.EngineState.WallSticking)
@@ -94,8 +83,22 @@ namespace StonesGaming
                 {
                     _animator.Play("Dash");
                 }
+                else if (_engine.IsOnLadder() && Globals.LadderFlag)
+                {
+                    if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) == 0)
+                    {
+                        _animator.Play("Standing on Ladder");
+                    }
+                    else
+                    {
+                        _animator.Play("Climb");
+                    }
+                }
                 else
                 {
+                    Globals.LadderFlag = false;
+                    Globals.HighJumpFlag = false;
+
                     if (_engine.velocity.sqrMagnitude >= 0.1f * 0.1f)
                     {
                         _animator.Play("Walk");
@@ -116,7 +119,7 @@ namespace StonesGaming
             {
                 valueCheck = _engine.velocity.x;
             }
-            
+
             if (Mathf.Abs(valueCheck) >= 0.1f)
             {
                 Vector3 newScale = visualChild.transform.localScale;
@@ -125,7 +128,7 @@ namespace StonesGaming
             }
         }
 
-        private void SetCurrentFacingLeft()
+        void SetCurrentFacingLeft()
         {
             _currentFacingLeft = _engine.facingLeft;
         }

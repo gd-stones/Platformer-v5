@@ -81,16 +81,21 @@ namespace StonesGaming
             if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) != 0)
             {
                 bool up_pressed = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) > 0;
+                
                 if (_engine.IsOnLadder())
                 {
-                    if ( (up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Top) ||
-                        (!up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Bottom) )
+                    if ((up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Top) ||
+                        (!up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Bottom))
                     {
                         // do nothing!
+                        Globals.LadderFlag = false;
                     }
                     // if player hit up, while on the top do not enter in freeMode or a nasty short jump occurs
                     else
                     {
+                        Globals.LadderFlag = true;
+                        Debug.Log("44444444444444444444444");
+
                         _engine.FreedomStateEnter(); // enter freedomState to disable gravity
                         _engine.EnableRestrictedArea();  // movements is retricted to a specific sprite bounds
 
@@ -110,7 +115,7 @@ namespace StonesGaming
                 _engine.fallFast = false;
             }
 
-            if (UnityEngine.Input.GetButtonDown(StonesGaming.Input.DASH))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.E) /*UnityEngine.Input.GetButtonDown(StonesGaming.Input.DASH)*/)
             {
                 _engine.Dash();
             }

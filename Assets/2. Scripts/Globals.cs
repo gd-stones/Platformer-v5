@@ -17,10 +17,11 @@ namespace StonesGaming
         public const float FAST_FALL_THRESHOLD = 0.5f;
 
         public const int ENV_MASK = 0x100;
-
         public const string PACKAGE_NAME = "StonesGaming";
-
         public const float MINIMUM_DISTANCE_CHECK = 0.01f;
+
+        public static bool LadderFlag = false;
+        public static bool HighJumpFlag = false;
 
         public static int GetFrameCount(float time)
         {
