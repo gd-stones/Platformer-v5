@@ -377,7 +377,6 @@ GameObject:
   - component: {fileID: 93942560}
   - component: {fileID: 93942562}
   - component: {fileID: 93942561}
-  - component: {fileID: 93942563}
   m_Layer: 0
   m_Name: Portal A
   m_TagString: Untagged
@@ -393,13 +392,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93942559}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.4, y: 2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 201282841}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2102173119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &93942561
 MonoBehaviour:
@@ -415,6 +414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 214930719}
   player: {fileID: 1647917137}
+  mainCamera: {fileID: 7523404488702877782}
+  vfx: {fileID: 201282838}
 --- !u!70 &93942562
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -450,58 +451,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.028196335, y: -0.037461042}
   m_Size: {x: 1.54461, y: 2.9067655}
   m_Direction: 0
---- !u!212 &93942563
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93942559}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3efef4657b5061448894ba6ca77b2646, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.19, y: 0.17}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &153057162
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &201282839
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5391,7 +5340,6 @@ GameObject:
   - component: {fileID: 214930719}
   - component: {fileID: 214930718}
   - component: {fileID: 214930717}
-  - component: {fileID: 214930720}
   m_Layer: 0
   m_Name: Portal B
   m_TagString: Untagged
@@ -5413,6 +5361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 93942560}
   player: {fileID: 1647917137}
+  mainCamera: {fileID: 7523404488702877782}
+  vfx: {fileID: 400984000}
 --- !u!70 &214930718
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5456,66 +5406,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214930716}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.96, y: 1.98, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 43.37, y: 9.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400984001}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2102173119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &214930720
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214930716}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3efef4657b5061448894ba6ca77b2646, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.19, y: 0.17}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &236890208
 GameObject:
   m_ObjectHideFlags: 0
@@ -6171,7 +6069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &400984001
 Transform:
   m_ObjectHideFlags: 0
@@ -35769,6 +35667,8 @@ Transform:
   - {fileID: 469238121}
   - {fileID: 1819448100}
   - {fileID: 168477637}
+  - {fileID: 93942560}
+  - {fileID: 214930719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &293508417218798566
@@ -38886,5 +38786,3 @@ SceneRoots:
   - {fileID: 58501556}
   - {fileID: 1757223553}
   - {fileID: 2102173119}
-  - {fileID: 93942560}
-  - {fileID: 214930719}

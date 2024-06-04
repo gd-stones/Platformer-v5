@@ -118,8 +118,6 @@ namespace StonesGaming
             {
                 _engine.Dash();
             }
-
-            Debug.Log(_engine.facingLeft);
         }
     }
 }
