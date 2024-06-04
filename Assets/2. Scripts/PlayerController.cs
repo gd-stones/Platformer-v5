@@ -83,19 +83,14 @@ namespace StonesGaming
                 bool up_pressed = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) > 0;
                 if (_engine.IsOnLadder())
                 {
-                    if (
-                        (up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Top)
-                        ||
-                        (!up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Bottom)
-                     )
+                    if ( (up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Top) ||
+                        (!up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Bottom) )
                     {
                         // do nothing!
                     }
                     // if player hit up, while on the top do not enter in freeMode or a nasty short jump occurs
                     else
                     {
-                        // example ladder behaviour
-
                         _engine.FreedomStateEnter(); // enter freedomState to disable gravity
                         _engine.EnableRestrictedArea();  // movements is retricted to a specific sprite bounds
 

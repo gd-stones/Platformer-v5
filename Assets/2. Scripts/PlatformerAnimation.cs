@@ -29,11 +29,10 @@ namespace StonesGaming
 
         void Update()
         {
-            if (_engine.engineState == PlatformerEngine.EngineState.Jumping ||
-                _isJumping &&
-                    (_engine.engineState == PlatformerEngine.EngineState.Falling ||
-                                 _engine.engineState == PlatformerEngine.EngineState.FallingFast))
+            if (_engine.engineState == PlatformerEngine.EngineState.Jumping /*||*/
+               /* _isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling || _engine.engineState == PlatformerEngine.EngineState.FallingFast)*/)
             {
+                Debug.Log("11111111111");
                 _isJumping = true;
                 _animator.Play("Jump");
 
@@ -46,8 +45,27 @@ namespace StonesGaming
                     _currentFacingLeft = false;
                 }
 
-                Vector3 rotateDir = _currentFacingLeft ? Vector3.forward : Vector3.back;
-                visualChild.transform.Rotate(rotateDir, jumpRotationSpeed * Time.deltaTime);
+                Vector3 rotateDirection = _currentFacingLeft ? Vector3.forward : Vector3.back;
+                visualChild.transform.Rotate(rotateDirection, jumpRotationSpeed * Time.deltaTime);
+            }
+            else if (_isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling || _engine.engineState == PlatformerEngine.EngineState.FallingFast))
+            {
+                Debug.Log("222222222");
+
+                _isJumping = true;
+                _animator.Play("High Jump");
+
+                if (_engine.velocity.x <= -0.1f)
+                {
+                    _currentFacingLeft = true;
+                }
+                else if (_engine.velocity.x >= 0.1f)
+                {
+                    _currentFacingLeft = false;
+                }
+
+                Vector3 rotateDirection = _currentFacingLeft ? Vector3.forward : Vector3.back;
+                visualChild.transform.Rotate(rotateDirection, jumpRotationSpeed * Time.deltaTime);
             }
             else
             {
@@ -55,7 +73,7 @@ namespace StonesGaming
                 visualChild.transform.rotation = Quaternion.identity;
 
                 if (_engine.engineState == PlatformerEngine.EngineState.Falling ||
-                                 _engine.engineState == PlatformerEngine.EngineState.FallingFast)
+                    _engine.engineState == PlatformerEngine.EngineState.FallingFast)
                 {
                     _animator.Play("Fall");
                 }

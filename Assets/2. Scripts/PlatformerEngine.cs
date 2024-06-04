@@ -14,67 +14,67 @@ namespace StonesGaming
         public LayerMask staticEnvLayerMask;
 
         /// <summary>
-        /// How far out the _engine will check for the environment mask. This value can be tweaked if jump checks are not firing when
+        /// How far out the engine will check for the environment mask. This value can be tweaked if jump checks are not firing when
         /// wanted.
         /// </summary>
         public float envCheckDistance = 0.04f;
 
         /// <summary>
-        /// The distance the _engine will separate itself from environment. This is useful to prevent the _engine from catching on edges.
+        /// The distance the engine will separate itself from environment. This is useful to prevent the engine from catching on edges.
         /// </summary>
         public float minDistanceFromEnv = 0.02f;
 
         /// <summary>
-        /// The number of iterations the _engine is allowed to make during the fixed update. Lower number will be more performant
+        /// The number of iterations the engine is allowed to make during the fixed update. Lower number will be more performant
         /// at a cost of losing some movement when collisions occur.
         /// </summary>
         public int numOfIterations = 2;
 
         /// <summary>
-        /// Should the _engine check for one way platforms? Set this to false if there aren't any, the _engine will be more efficient.
-        /// This will only have an effect if the _engine's collider can't collide with its own layer. If it can then setting this to
+        /// Should the engine check for one way platforms? Set this to false if there aren't any, the engine will be more efficient.
+        /// This will only have an effect if the engine's collider can't collide with its own layer. If it can then setting this to
         /// false won't help, one way platforms or not.
         /// </summary>
         public bool enableOneWayPlatforms = true;
 
         /// <summary>
-        /// if enableOneWayPlatforms is disabled how the _engine should treat OWP?
+        /// if enableOneWayPlatforms is disabled how the engine should treat OWP?
         /// when both are disabled, OWP are ignored from collisions.
         /// </summary>
         public bool oneWayPlatformsAreWalls = true;
 
         /// <summary>
         /// The layer that contains moving platforms. If there are no moving platforms then make sure this has no layers (value of 0).
-        /// Optimizations are made in the _engine if it isn't expecting any moving platforms.
+        /// Optimizations are made in the engine if it isn't expecting any moving platforms.
         /// </summary>
         public LayerMask movingPlatformLayerMask;
 
         /// <summary>
-        /// When checking for moving platforms that may have moved into the _engine the corners are automatically casted on. This
+        /// When checking for moving platforms that may have moved into the engine the corners are automatically casted on. This
         /// variable impacts how many more casts are made to each side. If the smallest size environment is the same size or bigger
-        /// than the _engine (width and height) then this can be 0. If it's at least half size then this can be 1. Increasing this
+        /// than the engine (width and height) then this can be 0. If it's at least half size then this can be 1. Increasing this
         /// number allows separation from smaller platform pieces but at a performance cost.
         /// </summary>
         public int additionalRaycastsPerSide = 1;
 
         /// <summary>
-        /// The maximum speed the _engine will move on the ground, only effects horizontal speed.
+        /// The maximum speed the engine will move on the ground, only effects horizontal speed.
         /// </summary>
         public float groundSpeed = 8f;
 
         /// <summary>
-        /// How much time does it take for the _engine to get from zero speed to max speed. This value
+        /// How much time does it take for the engine to get from zero speed to max speed. This value
         /// is used to calculate the acceleration.
         /// </summary>
         public float timeToGroundSpeed = 0.1f;
 
         /// <summary>
-        /// The distance the _engine will slide to a stop from full speed while on the ground.
+        /// The distance the engine will slide to a stop from full speed while on the ground.
         /// </summary>
         public float groundStopDistance = 0.333f;
 
         /// <summary>
-        /// The maximum horizontal speed of the _engine in the air.
+        /// The maximum horizontal speed of the engine in the air.
         /// </summary>
         public float airSpeed = 5f;
 
@@ -91,13 +91,13 @@ namespace StonesGaming
         public float timeToAirSpeed = 0.2f;
 
         /// <summary>
-        /// The distance the _engine will 'slide' to a stop while in the air. Only effects horizontal
+        /// The distance the engine will 'slide' to a stop while in the air. Only effects horizontal
         /// movement.
         /// </summary>
         public float airStopDistance = 2f;
 
         /// <summary>
-        /// The maximum speed that the _engine will fall. Only effects vertical speed when falling.
+        /// The maximum speed that the engine will fall. Only effects vertical speed when falling.
         /// </summary>
         public float fallSpeed = 16f;
 
@@ -107,28 +107,28 @@ namespace StonesGaming
         public float gravityMultiplier = 4;
 
         /// <summary>
-        /// The maximum speed that the _engine will fall during 'fast fall'.
+        /// The maximum speed that the engine will fall during 'fast fall'.
         /// </summary>
         public float fastFallSpeed = 32f;
 
         /// <summary>
-        /// If the _engine is in 'fast fall' then the gravityMultiplier is multiplied by the value. Higher number means
+        /// If the engine is in 'fast fall' then the gravityMultiplier is multiplied by the value. Higher number means
         /// faster acceleration while falling.
         /// </summary>
         public float fastFallGravityMultiplier = 8f;
 
         /// <summary>
-        /// Maximum horizontal/vertical speed of the _engine while climb a ladder
+        /// Maximum horizontal/vertical speed of the engine while climb a ladder
         /// </summary>
         public float ladderSpeed = 5f;
 
         /// <summary>
-        /// The height the _engine will jump when a jump command is issued.
+        /// The height the engine will jump when a jump command is issued.
         /// </summary>
         public float jumpHeight = 1.5f;
 
         /// <summary>
-        /// The extra height the _engine will jump if jump is 'held' down.
+        /// The extra height the engine will jump if jump is 'held' down.
         /// </summary>
         public float extraJumpHeight = 1.5f;
 
@@ -138,39 +138,39 @@ namespace StonesGaming
         public int numOfAirJumps = 1;
 
         /// <summary>
-        /// The amount of time once the _engine has left an environment that a jump will be allowed.
+        /// The amount of time once the engine has left an environment that a jump will be allowed.
         /// </summary>
         public float jumpWindowWhenFalling = 0.2f;
 
         /// <summary>
-        /// The grace period once the _engine is told to jump where it will jump.
+        /// The grace period once the engine is told to jump where it will jump.
         /// </summary>
         public float jumpWindowWhenActivated = 0.2f;
 
         /// <summary>
-        /// Should the _engine check for any slopes? Set this to false if there are no slopes, the _engine will be more efficient.
+        /// Should the engine check for any slopes? Set this to false if there are no slopes, the engine will be more efficient.
         /// </summary>
         public bool enableSlopes = true;
 
         /// <summary>
-        /// The angle of slope the _engine is allowed to walk on. It could be a good idea to keep this slightly above the minimum.
+        /// The angle of slope the engine is allowed to walk on. It could be a good idea to keep this slightly above the minimum.
         /// </summary>
         public float angleAllowedForMoving = 50;
 
         /// <summary>
-        /// The speed necessary to try running up a slope that's too steep. If speed is less than the minimum then the _engine's
-        /// velocity is zeroed out and the _engine can't try to run up the slope.
+        /// The speed necessary to try running up a slope that's too steep. If speed is less than the minimum then the engine's
+        /// velocity is zeroed out and the engine can't try to run up the slope.
         /// </summary>
         public float minimumSpeedToMoveUpSlipperySlope = 7.5f;
 
         /// <summary>
-        /// Should the speed of the _engine change depending of the angle of the slope. This only impacts walking on slopes, not
+        /// Should the speed of the engine change depending of the angle of the slope. This only impacts walking on slopes, not
         /// while sliding.
         /// </summary>
         public bool changeSpeedOnSlopes = true;
 
         /// <summary>
-        /// If the _engine changes speed on slopes then this acts as a multiplier. Lower values will mean bigger slow downs. A value
+        /// If the engine changes speed on slopes then this acts as a multiplier. Lower values will mean bigger slow downs. A value
         /// of 1 means that it's only based off of the angle of the slope.
         /// </summary>
 
@@ -178,14 +178,14 @@ namespace StonesGaming
         public float speedMultiplierOnSlope = 0.75f;
 
         /// <summary>
-        /// Should the _engine stick to the ground when walking down onto a slope or up over a slope? Otherwise the _engine may fall onto
+        /// Should the engine stick to the ground when walking down onto a slope or up over a slope? Otherwise the engine may fall onto
         /// the slope or have a slight hop when moving up over a slope.
         /// </summary>
         public bool stickOnGround = true;
 
         /// <summary>
-        /// If stickOnGround is true then the _engine will search down for the ground to place itself on. This is how far it is willing
-        /// to check. This needs to be high enough to account for the distance placed by the _engine speed but should be smaller than
+        /// If stickOnGround is true then the engine will search down for the ground to place itself on. This is how far it is willing
+        /// to check. This needs to be high enough to account for the distance placed by the engine speed but should be smaller than
         /// the difference between environment heights. Play around until a nice value is found.
         /// </summary>
         public float distanceToCheckToStick = 0.4f;
@@ -201,13 +201,13 @@ namespace StonesGaming
         public float wallJumpMultiplier = 1f;
 
         /// <summary>
-        /// The angle (degrees) in which the _engine will jump away from the wall. 0 is horizontal and 90 is straight up.
+        /// The angle (degrees) in which the engine will jump away from the wall. 0 is horizontal and 90 is straight up.
         /// </summary>
         [Range(0f, 90f)]
         public float wallJumpAngle = 70;
 
         /// <summary>
-        /// If wall sticking is allowed. A wall sticking is when a _engine will 'grab' a wall.
+        /// If wall sticking is allowed. A wall sticking is when a engine will 'grab' a wall.
         /// </summary>
         public bool enableWallSticks = true;
 
@@ -217,13 +217,13 @@ namespace StonesGaming
         public float wallSticksDuration = 1f;
 
         /// <summary>
-        /// If wall slides are allowed. A wall slide is when a _engine slides down a wall. This will only take in effect
+        /// If wall slides are allowed. A wall slide is when a engine slides down a wall. This will only take in effect
         /// once the stick is over.
         /// </summary>
         public bool enableWallSlides = true;
 
         /// <summary>
-        /// The speed that the _engine will slide down the wall.
+        /// The speed that the engine will slide down the wall.
         /// </summary>
         public float wallSlideSpeed = 5;
 
@@ -233,12 +233,12 @@ namespace StonesGaming
         public float timeToWallSlideSpeed = 3;
 
         /// <summary>
-        /// Are corner grabs allowed? A corner grab is when the _engine sticks to a corner.
+        /// Are corner grabs allowed? A corner grab is when the engine sticks to a corner.
         /// </summary>
         public bool enableCornerGrabs = true;
 
         /// <summary>
-        /// The duration, in seconds, that the _engine will stick to a corner.
+        /// The duration, in seconds, that the engine will stick to a corner.
         /// </summary>
         public float cornerGrabDuration = 1f;
 
@@ -265,7 +265,7 @@ namespace StonesGaming
         public float ignoreMovementAfterJump = 0.2f;
 
         /// <summary>
-        /// Cooldown for allowing slides, sticks, and corner grabs. This may be necessary if the _engine can slide down a vertical
+        /// Cooldown for allowing slides, sticks, and corner grabs. This may be necessary if the engine can slide down a vertical
         /// moving platform. If they don't exist then this can be 0.
         /// </summary>
         public float wallInteractionCooldown = 0.1f;
@@ -283,7 +283,7 @@ namespace StonesGaming
         public bool enableDashes = true;
 
         /// <summary>
-        /// How far the _engine will dash.
+        /// How far the engine will dash.
         /// </summary>
         public float dashDistance = 3;
 
@@ -293,7 +293,7 @@ namespace StonesGaming
         public float dashDuration = 0.2f;
 
         /// <summary>
-        /// When the _engine will be allowed to dash again after dashing. The cooldown begins at the end of a dash.
+        /// When the engine will be allowed to dash again after dashing. The cooldown begins at the end of a dash.
         /// </summary>
         public float dashCooldown = 0.76f;
 
@@ -308,17 +308,17 @@ namespace StonesGaming
         public float endDashNoGravityDuration = 0.1f;
 
         /// <summary>
-        /// Delegate to attach to when the _engine dashes.
+        /// Delegate to attach to when the engine dashes.
         /// </summary>
         public Action onDash;
 
         /// <summary>
-        /// Delegate to attach to when the _engine's dash ends.
+        /// Delegate to attach to when the engine's dash ends.
         /// </summary>
         public Action onDashEnd;
 
         /// <summary>
-        /// Delegate to attach to when the _engine jumps (ALL JUMPS!).
+        /// Delegate to attach to when the engine jumps (ALL JUMPS!).
         /// </summary>
         public Action onJump;
 
@@ -329,32 +329,32 @@ namespace StonesGaming
         public Action onJumpEnd;
 
         /// <summary>
-        /// Delegate to attach to when the _engine air jumps (called before onJump).
+        /// Delegate to attach to when the engine air jumps (called before onJump).
         /// </summary>
         public Action onAirJump;
 
         /// <summary>
-        /// Delegate to attach to when the _engine walls jumps (called before onJump). The vector passed is the normal of the wall.
+        /// Delegate to attach to when the engine walls jumps (called before onJump). The vector passed is the normal of the wall.
         /// </summary>
         public Action<Vector2> onWallJump;
 
         /// <summary>
-        /// Delegate to attach to when the _engine corner jumps (called before onJump).
+        /// Delegate to attach to when the engine corner jumps (called before onJump).
         /// </summary>
         public Action onCornerJump;
 
         /// <summary>
-        /// Delegate that notifies that the _engine has landed. amountFallen can be queried for distance fallen.
+        /// Delegate that notifies that the engine has landed. amountFallen can be queried for distance fallen.
         /// </summary>
         public Action onLanded;
 
         /// <summary>
-        /// Delegate that notifies that the _engine start slipping.
+        /// Delegate that notifies that the engine start slipping.
         /// </summary>
         public Action onSlipping;
 
         /// <summary>
-        /// Delegate that notifies, before change state, that the _engine end sliping.
+        /// Delegate that notifies, before change state, that the engine end sliping.
         /// </summary>
         public Action onSlippingEnd;
 
@@ -369,7 +369,7 @@ namespace StonesGaming
         public bool iterationDebug;
 
         /// <summary>
-        /// The states the _engine can be in.
+        /// The states the engine can be in.
         /// </summary>
         public enum EngineState
         {
@@ -387,7 +387,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// The surfaces the _engine may be colliding against.
+        /// The surfaces the engine may be colliding against.
         /// </summary>
         [Flags]
         public enum CollidedSurface
@@ -402,7 +402,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// The surfaces the _engine may be colliding against.
+        /// The surfaces the engine may be colliding against.
         /// </summary>
         [Flags]
         public enum CollidedArea
@@ -438,7 +438,7 @@ namespace StonesGaming
         public float normalizedYMovement { get; set; }
 
         /// <summary>
-        /// Set the time scale for the _engine. This is independent of the global time scale. Negative values are not supported.
+        /// Set the time scale for the engine. This is independent of the global time scale. Negative values are not supported.
         /// </summary>
         public float timeScale
         {
@@ -471,7 +471,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// The velocity of the _engine. This should be queried instead of the rigidbody's velocity. Setting this during a dash doesn't have any meaning.
+        /// The velocity of the engine. This should be queried instead of the rigidbody's velocity. Setting this during a dash doesn't have any meaning.
         /// </summary>
         public Vector2 velocity
         {
@@ -486,24 +486,24 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Call this to get state information about the _engine. This will be information such as if the object is in the air or on the
+        /// Call this to get state information about the engine. This will be information such as if the object is in the air or on the
         /// ground. This can be used to set the appropriate animations.
         /// </summary>
         public EngineState engineState { get; private set; }
 
         /// <summary>
-        /// The surfaces the _engine is currently colliding against.
+        /// The surfaces the engine is currently colliding against.
         /// </summary>
         public CollidedSurface collidingAgainst { get; private set; }
 
         /// <summary>
-        /// The Areas the _engine is currently in.
+        /// The Areas the engine is currently in.
         /// </summary>
         public CollidedArea inArea { get; private set; }
 
 
         /// <summary>
-        /// Since the _engine needs to know the facing of the object, this information is made available to anyone else who might need it.
+        /// Since the engine needs to know the facing of the object, this information is made available to anyone else who might need it.
         /// </summary>
         public bool facingLeft { get; set; }
 
@@ -530,7 +530,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// This is the distance calculated for dashed. Not be confused with distanceDashed. This doesn't care if the _engine has hit a wall.
+        /// This is the distance calculated for dashed. Not be confused with distanceDashed. This doesn't care if the engine has hit a wall.
         /// </summary>
         public float dashDistanceCalculated
         {
@@ -541,7 +541,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// If the _engine is currently able to dash.
+        /// If the engine is currently able to dash.
         /// </summary>
         public bool canDash
         {
@@ -549,27 +549,27 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Returns the amount of distance the _engine has fallen fast.
+        /// Returns the amount of distance the engine has fallen fast.
         /// </summary>
         public float amountFastFallen { get; private set; }
 
         /// <summary>
-        /// Returns the amount of distance the _engine has fallen. Includes fallen fast distance.
+        /// Returns the amount of distance the engine has fallen. Includes fallen fast distance.
         /// </summary>
         public float amountFallen { get; private set; }
 
         /// <summary>
-        /// Returns the amount the _engine has jumped. This ceases to keep calculating after the _engine starts to come down.
+        /// Returns the amount the engine has jumped. This ceases to keep calculating after the engine starts to come down.
         /// </summary>
         public float amountJumpedFor { get; private set; }
 
         /// <summary>
-        /// Set this true to have the _engine fall faster. Set to false to fall at normal speeds.
+        /// Set this true to have the engine fall faster. Set to false to fall at normal speeds.
         /// </summary>
         public bool fallFast { get; set; }
 
         /// <summary>
-        /// If jumpingHeld is set to true then the _engine will jump further. Set to false if jumping isn't 'held'.
+        /// If jumpingHeld is set to true then the engine will jump further. Set to false if jumping isn't 'held'.
         /// </summary>
         public bool jumpingHeld
         {
@@ -590,10 +590,10 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Setting frozen to true will put the _engine in a 'frozen' state. All information will be saved and set once unfrozen
-        /// (the _engine also reduces gravity to 0).
+        /// Setting frozen to true will put the engine in a 'frozen' state. All information will be saved and set once unfrozen
+        /// (the engine also reduces gravity to 0).
         ///
-        /// Note: This isn't a way to turn off the _engine. To turn off the _engine, simply set the script to disabled.
+        /// Note: This isn't a way to turn off the engine. To turn off the engine, simply set the script to disabled.
         /// Note: No delegate (onXXX) will be called
         /// </summary>
         public bool frozen
@@ -623,7 +623,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Returns the moving platform that the _engine is coupled with. If null then no moving platform.
+        /// Returns the moving platform that the engine is coupled with. If null then no moving platform.
         /// </summary>
         public MovingPlatformEngine connectedPlatform
         {
@@ -631,12 +631,12 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Whether or not the _engine is on a slope. This can be simply walking on a slope or slipping.
+        /// Whether or not the engine is on a slope. This can be simply walking on a slope or slipping.
         /// </summary>
         public bool onSlope { get; private set; }
 
         /// <summary>
-        /// The normal of the slope the _engine is on. This value doesn't have meaning unless onSlope is true.
+        /// The normal of the slope the engine is on. This value doesn't have meaning unless onSlope is true.
         /// </summary>
         public Vector2 slopeNormal;
 
@@ -657,7 +657,7 @@ namespace StonesGaming
         /// <summary>
         /// Jump that allows a custom height.
         /// </summary>
-        /// <param name="customHeight">The height the _engine should jump to. The extraJumpHeight is still applicable.</param>
+        /// <param name="customHeight">The height the engine should jump to. The extraJumpHeight is still applicable.</param>
         public void Jump(float customHeight)
         {
             Jump();
@@ -665,7 +665,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// This will force a jump to occur even if the _engine doesn't think a jump is valid. This function will not work if the _engine
+        /// This will force a jump to occur even if the engine doesn't think a jump is valid. This function will not work if the engine
         /// is dashing.
         /// </summary>
         public void ForceJump()
@@ -677,7 +677,7 @@ namespace StonesGaming
         /// <summary>
         /// Force a jump with a custom height.
         /// </summary>
-        /// <param name="customHeight">The height the _engine should jump to. The extraJumpHeight is still applicable.</param>
+        /// <param name="customHeight">The height the engine should jump to. The extraJumpHeight is still applicable.</param>
         public void ForceJump(float customHeight)
         {
             ForceJump();
@@ -685,7 +685,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Call to end a jump. Causes the _engine to stop calculated held speed for a jump.
+        /// Call to end a jump. Causes the engine to stop calculated held speed for a jump.
         /// </summary>
         public void EndJump()
         {
@@ -715,8 +715,8 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Decouples the _engine from the platform. This could be useful for a platform that throw the _engine in the air. Call this
-        /// when when the _engine should disconnect then set the appropriate velocity.
+        /// Decouples the engine from the platform. This could be useful for a platform that throw the engine in the air. Call this
+        /// when when the engine should disconnect then set the appropriate velocity.
         /// </summary>
         public void DisconnectFromPlatform()
         {
@@ -724,7 +724,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Call this to have the _engine try to dash, once called it will be handled in the FixedUpdate tick.
+        /// Call this to have the engine try to dash, once called it will be handled in the FixedUpdate tick.
         /// This causes the object to dash along their facing (if left or right for side scrollers).
         /// </summary>
         public void Dash()
@@ -734,7 +734,7 @@ namespace StonesGaming
         }
 
         /// <summary>
-        /// Forces the _engine to dash regardless if the _engine thinks it is valid or not.
+        /// Forces the engine to dash regardless if the engine thinks it is valid or not.
         /// </summary>
         public void ForceDash()
         {
@@ -916,11 +916,11 @@ namespace StonesGaming
         }
 
         //
-        // Quering _engine
+        // Quering engine
         //
 
         ///<summary>
-        /// Is the _engine Dashing?
+        /// Is the engine Dashing?
         ///</summary>
         public bool IsDashing()
         {
@@ -928,7 +928,7 @@ namespace StonesGaming
         }
 
         ///<summary>
-        /// Is the _engine Jumping? include walljumps and airjumps.
+        /// Is the engine Jumping? include walljumps and airjumps.
         ///</summary>
         public bool IsJumping()
         {
@@ -936,7 +936,7 @@ namespace StonesGaming
         }
 
         ///<summary>
-        /// is the _engine Jumping? include walljumps and airjumps.
+        /// is the engine Jumping? include walljumps and airjumps.
         ///</summary>
         public bool IsUserHandled()
         {
@@ -944,21 +944,21 @@ namespace StonesGaming
         }
 
         ///<summary>
-        /// is the _engine falling? do not include failling fast.
+        /// is the engine falling? do not include failling fast.
         ///</summary>
         public bool IsFalling()
         {
             return engineState == EngineState.Falling;
         }
         ///<summary>
-        /// is the _engine falling fast? do not include failling (normal).
+        /// is the engine falling fast? do not include failling (normal).
         ///</summary>
         public bool IsFallingFast()
         {
             return engineState == EngineState.FallingFast;
         }
         ///<summary>
-        /// is the _engine stick to a wall?
+        /// is the engine stick to a wall?
         /// Use PressingIntoLeftWall, PressingIntoRightWall to know what wall.
         ///</summary>
         public bool IsWallSticking()
@@ -1020,21 +1020,21 @@ namespace StonesGaming
         }
 
         ///<summary>
-        // On slope that cannot walk _engine will be forced to slip down.
+        // On slope that cannot walk engine will be forced to slip down.
         ///</summary>
         public bool IsForceSlipping()
         {
             return onSlope && Vector3.Dot(Vector3.up, slopeNormal) < _dotAllowedForSlopes;
         }
         ///<summary>
-        // Given a game object return if this _engine consider the object a moving platform.
+        // Given a game object return if this engine consider the object a moving platform.
         ///</summary>
         public bool IsMovingPlatform(GameObject obj)
         {
             return ((0x1 << obj.layer) & movingPlatformLayerMask) != 0;
         }
         ///<summary>
-        // Given a game object return if this _engine consider the object as static.
+        // Given a game object return if this engine consider the object as static.
         ///</summary>
         public bool IsStatic(GameObject obj)
         {
@@ -1073,7 +1073,7 @@ namespace StonesGaming
         private Vector2 _prevMoveDirection;
         private bool _isValidWallInteraction;
 
-        // This is the unconverted _engine velocity. This ignores slopes. It is converted into the appropriate vector before moving.
+        // This is the unconverted engine velocity. This ignores slopes. It is converted into the appropriate vector before moving.
         private Vector2 _velocity;
 
         // The function is cached to avoid unnecessary memory allocation.
@@ -1319,7 +1319,7 @@ namespace StonesGaming
 
         private void UpdateTimers()
         {
-            // All timers in the _engine are countdowns and are considered valid so long as the timer is >= 0
+            // All timers in the engine are countdowns and are considered valid so long as the timer is >= 0
             _dashing.cooldownFrames--;
             _dashing.gravityEnabledFrames--;
             _dashing.dashingFrames--;
@@ -1665,7 +1665,7 @@ namespace StonesGaming
 
             // The update phase is broken up into four phases each with certain responsibilities.
 
-            // Phase One: Update internal state if something forced the _engine into an unexpected state. This can be because
+            // Phase One: Update internal state if something forced the engine into an unexpected state. This can be because
             //            a moving platform moved into us or our collider changed. This could means three UpdateStates, which is
             //            expensive, but we need to know our state.
 
@@ -1681,7 +1681,7 @@ namespace StonesGaming
             // Phase Two: Update internal representation of velocity
             UpdateVelocity();
 
-            // Phase Three: Move the _engine to the new location (and well update falling)
+            // Phase Three: Move the engine to the new location (and well update falling)
             deltaTime = MoveEngine();
 
             HandleFalling();
@@ -1755,7 +1755,7 @@ namespace StonesGaming
                 _distanceToBoundsCorner,
                 _distanceToBoundsCorner + _distanceFromEnvCorner);
 
-            // These are more expensive...they only need to be done if piece of environment smaller (width/height) than the _engine
+            // These are more expensive...they only need to be done if piece of environment smaller (width/height) than the engine
             // can move into it. Otherwise just set additionalRaycastsPerSide to 0.
 
             // Top/Bottom
@@ -1978,7 +1978,7 @@ namespace StonesGaming
                 PressingIntoLeftWall() &&
                 IsMovingPlatform(_collidersUpAgainst[DIRECTION_LEFT].gameObject))
             {
-                // We allow the _engine to attach when pressing into a moving platform. This prevent jitter as it's moving away from the _engine.
+                // We allow the engine to attach when pressing into a moving platform. This prevent jitter as it's moving away from the engine.
                 _movingPlatformState.platform = _collidersUpAgainst[DIRECTION_LEFT].GetComponent<MovingPlatformEngine>();
                 _movingPlatformState.stuckToWall = CollidedSurface.LeftWall;
             }
@@ -2714,7 +2714,7 @@ namespace StonesGaming
                 transform.position = _toTransform + newPos;
             }
 
-            // At the end if there is a restricted area, force the _engine inside
+            // At the end if there is a restricted area, force the engine inside
             // TODO handle rotation, unrotate transform.position, check, rotate
             if (IsRestricted())
             {
@@ -3297,7 +3297,7 @@ namespace StonesGaming
         //        Gizmos.DrawWireCube(new Vector2((min.x + max.x) / 2, (min.y + max.y) / 2), new Vector2(max.x - min.x, min.y - max.y));
         //    }
 
-        //    // Show the distance that it will take for the _engine to stop on the ground and air.
+        //    // Show the distance that it will take for the engine to stop on the ground and air.
         //    Vector2 from = new Vector2(box.max.x, box.min.y);
         //    Gizmos.color = Color.green;
         //    Gizmos.DrawLine(from, from + Vector2.right * groundStopDistance);

@@ -53,35 +53,33 @@ namespace StonesGaming
             }
         }
 
-        public override void OnTriggerEnter2D(Collider2D o)
+        public override void OnTriggerEnter2D(Collider2D other)
         {
-            base.OnTriggerEnter2D(o);
+            base.OnTriggerEnter2D(other);
 
-            PlatformerEngine engine = o.GetComponent<PlatformerEngine>();
+            PlatformerEngine engine = other.GetComponent<PlatformerEngine>();
             if (engine)
             {
                 DoAction(engine, RestrictedAreaOnEnter, exitFreeModeOnEnter);
             }
         }
 
-        public override void OnTriggerStay2D(Collider2D o)
+        public override void OnTriggerStay2D(Collider2D other)
         {
-            base.OnTriggerEnter2D(o);
+            base.OnTriggerEnter2D(other);
 
-            PlatformerEngine engine = o.GetComponent<PlatformerEngine>();
-
+            PlatformerEngine engine = other.GetComponent<PlatformerEngine>();
             if (engine)
             {
                 DoAction(engine, RestrictedAreaOnStay, false);
             }
         }
 
-        public override void OnTriggerExit2D(Collider2D o)
+        public override void OnTriggerExit2D(Collider2D other)
         {
-            base.OnTriggerExit2D(o);
+            base.OnTriggerExit2D(other);
 
-            PlatformerEngine engine = o.GetComponent<PlatformerEngine>();
-
+            PlatformerEngine engine = other.GetComponent<PlatformerEngine>();
             if (engine)
             {
                 DoAction(engine, RestrictedAreaOnExit, exitFreeModeOnExit);

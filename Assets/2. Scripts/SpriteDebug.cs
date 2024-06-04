@@ -24,7 +24,7 @@ namespace StonesGaming
             }
         }
 
-        public virtual void OnTriggerEnter2D(Collider2D o)
+        public virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (debug)
             {
@@ -32,11 +32,11 @@ namespace StonesGaming
             }
         }
 
-        public virtual void OnTriggerStay2D(Collider2D o)
+        public virtual void OnTriggerStay2D(Collider2D other)
         {
         }
 
-        public virtual void OnTriggerExit2D(Collider2D o)
+        public virtual void OnTriggerExit2D(Collider2D other)
         {
             if (debug)
             {
