@@ -46,5 +46,13 @@ namespace StonesGaming
             yield return new WaitForSeconds(0.1f);
             SimplePool.Despawn(gameObject);
         }
+
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision != null)
+            {
+                SimplePool.Despawn(gameObject);
+            }
+        }
     }
 }
