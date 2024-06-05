@@ -8,6 +8,7 @@ TagManager:
   - EndMP
   - Barrel
   - Fire
+  - Boss
   layers:
   - Default
   - TransparentFX

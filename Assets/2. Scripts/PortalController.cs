@@ -5,10 +5,10 @@ namespace StonesGaming
 {
     public class PortalController : MonoBehaviour
     {
-        public Transform destination;
-        public GameObject player;
-        public Camera mainCamera;
-        public GameObject vfx;
+        [SerializeField] Transform destination;
+        [SerializeField] GameObject player;
+        [SerializeField] Camera mainCamera;
+        [SerializeField] GameObject vfx;
 
         void Start()
         {

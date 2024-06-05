@@ -70,7 +70,7 @@ namespace StonesGaming
 
 				// If Stack uses a linked list internally, then this
 				// whole initialQty thing is a placebo that we could
-				// strip out for more minimal code. But it can't *hurt*.
+				// strip out for more minimal code. But it can't *isHurt*.
 				inactive = new Stack<GameObject>(initialQty);
 			}
 
