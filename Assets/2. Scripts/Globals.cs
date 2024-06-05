@@ -25,6 +25,7 @@ namespace StonesGaming
         public static bool PushFlag = false;
         public static bool TeleportFlag = false;
         public static bool PortalIn = true;
+        public static bool AttackDirection = true; // true <=> right; false <=> left
 
         public static int GetFrameCount(float time)
         {

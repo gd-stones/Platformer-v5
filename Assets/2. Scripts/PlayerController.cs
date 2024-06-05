@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using UnityEditor;
 using UnityEngine;
 
 namespace StonesGaming
@@ -12,6 +14,8 @@ namespace StonesGaming
         private bool _restored = true;
         private bool _enableOneWayPlatforms;
         private bool _oneWayPlatformsAreWalls;
+
+        [SerializeField] PlatformerCustomize _engineCustomize;
 
         void Start()
         {
@@ -28,7 +32,7 @@ namespace StonesGaming
             _enableOneWayPlatforms = engine.enableOneWayPlatforms;
             _oneWayPlatformsAreWalls = engine.oneWayPlatformsAreWalls;
         }
-        
+
         // After leave freedom state for ladders
         void FreedomStateRestore(PlatformerEngine engine)
         {
@@ -40,6 +44,7 @@ namespace StonesGaming
             engine.oneWayPlatformsAreWalls = _oneWayPlatformsAreWalls;
         }
 
+        int turn = -1;
         void Update()
         {
             // use last state to restore some ladder specific values
@@ -81,7 +86,7 @@ namespace StonesGaming
             if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) != 0)
             {
                 bool up_pressed = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) > 0;
-                
+
                 if (_engine.IsOnLadder())
                 {
                     if ((up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Top) ||
@@ -117,6 +122,16 @@ namespace StonesGaming
             if (UnityEngine.Input.GetKeyDown(KeyCode.E))
             {
                 _engine.Dash();
+            }
+
+            Globals.AttackDirection = !_engine.facingLeft;
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Q))
+            {
+                turn++;
+                _engineCustomize.Attack(turn);
+
+                if (turn > 3)
+                    turn = -1;
             }
         }
     }

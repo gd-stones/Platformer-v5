@@ -1,18 +1,29 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace StonesGaming
 {
     public class PlatformerCustomize : MonoBehaviour
     {
-        public PlatformerEngine engine;
-        public GameObject playerHitPrefab;
+        [SerializeField] PlatformerEngine engine;
 
-        public AudioClip jumpClip;
-        public AudioClip hitClip;
-        public bool isSkipJumpSe;
-        public float pushSpeed = 0.5f;
+        [Header("Attack")]
+        [SerializeField] GameObject fire1;
+        [SerializeField] GameObject fire2;
+        [SerializeField] GameObject fire3;
+        [SerializeField] Vector3 firePointRight;
+        [SerializeField] Vector3 firePointLeft;
+
+        [Header("Push")]
+        [SerializeField] float pushSpeed = 0.5f;
         float groundSpeed;
+
+        [Header("Dead")]
+        [SerializeField] GameObject playerHitPrefab;
+        [SerializeField] AudioClip hitClip;
+        [SerializeField] AudioClip jumpClip;
+        public bool isSkipJumpSe;
 
         void Awake()
         {
@@ -31,6 +42,45 @@ namespace StonesGaming
 
             var audioSource = FindObjectOfType<AudioSource>();
             audioSource.PlayOneShot(hitClip);
+        }
+
+        public void Attack(int turn)
+        {
+            turn = turn % 3;
+
+            if (turn == 0)
+            {
+                if (Globals.AttackDirection)
+                {
+                    SimplePool.Spawn(fire1, transform.position + firePointRight, transform.rotation);
+                }
+                else
+                {
+                    SimplePool.Spawn(fire1, transform.position + firePointLeft, transform.rotation);
+                }
+            }
+            else if (turn == 1)
+            {
+                if (Globals.AttackDirection)
+                {
+                    SimplePool.Spawn(fire2, transform.position + firePointRight, transform.rotation);
+                }
+                else
+                {
+                    SimplePool.Spawn(fire2, transform.position + firePointLeft, transform.rotation);
+                }
+            }
+            else if (turn == 2)
+            {
+                if (Globals.AttackDirection)
+                {
+                    SimplePool.Spawn(fire3, transform.position + firePointRight, transform.rotation);
+                }
+                else
+                {
+                    SimplePool.Spawn(fire3, transform.position + firePointLeft, transform.rotation);
+                }
+            }
         }
 
         void OnRetry()
