@@ -77,12 +77,13 @@ namespace StonesGaming
 
         void MoveTowardsPlayer()
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            float distanceToPlayer = Mathf.Abs(player.position.x - transform.position.x);
 
             if (distanceToPlayer >= stopDistance)
             {
                 Vector3 direction = (player.position - transform.position).normalized;
-                transform.position += direction * moveSpeed * Time.deltaTime;
+                direction.y = 0;
+                transform.position += new Vector3(direction.x, 0, 0) * moveSpeed * Time.deltaTime;
                 animator.Play("Walk");
             }
             else
@@ -90,6 +91,7 @@ namespace StonesGaming
                 animator.Play("Attack");
             }
         }
+
 
         void OnTriggerEnter2D(Collider2D collision)
         {
