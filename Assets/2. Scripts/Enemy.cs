@@ -35,7 +35,6 @@ namespace StonesGaming
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("EEEEEE");
             if (other.name.Contains("Player") || other.CompareTag("Player"))
             {
                 var engine = other.GetComponent<PlatformerEngine>();

@@ -16,7 +16,6 @@ namespace StonesGaming
         [SerializeField] Vector3 firePointLeft;
         int turn = -1;
 
-
         [Header("Push")]
         [SerializeField] float pushSpeed = 0.5f;
         float groundSpeed;

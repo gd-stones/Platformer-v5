@@ -6,22 +6,17 @@ namespace StonesGaming
     public class PortalController : MonoBehaviour
     {
         [SerializeField] Transform destination;
-        [SerializeField] GameObject player;
-        [SerializeField] Camera mainCamera;
         [SerializeField] GameObject vfx;
+        [SerializeField] BoxCollider2D boxCollider;
 
         void Start()
         {
-            if (mainCamera == null)
-            {
-                mainCamera = Camera.main;
-            }
             vfx.SetActive(false);
         }
 
         void Update()
         {
-            if (IsObjectInCameraView())
+            if (Globals.IsObjectInCameraView(boxCollider))
             {
                 vfx.SetActive(true);
             }
@@ -35,14 +30,16 @@ namespace StonesGaming
         {
             if (collision.CompareTag("Player"))
             {
+                GameObject player = collision.gameObject;
+
                 if (Vector2.Distance(player.transform.position, transform.position) > 0.5f)
                 {
-                    StartCoroutine(PortalIn());
+                    StartCoroutine(PortalIn(player));
                 }
             }
         }
 
-        IEnumerator PortalIn()
+        IEnumerator PortalIn(GameObject player)
         {
             Globals.TeleportFlag = true;
             Globals.PortalIn = true;
@@ -50,12 +47,6 @@ namespace StonesGaming
             yield return new WaitForSeconds(0.5f);
             player.transform.position = destination.position;
             Globals.PortalIn = false;
-        }
-
-        bool IsObjectInCameraView()
-        {
-            Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
-            return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
         }
     }
 }

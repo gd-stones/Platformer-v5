@@ -39,5 +39,32 @@ namespace StonesGaming
 
             return Mathf.CeilToInt(frames);
         }
+
+        public static bool IsObjectInCameraView(Collider2D boxCollider)
+        {
+            if (boxCollider == null)
+            {
+                Debug.LogWarning("No BoxCollider2D found on " + boxCollider.gameObject.name);
+                return false;
+            }
+
+            Vector3[] corners = new Vector3[4];
+            corners[0] = boxCollider.bounds.min; // Bottom-left
+            corners[1] = new Vector3(boxCollider.bounds.min.x, boxCollider.bounds.max.y, boxCollider.bounds.min.z); // Top-left
+            corners[2] = new Vector3(boxCollider.bounds.max.x, boxCollider.bounds.min.y, boxCollider.bounds.min.z); // Bottom-right
+            corners[3] = boxCollider.bounds.max; // Top-right
+
+            foreach (var corner in corners)
+            {
+                Vector3 screenPoint = Camera.main.WorldToViewportPoint(corner);
+
+                if (screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
