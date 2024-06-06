@@ -14,6 +14,8 @@ namespace StonesGaming
         [SerializeField] GameObject fire3;
         [SerializeField] Vector3 firePointRight;
         [SerializeField] Vector3 firePointLeft;
+        int turn = -1;
+
 
         [Header("Push")]
         [SerializeField] float pushSpeed = 0.5f;
@@ -22,6 +24,10 @@ namespace StonesGaming
         [Header("Dead")]
         [SerializeField] GameObject playerHitPrefab;
         [SerializeField] AudioClip hitClip;
+
+        [Header("Jump")]
+        [SerializeField] GameObject jumpVfx1;
+        [SerializeField] GameObject jumpVfx2;
         [SerializeField] AudioClip jumpClip;
         public bool isSkipJumpSe;
 
@@ -44,8 +50,9 @@ namespace StonesGaming
             audioSource.PlayOneShot(hitClip);
         }
 
-        public void Attack(int turn)
+        public void Attack()
         {
+            turn++;
             turn = turn % 3;
 
             if (turn == 0)
@@ -81,6 +88,11 @@ namespace StonesGaming
                     SimplePool.Spawn(fire3, transform.position + firePointLeft, transform.rotation);
                 }
             }
+        }
+
+        public void Jump()
+        {
+            SimplePool.Spawn(jumpVfx1, transform.position, transform.rotation);
         }
 
         void OnRetry()

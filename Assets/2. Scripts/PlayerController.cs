@@ -44,7 +44,6 @@ namespace StonesGaming
             engine.oneWayPlatformsAreWalls = _oneWayPlatformsAreWalls;
         }
 
-        int turn = -1;
         void Update()
         {
             // use last state to restore some ladder specific values
@@ -60,6 +59,10 @@ namespace StonesGaming
             {
                 _engine.Jump();
                 _engine.DisableRestrictedArea();
+                if (!_engine.IsInAir())
+                {
+                    _engineCustomize.Jump();
+                }
             }
 
             _engine.jumpingHeld = UnityEngine.Input.GetButton(StonesGaming.Input.JUMP);
@@ -127,11 +130,7 @@ namespace StonesGaming
             Globals.AttackDirection = !_engine.facingLeft;
             if (UnityEngine.Input.GetKeyDown(KeyCode.Q))
             {
-                turn++;
-                _engineCustomize.Attack(turn);
-
-                if (turn > 3)
-                    turn = -1;
+                _engineCustomize.Attack();
             }
         }
     }

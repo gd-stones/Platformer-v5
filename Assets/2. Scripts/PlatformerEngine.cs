@@ -1483,12 +1483,9 @@ namespace StonesGaming
             }
 
             // If we've moved on to a new slope (or to no slope from a slope) then we update our velocity vector to match
-            if (wasGrounded &&
-                velocity != Vector2.zero &&
+            if (wasGrounded && velocity != Vector2.zero &&
                 (HasFlag(CollidedSurface.Ground) || HasFlag(CollidedSurface.SlopeLeft) || HasFlag(CollidedSurface.SlopeRight)) &&
-                !IsJumping() &&
-                ((currentOnSlope && ((currentSlopeNormal != _disallowedSlopeNormal) || !onSlope)) ||
-                currentOnSlope != onSlope))
+                !IsJumping() && ((currentOnSlope && ((currentSlopeNormal != _disallowedSlopeNormal) || !onSlope)) || currentOnSlope != onSlope))
             {
 
                 // With our velocity pointing upwards, IsGrounded will return false. Since we want to stick to environments this will fix our velocity.
