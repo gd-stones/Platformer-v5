@@ -59,6 +59,7 @@ namespace StonesGaming
             {
                 _engine.Jump();
                 _engine.DisableRestrictedArea();
+                
                 if (!_engine.IsInAir())
                 {
                     _engineCustomize.Jump();

@@ -4,8 +4,8 @@ namespace StonesGaming
 {
     public class Enemy : MonoBehaviour
     {
-        public GameObject hitPrefab;
-        public AudioClip hitClip;
+        [SerializeField] GameObject hitPrefab;
+        [SerializeField] AudioClip hitClip;
 
         PlatformerEngine _engine;
         SpriteRenderer _renderer;
@@ -35,7 +35,8 @@ namespace StonesGaming
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.name.Contains("Player"))
+            Debug.Log("EEEEEE");
+            if (other.name.Contains("Player") || other.CompareTag("Player"))
             {
                 var engine = other.GetComponent<PlatformerEngine>();
 
