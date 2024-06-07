@@ -23,8 +23,8 @@ namespace StonesGaming
         void Update()
         {
             var direction = 0 < _engine.normalizedXMovement ? Vector3.right : Vector3.left;
-            var offset = _collider.size.y * 0.5f;
-            var hit = Physics2D.Raycast(transform.position - new Vector3(0, offset, 0), direction, _collider.size.x * 0.55f, Globals.ENV_MASK);
+            var offset = _collider.size.y * .5f;
+            var hit = Physics2D.Raycast(transform.position - new Vector3(0, offset, 0), direction, _collider.size.x * 1f, Globals.ENV_MASK);
 
             if (hit.collider != null)
             {
