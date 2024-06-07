@@ -28,6 +28,8 @@ namespace StonesGaming
                 {
                     endPosition = startPosition + new Vector3(moveDistance, 0, 0) * -1f;
                 }
+
+                
             }
             else if (ownedBy.CompareTag("Boss"))
             {
@@ -65,6 +67,9 @@ namespace StonesGaming
 
         void OnTriggerEnter2D(Collider2D collision)
         {
+            if (collision.CompareTag("Player") || collision.CompareTag("Boss"))
+            { return; }
+
             if (collision != null)
             {
                 SimplePool.Despawn(gameObject);

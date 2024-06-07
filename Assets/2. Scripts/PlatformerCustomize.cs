@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace StonesGaming
@@ -13,6 +12,9 @@ namespace StonesGaming
         [SerializeField] GameObject fire1;
         [SerializeField] GameObject fire2;
         [SerializeField] GameObject fire3;
+        [SerializeField] GameObject fireRun1;
+        [SerializeField] GameObject fireRun2;
+        [SerializeField] GameObject fireRun3;
         [SerializeField] Vector3 firePointRight;
         [SerializeField] Vector3 firePointLeft;
         int turn = -1;
@@ -62,33 +64,75 @@ namespace StonesGaming
             {
                 if (Globals.AttackDirection)
                 {
-                    SimplePool.Spawn(fire1, transform.position + firePointRight, transform.rotation);
+                    if (engine.velocity.sqrMagnitude > 0)
+                    {
+                        SimplePool.Spawn(fireRun1, transform.position + firePointRight, transform.rotation);
+                    }
+                    else
+                    {
+                        SimplePool.Spawn(fire1, transform.position + firePointRight, transform.rotation);
+                    }
                 }
                 else
                 {
-                    SimplePool.Spawn(fire1, transform.position + firePointLeft, transform.rotation);
+                    if (engine.velocity.sqrMagnitude > 0)
+                    {
+                        SimplePool.Spawn(fireRun1, transform.position + firePointLeft, transform.rotation);
+                    }
+                    else
+                    {
+                        SimplePool.Spawn(fire1, transform.position + firePointLeft, transform.rotation);
+                    }
                 }
             }
             else if (Globals.TurnAttack == 1)
             {
                 if (Globals.AttackDirection)
                 {
-                    SimplePool.Spawn(fire2, transform.position + firePointRight, transform.rotation);
+                    if (engine.velocity.sqrMagnitude > 0)
+                    {
+                        SimplePool.Spawn(fireRun2, transform.position + firePointRight, transform.rotation);
+                    }
+                    else
+                    {
+                        SimplePool.Spawn(fire2, transform.position + firePointRight, transform.rotation);
+                    }
                 }
                 else
                 {
-                    SimplePool.Spawn(fire2, transform.position + firePointLeft, transform.rotation);
+                    if (engine.velocity.sqrMagnitude > 0)
+                    {
+                        SimplePool.Spawn(fireRun2, transform.position + firePointLeft, transform.rotation);
+                    }
+                    else
+                    {
+                        SimplePool.Spawn(fire2, transform.position + firePointLeft, transform.rotation);
+                    }
                 }
             }
             else if (Globals.TurnAttack == 2)
             {
                 if (Globals.AttackDirection)
                 {
-                    SimplePool.Spawn(fire3, transform.position + firePointRight, transform.rotation);
+                    if (engine.velocity.sqrMagnitude > 0)
+                    {
+                        SimplePool.Spawn(fireRun3, transform.position + firePointRight, transform.rotation);
+                    }
+                    else
+                    {
+                        SimplePool.Spawn(fire3, transform.position + firePointRight, transform.rotation);
+                    }
                 }
                 else
                 {
-                    SimplePool.Spawn(fire3, transform.position + firePointLeft, transform.rotation);
+                    if (engine.velocity.sqrMagnitude > 0)
+                    {
+                        SimplePool.Spawn(fireRun3, transform.position + firePointLeft, transform.rotation);
+                    }
+                    else
+                    {
+                        SimplePool.Spawn(fire3, transform.position + firePointLeft, transform.rotation);
+                    }
                 }
             }
         }

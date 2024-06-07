@@ -44155,6 +44155,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9206338017735092502, guid: 0aac87598b2fa87409adb1291331f819,
         type: 3}
+      propertyPath: fireRun1
+      value: 
+      objectReference: {fileID: 8029949848555817942, guid: d070d9691e84409428dc6f4fa209aaaf,
+        type: 3}
+    - target: {fileID: 9206338017735092502, guid: 0aac87598b2fa87409adb1291331f819,
+        type: 3}
+      propertyPath: fireRun2
+      value: 
+      objectReference: {fileID: 4193902741256691330, guid: 4ffa0e5cb4873ba4d859fc528bbce629,
+        type: 3}
+    - target: {fileID: 9206338017735092502, guid: 0aac87598b2fa87409adb1291331f819,
+        type: 3}
+      propertyPath: fireRun3
+      value: 
+      objectReference: {fileID: 275528029521917798, guid: 5019cc64d1a96a044b6febf20729dd75,
+        type: 3}
+    - target: {fileID: 9206338017735092502, guid: 0aac87598b2fa87409adb1291331f819,
+        type: 3}
       propertyPath: attackClip
       value: 
       objectReference: {fileID: 8300000, guid: a2dac0ce041ed11468cff667450afcf9, type: 3}
