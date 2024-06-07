@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace StonesGaming
@@ -159,16 +160,21 @@ namespace StonesGaming
             }
         }
 
+        bool toggle = false;
         void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("StartMP"))
+            if (collision.CompareTag("ToggleMovingPlatform"))
             {
-                engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
-            }
+                toggle = !toggle;
 
-            if (collision.CompareTag("EndMP"))
-            {
-                engine.movingPlatformLayerMask = 0;
+                if (toggle)
+                {
+                    engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+                }
+                else
+                {
+                    engine.movingPlatformLayerMask = 0;
+                }
             }
         }
 

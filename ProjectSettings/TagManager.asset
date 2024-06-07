@@ -4,12 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - StartMP
-  - EndMP
   - Barrel
   - Fire
   - Boss
   - FireOfBoss
+  - ToggleMovingPlatform
   layers:
   - Default
   - TransparentFX
