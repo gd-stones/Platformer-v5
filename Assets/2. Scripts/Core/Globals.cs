@@ -33,7 +33,9 @@ namespace StonesGaming
 
         public static bool CameraFadeFlag = false;
 
-        public static Vector3 Checkpoint;
+        public static Vector3 Checkpoint = Vector3.zero;
+
+        public static bool HurtFlag = false;
 
         public static int GetFrameCount(float time)
         {

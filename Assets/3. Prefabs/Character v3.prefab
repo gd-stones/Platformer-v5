@@ -210,11 +210,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engine: {fileID: 8524258448393923789}
+  audioSource: {fileID: 0}
   fire1: {fileID: 8029949848555817942, guid: 9a17f1d0a0ceb3049a9ad4872b37fa06, type: 3}
   fire2: {fileID: 4193902741256691330, guid: bf812f04b037be04d90a0dcc6833a1de, type: 3}
   fire3: {fileID: 275528029521917798, guid: daaf7a1f86b3bf2439e63e08b9383675, type: 3}
+  fireRun1: {fileID: 8029949848555817942, guid: d070d9691e84409428dc6f4fa209aaaf,
+    type: 3}
+  fireRun2: {fileID: 4193902741256691330, guid: 4ffa0e5cb4873ba4d859fc528bbce629,
+    type: 3}
+  fireRun3: {fileID: 275528029521917798, guid: 5019cc64d1a96a044b6febf20729dd75, type: 3}
   firePointRight: {x: 0.75, y: 0.35, z: 0}
   firePointLeft: {x: -0.75, y: 0.35, z: 0}
+  attackClip: {fileID: 8300000, guid: a2dac0ce041ed11468cff667450afcf9, type: 3}
   pushSpeed: 0.5
   playerHitPrefab: {fileID: 2011833101734743391, guid: bb12d88d9f022f846803fef842fc12f8,
     type: 3}
@@ -249,6 +256,7 @@ GameObject:
   - component: {fileID: 5254870620391258928}
   - component: {fileID: 9086276885040951851}
   - component: {fileID: 3431467821385706549}
+  - component: {fileID: 9083126399978977737}
   m_Layer: 0
   m_Name: Rogue
   m_TagString: Untagged
@@ -344,3 +352,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9083126399978977737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816708708232880534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be888c10dbbfc2439a40956ef13b4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

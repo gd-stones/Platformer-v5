@@ -12,9 +12,11 @@ namespace StonesGaming
         {
             if (collision.CompareTag("Player") && !runAnim)
             {
+                Debug.Log(Globals.Checkpoint);
                 runAnim = true;
                 animator.Play("Flag Out");
                 Globals.Checkpoint = transform.position;
+                Debug.Log(Globals.Checkpoint);
             }
         }
     }

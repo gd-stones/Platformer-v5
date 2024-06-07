@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +35,12 @@ namespace StonesGaming
         [SerializeField] AudioClip jumpClip;
         public bool isSkipJumpSe;
 
-        public static int Health = 2;
+        [Header("Health")]
+        public static int HealthPlayer = 30;
+        public static int DamagePlayer = 10;
+
+        bool toggle = false;
+        Vector3 offset = new Vector3(0.4f, 0, 0);
 
         void Awake()
         {
@@ -48,7 +54,7 @@ namespace StonesGaming
             var cameraShake = FindObjectOfType<CameraShaker>();
             cameraShake.Shake();
 
-            Invoke("OnRetry", 2);
+            Invoke("OnRetry", 2f);
             Instantiate(playerHitPrefab, transform.position, Quaternion.identity);
 
             audioSource.PlayOneShot(hitClip);
@@ -142,24 +148,21 @@ namespace StonesGaming
             SimplePool.Spawn(jumpVfx1, transform.position, transform.rotation);
         }
 
-        void OnRetry()
+        public void OnRetry()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log(2222222222);
         }
 
         void OnJump()
         {
-            if (isSkipJumpSe)
-            {
-                isSkipJumpSe = false;
-            }
-            else
+            if (!isSkipJumpSe)
             {
                 audioSource.PlayOneShot(jumpClip);
             }
+            isSkipJumpSe = false;
         }
 
-        bool toggle = false;
         void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("ToggleMovingPlatform"))
@@ -175,9 +178,14 @@ namespace StonesGaming
                     engine.movingPlatformLayerMask = 0;
                 }
             }
+
+            if (collision.CompareTag("FireOfBoss"))
+            {
+                HealthPlayer -= DamagePlayer;
+                Globals.HurtFlag = true;
+            }
         }
 
-        Vector3 offset = new Vector3(0.4f, 0, 0);
         void OnCollisionStay2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Barrel"))

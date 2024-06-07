@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace StonesGaming
 {
@@ -57,8 +58,10 @@ namespace StonesGaming
                 }
                 else
                 {
-                    var player = other.GetComponent<PlatformerCustomize>();
-                    player.Dead();
+                    //var player = other.GetComponent<PlatformerCustomize>();
+                    //player.Dead();
+                    PlatformerCustomize.HealthPlayer -= PlatformerCustomize.DamagePlayer;
+                    Globals.HurtFlag = true;
                 }
             }
         }

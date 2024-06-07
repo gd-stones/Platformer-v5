@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace StonesGaming
 {
@@ -130,6 +131,21 @@ namespace StonesGaming
                         _animator.Play("Attack");
                     }
                 }
+                else if (Globals.HurtFlag)
+                {
+                    if (PlatformerCustomize.HealthPlayer > 0)
+                    {
+                        //StartCoroutine(ResetHurtFlag());
+                        _animator.Play("Hurt");
+                    }
+                    else
+                    {
+                        _animator.Play("Death");
+                        //Globals.HurtFlag = false;
+                        //StartCoroutine(DeathAnim());
+                        DeathAnim();
+                    }
+                }
                 else
                 {
                     Globals.LadderFlag = false;
@@ -171,6 +187,33 @@ namespace StonesGaming
         void SetCurrentFacingLeft()
         {
             _currentFacingLeft = _engine.facingLeft;
+        }
+
+        //IEnumerator ResetHurtFlag()
+        //{
+        //    //StopCoroutine(ResetHurtFlag());
+
+        //    yield return new WaitForSeconds(.5f);
+        //    Globals.HurtFlag = false;
+        //}
+
+        //public void ResetHurtFlag()
+        //{
+        //    Globals.HurtFlag = false;
+        //}
+
+        void DeathAnim()
+        {
+            if (!Globals.HurtFlag && Globals.Checkpoint != Vector3.zero && PlatformerCustomize.HealthPlayer == 0)
+            {
+                gameObject.SetActive(false);
+
+                transform.position = Globals.Checkpoint;
+                gameObject.SetActive(true);
+                PlatformerCustomize.HealthPlayer = 30;
+
+                Debug.Log(11111111111);
+            }
         }
     }
 }
