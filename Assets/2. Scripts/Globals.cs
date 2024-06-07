@@ -27,6 +27,8 @@ namespace StonesGaming
         public static bool PortalIn = true;
         public static bool AttackDirection = true; // true <=> right; false <=> left
 
+        public static bool CameraFadeFlag = false; 
+
         public static int GetFrameCount(float time)
         {
             float frames = time / Time.fixedDeltaTime;

@@ -219,6 +219,10 @@ MonoBehaviour:
   playerHitPrefab: {fileID: 2011833101734743391, guid: bb12d88d9f022f846803fef842fc12f8,
     type: 3}
   hitClip: {fileID: 8300000, guid: 46f97a01e901f3744b9bfbb6899e78ef, type: 3}
+  jumpVfx1: {fileID: 3598980018088323424, guid: 899c7481a67268a41a8c3155e8ce3a4d,
+    type: 3}
+  jumpVfx2: {fileID: 4362900140151480817, guid: 1ee25802ffd2d2e429683fedf7c0818b,
+    type: 3}
   jumpClip: {fileID: 8300000, guid: 28b649ebe5d58f34fa323a32e56d15e4, type: 3}
   isSkipJumpSe: 0
 --- !u!114 &958795129043411030
@@ -307,7 +311,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1971245068, guid: e8ee53e836fc2b048a9c7e8068172131, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
