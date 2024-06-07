@@ -30,6 +30,8 @@ namespace StonesGaming
         [SerializeField] AudioClip jumpClip;
         public bool isSkipJumpSe;
 
+        public static int Health = 2;
+
         void Awake()
         {
             engine.onJump += OnJump;

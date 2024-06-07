@@ -5,24 +5,40 @@ namespace StonesGaming
 {
     public class Fire : MonoBehaviour
     {
-        public float moveDistance = 8f;
-        public float moveDuration = 3f;
+        [SerializeField] float moveDistance = 8f;
+        [SerializeField] float moveDuration = 3f;
 
         Vector3 startPosition;
         Vector3 endPosition;
         Vector3 velocity = Vector3.zero;
 
-        private void OnEnable()
+        [SerializeField] GameObject ownedBy;
+
+        void OnEnable()
         {
             startPosition = transform.position;
 
-            if (Globals.AttackDirection)
+            if (ownedBy.CompareTag("Player"))
             {
-                endPosition = startPosition + new Vector3(moveDistance, 0, 0);
+                if (Globals.AttackDirection)
+                {
+                    endPosition = startPosition + new Vector3(moveDistance, 0, 0);
+                }
+                else
+                {
+                    endPosition = startPosition + new Vector3(moveDistance, 0, 0) * -1f;
+                }
             }
-            else
+            else if (ownedBy.CompareTag("Boss"))
             {
-                endPosition = startPosition + new Vector3(moveDistance, 0, 0) * -1f;
+                if (BossAI.theScale.x == 1)
+                {
+                    endPosition = startPosition + new Vector3(moveDistance, 0, 0);
+                }
+                else
+                {
+                    endPosition = startPosition + new Vector3(moveDistance, 0, 0) * -1f;
+                }
             }
         }
 
@@ -35,7 +51,7 @@ namespace StonesGaming
         {
             float elapsedTime = 0;
 
-            while (elapsedTime < duration)
+            while (elapsedTime < 3)
             {
                 transform.position = Vector3.SmoothDamp(transform.position, end, ref velocity, duration);
                 elapsedTime += Time.deltaTime;

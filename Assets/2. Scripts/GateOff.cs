@@ -14,6 +14,7 @@ namespace StonesGaming
                 if (boss.activeInHierarchy == false)
                 {
                     gateOn.SetActive(true);
+                    gameObject.SetActive(false);
                 }
             }
         }

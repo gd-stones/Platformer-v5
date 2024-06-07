@@ -9,6 +9,7 @@ TagManager:
   - Barrel
   - Fire
   - Boss
+  - FireOfBoss
   layers:
   - Default
   - TransparentFX

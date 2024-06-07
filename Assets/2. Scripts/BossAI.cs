@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
 
@@ -14,27 +15,38 @@ namespace StonesGaming
         [SerializeField] float stopDistance = 1f;
         [SerializeField] BoxCollider2D boxCollider;
 
+        [SerializeField] GameObject fire1;
+        [SerializeField] GameObject fire2;
+        [SerializeField] Vector3 firePointLeft;
+        [SerializeField] Vector3 firePointRight;
+
         Animator animator;
         bool isHurt;
+        bool canMove = true;
+        bool isDeath = false;
 
         void Start()
         {
             animator = visual.GetComponent<Animator>();
         }
 
-        bool canMove = true;
         void Update()
         {
             if (health <= 0)
             {
-                animator.Play("Death");
-                gameObject.SetActive(false);
+                if (!isDeath)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(Death());
+                }
+                return;
             }
 
             if (isHurt && health > 0)
             {
                 isHurt = false;
                 canMove = false;
+
                 StartCoroutine(Hurt());
                 health -= damage;
                 return;
@@ -42,7 +54,7 @@ namespace StonesGaming
 
             if (Globals.IsObjectInCameraView(boxCollider) && canMove)
             {
-                MoveTowardsPlayer();
+                MoveTowardsPlayerAndAttack();
                 FlipTowardsPlayer();
             }
         }
@@ -50,11 +62,24 @@ namespace StonesGaming
         IEnumerator Hurt()
         {
             animator.Play("Hurt");
+
             yield return new WaitForSeconds(1f);
             animator.Play("Idle");
+
             yield return new WaitForSeconds(0.5f);
             canMove = true;
+
         }
+
+        IEnumerator Death()
+        {
+            isDeath = true;
+            animator.Play("Death");
+
+            yield return new WaitForSeconds(1.5f);
+            gameObject.SetActive(false);
+        }
+
 
         void FlipTowardsPlayer()
         {
@@ -68,14 +93,18 @@ namespace StonesGaming
             }
         }
 
+        public static Vector3 theScale;
         void Flip()
         {
-            Vector3 theScale = visual.transform.localScale;
+            theScale = visual.transform.localScale;
+
             theScale.x *= -1;
             visual.transform.localScale = theScale;
         }
 
-        void MoveTowardsPlayer()
+
+        bool isAttack = true;
+        void MoveTowardsPlayerAndAttack()
         {
             float distanceToPlayer = Mathf.Abs(player.position.x - transform.position.x);
 
@@ -86,12 +115,46 @@ namespace StonesGaming
                 transform.position += new Vector3(direction.x, 0, 0) * moveSpeed * Time.deltaTime;
                 animator.Play("Walk");
             }
-            else
+            else if (distanceToPlayer < stopDistance && isAttack)
             {
-                animator.Play("Attack");
+                StartCoroutine(Attack());
             }
         }
 
+        int turn = -1;
+        IEnumerator Attack()
+        {
+            isAttack = false;
+            animator.Play("Attack");
+
+            turn++;
+            turn %= 2;
+            if (turn == 0)
+            {
+                if (theScale.x == 1)
+                {
+                    SimplePool.Spawn(fire1, transform.position + firePointRight, transform.rotation);
+                }
+                else
+                {
+                    SimplePool.Spawn(fire1, transform.position + firePointLeft, transform.rotation);
+                }
+            }
+            else if (turn == 1)
+            {
+                if (theScale.x == 1)
+                {
+                    SimplePool.Spawn(fire2, transform.position + firePointRight, transform.rotation);
+                }
+                else
+                {
+                    SimplePool.Spawn(fire2, transform.position + firePointLeft, transform.rotation);
+                }
+            }
+
+            yield return new WaitForSeconds(1f);
+            isAttack = true;
+        }
 
         void OnTriggerEnter2D(Collider2D collision)
         {
