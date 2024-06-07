@@ -2,15 +2,16 @@ using UnityEngine;
 
 namespace StonesGaming
 {
-    public class StartMP : MonoBehaviour
+    public class Checkpoint : MonoBehaviour
     {
-        public PlatformerEngine engine;
+        [SerializeField] Animator animator;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
-                engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+                animator.Play("Flag Out");
+                Globals.Checkpoint = transform.position;
             }
         }
     }
