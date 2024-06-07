@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!114 &2723429952892434869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,13 +120,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mainCamera: {fileID: 0}
   visual: {fileID: 7832802582726633984}
-  health: 100
+  health: 10
   damage: 10
   moveSpeed: 2
-  stopDistance: 2
+  stopDistance: 8
   boxCollider: {fileID: 6756163211869796734}
+  fire1: {fileID: 2278298698137275856, guid: 5cb9f540dc8571640922022e70123535, type: 3}
+  fire2: {fileID: 9052335679964384986, guid: db04b9659bd54bc4eae5f5e8910c96ff, type: 3}
+  firePointLeft: {x: -2, y: 0.7, z: 0}
+  firePointRight: {x: 2, y: 0.7, z: 0}
 --- !u!1 &7832802582726633984
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,7 +68,6 @@ namespace StonesGaming
 
             yield return new WaitForSeconds(0.5f);
             canMove = true;
-
         }
 
         IEnumerator Death()
@@ -79,7 +78,6 @@ namespace StonesGaming
             yield return new WaitForSeconds(1.5f);
             gameObject.SetActive(false);
         }
-
 
         void FlipTowardsPlayer()
         {
