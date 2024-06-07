@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - FireOfBoss
   - ToggleMovingPlatform
+  - Rock
   layers:
   - Default
   - TransparentFX

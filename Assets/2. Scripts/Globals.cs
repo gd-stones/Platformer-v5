@@ -31,7 +31,9 @@ namespace StonesGaming
         public static int TurnAttack = -1;
         public static bool AttackFlag = false;
 
-        public static bool CameraFadeFlag = false; 
+        public static bool CameraFadeFlag = false;
+
+        public static Vector3 CheckPoint;
 
         public static int GetFrameCount(float time)
         {

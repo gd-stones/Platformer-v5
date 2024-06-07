@@ -18,7 +18,6 @@ namespace StonesGaming
         [SerializeField] GameObject fireRun3;
         [SerializeField] Vector3 firePointRight;
         [SerializeField] Vector3 firePointLeft;
-        int turn = -1;
         [SerializeField] AudioClip attackClip;
 
         [Header("Push")]
@@ -178,6 +177,7 @@ namespace StonesGaming
             }
         }
 
+        Vector3 offset = new Vector3(0.4f, 0, 0);
         void OnCollisionStay2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Barrel"))
@@ -193,11 +193,25 @@ namespace StonesGaming
                     Globals.PushFlag = false;
                 }
             }
+            else if (collision.gameObject.CompareTag("Rock"))
+            {
+                if (Mathf.Abs(engine.velocity.x) > 0)
+                {
+                    Globals.PushFlag = true;
+                    engine.groundSpeed = 0.0001f;
+                }
+                else
+                {
+                    engine.groundSpeed = groundSpeed;
+                    Globals.PushFlag = false;
+                    transform.position -= offset;
+                }
+            }
         }
 
         void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Barrel"))
+            if (collision.gameObject.CompareTag("Barrel") || collision.gameObject.CompareTag("Rock"))
             {
                 Globals.PushFlag = false;
                 engine.groundSpeed = groundSpeed;
