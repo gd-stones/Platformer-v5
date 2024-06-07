@@ -7,6 +7,7 @@ namespace StonesGaming
     public class PlatformerCustomize : MonoBehaviour
     {
         [SerializeField] PlatformerEngine engine;
+        [SerializeField] AudioSource audioSource;
 
         [Header("Attack")]
         [SerializeField] GameObject fire1;
@@ -15,6 +16,7 @@ namespace StonesGaming
         [SerializeField] Vector3 firePointRight;
         [SerializeField] Vector3 firePointLeft;
         int turn = -1;
+        [SerializeField] AudioClip attackClip;
 
         [Header("Push")]
         [SerializeField] float pushSpeed = 0.5f;
@@ -47,16 +49,16 @@ namespace StonesGaming
             Invoke("OnRetry", 2);
             Instantiate(playerHitPrefab, transform.position, Quaternion.identity);
 
-            var audioSource = FindObjectOfType<AudioSource>();
             audioSource.PlayOneShot(hitClip);
         }
 
         public void Attack()
         {
-            turn++;
-            turn = turn % 3;
+            Globals.TurnAttack++;
+            Globals.TurnAttack = Globals.TurnAttack % 3;
+            audioSource.PlayOneShot(attackClip);
 
-            if (turn == 0)
+            if (Globals.TurnAttack == 0)
             {
                 if (Globals.AttackDirection)
                 {
@@ -67,7 +69,7 @@ namespace StonesGaming
                     SimplePool.Spawn(fire1, transform.position + firePointLeft, transform.rotation);
                 }
             }
-            else if (turn == 1)
+            else if (Globals.TurnAttack == 1)
             {
                 if (Globals.AttackDirection)
                 {
@@ -78,7 +80,7 @@ namespace StonesGaming
                     SimplePool.Spawn(fire2, transform.position + firePointLeft, transform.rotation);
                 }
             }
-            else if (turn == 2)
+            else if (Globals.TurnAttack == 2)
             {
                 if (Globals.AttackDirection)
                 {
@@ -109,7 +111,6 @@ namespace StonesGaming
             }
             else
             {
-                var audioSource = FindObjectOfType<AudioSource>();
                 audioSource.PlayOneShot(jumpClip);
             }
         }

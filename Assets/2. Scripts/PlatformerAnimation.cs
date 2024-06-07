@@ -30,7 +30,8 @@ namespace StonesGaming
         void Update()
         {
             if (_engine.engineState == PlatformerEngine.EngineState.Jumping ||
-                _isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling || _engine.engineState == PlatformerEngine.EngineState.FallingFast))
+                _isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling ||
+                _engine.engineState == PlatformerEngine.EngineState.FallingFast))
             {
                 _isJumping = true;
 
@@ -94,7 +95,7 @@ namespace StonesGaming
                         _animator.Play("Climb");
                     }
                 }
-                else if(Globals.PushFlag)
+                else if (Globals.PushFlag)
                 {
                     _animator.Play("Push");
                 }
@@ -110,12 +111,35 @@ namespace StonesGaming
                         Globals.TeleportFlag = false;
                     }
                 }
+                else if (Globals.AttackFlag)
+                {
+                    if (Globals.TurnAttack == 2)
+                    {
+                        _animator.Play("Attack Extra");
+                    }
+                    else if (_engine.velocity.sqrMagnitude >= 4f)
+                    {
+                        _animator.Play("Run Attack");
+                    }
+                    else if (_engine.velocity.sqrMagnitude >= 0.1f * 0.1f)
+                    {
+                        _animator.Play("Walk Attack");
+                    }
+                    else
+                    {
+                        _animator.Play("Attack");
+                    }
+                }
                 else
                 {
                     Globals.LadderFlag = false;
                     Globals.HighJumpFlag = false;
 
-                    if (_engine.velocity.sqrMagnitude >= 0.1f * 0.1f)
+                    if (_engine.velocity.sqrMagnitude >= 4f)
+                    {
+                        _animator.Play("Run");
+                    }
+                    else if (_engine.velocity.sqrMagnitude >= 0.1f * 0.1f)
                     {
                         _animator.Play("Walk");
                     }

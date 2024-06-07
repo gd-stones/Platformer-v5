@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
 namespace StonesGaming
 {
@@ -25,7 +26,10 @@ namespace StonesGaming
         public static bool PushFlag = false;
         public static bool TeleportFlag = false;
         public static bool PortalIn = true;
+
         public static bool AttackDirection = true; // true <=> right; false <=> left
+        public static int TurnAttack = -1;
+        public static bool AttackFlag = false;
 
         public static bool CameraFadeFlag = false; 
 
