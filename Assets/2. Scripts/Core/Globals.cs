@@ -1,5 +1,5 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 namespace StonesGaming
 {
@@ -74,6 +74,18 @@ namespace StonesGaming
             }
 
             return false;
+        }
+
+        public static IEnumerator SetCameraFade(Transform playerTransform, Vector3 destination)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Globals.CameraFadeFlag = true;
+
+            yield return new WaitForSeconds(0.5f);
+            playerTransform.position = destination;
+
+            yield return new WaitForSeconds(1f);
+            Globals.CameraFadeFlag = true;
         }
     }
 }

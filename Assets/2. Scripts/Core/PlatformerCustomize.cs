@@ -10,6 +10,7 @@ namespace StonesGaming
         [SerializeField] AudioSource audioSource;
 
         [Header("Attack")]
+        public int turnAttack = -1;
         [SerializeField] GameObject fire1;
         [SerializeField] GameObject fire2;
         [SerializeField] GameObject fire3;
@@ -49,6 +50,12 @@ namespace StonesGaming
             health = originalHealth;
         }
 
+        Vector3 playerOriginPosition;
+        void Start()
+        {
+            playerOriginPosition = transform.position;
+        }
+
         public void Dead()
         {
             gameObject.SetActive(false);
@@ -61,7 +68,6 @@ namespace StonesGaming
             audioSource.PlayOneShot(hitClip);
         }
 
-        public int turnAttack = -1;
         public void Attack()
         {
             turnAttack++;
@@ -152,8 +158,8 @@ namespace StonesGaming
 
         public void OnRetry()
         {
+            Globals.HurtFlag = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log(2222222222);
         }
 
         void OnJump()
@@ -179,19 +185,15 @@ namespace StonesGaming
 
         public void Revival()
         {
+            health = originalHealth;
+
             if (Globals.Checkpoint != Vector3.zero)
             {
-                health = originalHealth;
-                //gameObject.SetActive(false);
-
-                transform.position = Globals.Checkpoint;
-                gameObject.SetActive(true);
-
-                Debug.Log(11111111111);
+                StartCoroutine(Globals.SetCameraFade(transform, Globals.Checkpoint));
             }
             else
             {
-                OnRetry();
+                StartCoroutine(Globals.SetCameraFade(transform, playerOriginPosition));
             }
         }
 

@@ -25,21 +25,8 @@ namespace StonesGaming
         {
             if (collision.CompareTag("Player") && canMove)
             {
-                Transform playerTransform = collision.transform;
-                StartCoroutine(SetCameraFade(playerTransform));
+                StartCoroutine(Globals.SetCameraFade(collision.transform, destination.position));
             }
-        }
-
-        IEnumerator SetCameraFade(Transform playerTransform)
-        {
-            yield return new WaitForSeconds(0.5f);
-            Globals.CameraFadeFlag = true;
-
-            yield return new WaitForSeconds(0.5f);
-            playerTransform.position = destination.position;
-
-            yield return new WaitForSeconds(1f);
-            Globals.CameraFadeFlag = true;
         }
     }
 }

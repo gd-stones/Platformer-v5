@@ -56433,7 +56433,7 @@ Transform:
   m_GameObject: {fileID: 4485071750757296584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.16, y: 14.22, z: 0}
+  m_LocalPosition: {x: 98.48, y: 4.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58252,6 +58252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engine: {fileID: 8524258448862654332}
   audioSource: {fileID: 3557664730383828919}
+  turnAttack: -1
   fire1: {fileID: 8029949848555817942, guid: 9a17f1d0a0ceb3049a9ad4872b37fa06, type: 3}
   fire2: {fileID: 4193902741256691330, guid: bf812f04b037be04d90a0dcc6833a1de, type: 3}
   fire3: {fileID: 275528029521917798, guid: daaf7a1f86b3bf2439e63e08b9383675, type: 3}
@@ -58273,6 +58274,8 @@ MonoBehaviour:
     type: 3}
   jumpClip: {fileID: 8300000, guid: 28b649ebe5d58f34fa323a32e56d15e4, type: 3}
   isSkipJumpSe: 0
+  originalHealth: 30
+  damagePlayer: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
