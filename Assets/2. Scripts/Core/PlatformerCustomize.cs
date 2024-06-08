@@ -240,11 +240,11 @@ namespace StonesGaming
                 if (Mathf.Abs(engine.velocity.x) > 0)
                 {
                     Globals.PushFlag = true;
-                    //engine.groundSpeed = 0.0001f;
+                    engine.groundSpeed = 0.0001f;
                 }
                 else
                 {
-                    //engine.groundSpeed = groundSpeed;
+                    engine.groundSpeed = groundSpeed;
                     Globals.PushFlag = false;
                     transform.position -= offset;
                 }
