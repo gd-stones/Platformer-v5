@@ -15,6 +15,7 @@ namespace StonesGaming
         public GameObject visualChild;
 
         PlatformerEngine _engine;
+        PlatformerCustomize _engineCustomize;
         Animator _animator;
         bool _isJumping;
         bool _currentFacingLeft;
@@ -22,6 +23,7 @@ namespace StonesGaming
         void Start()
         {
             _engine = GetComponent<PlatformerEngine>();
+            _engineCustomize = GetComponent<PlatformerCustomize>();
             _animator = visualChild.GetComponent<Animator>();
             _animator.Play("Idle");
 
@@ -66,7 +68,6 @@ namespace StonesGaming
                     _engine.engineState == PlatformerEngine.EngineState.FallingFast)
                 {
                     _animator.Play("Fall");
-                    Globals.LadderFlag = false;
                 }
                 else if (_engine.engineState == PlatformerEngine.EngineState.WallSliding ||
                          _engine.engineState == PlatformerEngine.EngineState.WallSticking)
@@ -109,12 +110,11 @@ namespace StonesGaming
                     else
                     {
                         _animator.Play("Portal Out");
-                        Globals.TeleportFlag = false;
                     }
                 }
                 else if (Globals.AttackFlag)
                 {
-                    if (Globals.TurnAttack == 2)
+                    if (_engineCustomize.turnAttack == 2)
                     {
                         _animator.Play("Attack Extra");
                     }
@@ -133,24 +133,18 @@ namespace StonesGaming
                 }
                 else if (Globals.HurtFlag)
                 {
-                    if (PlatformerCustomize.HealthPlayer > 0)
+                    if (!_engineCustomize.IsDead())
                     {
-                        //StartCoroutine(ResetHurtFlag());
                         _animator.Play("Hurt");
                     }
                     else
                     {
                         _animator.Play("Death");
-                        //Globals.HurtFlag = false;
-                        //StartCoroutine(DeathAnim());
-                        DeathAnim();
+                        _engineCustomize.Revival();
                     }
                 }
                 else
                 {
-                    Globals.LadderFlag = false;
-                    Globals.HighJumpFlag = false;
-
                     if (_engine.velocity.sqrMagnitude >= 4f)
                     {
                         _animator.Play("Run");
@@ -189,31 +183,6 @@ namespace StonesGaming
             _currentFacingLeft = _engine.facingLeft;
         }
 
-        //IEnumerator ResetHurtFlag()
-        //{
-        //    //StopCoroutine(ResetHurtFlag());
-
-        //    yield return new WaitForSeconds(.5f);
-        //    Globals.HurtFlag = false;
-        //}
-
-        //public void ResetHurtFlag()
-        //{
-        //    Globals.HurtFlag = false;
-        //}
-
-        void DeathAnim()
-        {
-            if (!Globals.HurtFlag && Globals.Checkpoint != Vector3.zero && PlatformerCustomize.HealthPlayer == 0)
-            {
-                gameObject.SetActive(false);
-
-                transform.position = Globals.Checkpoint;
-                gameObject.SetActive(true);
-                PlatformerCustomize.HealthPlayer = 30;
-
-                Debug.Log(11111111111);
-            }
-        }
+        
     }
 }

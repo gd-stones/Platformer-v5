@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
 using UnityEngine;
 
 namespace StonesGaming
@@ -131,18 +129,9 @@ namespace StonesGaming
             Globals.AttackDirection = !_engine.facingLeft;
             if (UnityEngine.Input.GetKeyDown(KeyCode.Q))
             {
-                StopAllCoroutines();
-                StartCoroutine(ResetAttackFlag());
+                Globals.AttackFlag = true;
                 _engineCustomize.Attack();
             }
-        }
-
-        IEnumerator ResetAttackFlag()
-        {
-            Globals.AttackFlag = true;
-
-            yield return new WaitForSeconds(1f);
-            Globals.AttackFlag = false;
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2011833101734743389}
   - component: {fileID: 2011833101734743390}
   - component: {fileID: 672753962477918549}
+  - component: {fileID: 8654268777435045995}
   m_Layer: 0
   m_Name: Character Hit
   m_TagString: Untagged
@@ -121,3 +122,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 15, z: 0}
   gravity: 30
+--- !u!114 &8654268777435045995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011833101734743391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be888c10dbbfc2439a40956ef13b4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

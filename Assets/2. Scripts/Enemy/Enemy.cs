@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace StonesGaming
 {
@@ -39,6 +38,7 @@ namespace StonesGaming
             if (other.name.Contains("Player") || other.CompareTag("Player"))
             {
                 var engine = other.GetComponent<PlatformerEngine>();
+                var player = other.GetComponent<PlatformerCustomize>();
 
                 if (engine.IsFalling())
                 {
@@ -53,14 +53,11 @@ namespace StonesGaming
                     var audioSource = FindObjectOfType<AudioSource>();
                     audioSource.PlayOneShot(hitClip);
 
-                    var player = other.GetComponent<PlatformerCustomize>();
                     player.isSkipJumpSe = true;
                 }
                 else
                 {
-                    //var player = other.GetComponent<PlatformerCustomize>();
-                    //player.Dead();
-                    PlatformerCustomize.HealthPlayer -= PlatformerCustomize.DamagePlayer;
+                    player.TakeDamage();
                     Globals.HurtFlag = true;
                 }
             }

@@ -1,5 +1,4 @@
 ﻿using JetBrains.Annotations;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,8 +35,9 @@ namespace StonesGaming
         public bool isSkipJumpSe;
 
         [Header("Health")]
-        public static int HealthPlayer = 30;
-        public static int DamagePlayer = 10;
+        [SerializeField] int originalHealth = 30;
+        int health;
+        [SerializeField] int damagePlayer = 10;
 
         bool toggle = false;
         Vector3 offset = new Vector3(0.4f, 0, 0);
@@ -46,6 +46,7 @@ namespace StonesGaming
         {
             engine.onJump += OnJump;
             groundSpeed = engine.groundSpeed;
+            health = originalHealth;
         }
 
         public void Dead()
@@ -60,13 +61,14 @@ namespace StonesGaming
             audioSource.PlayOneShot(hitClip);
         }
 
+        public int turnAttack = -1;
         public void Attack()
         {
-            Globals.TurnAttack++;
-            Globals.TurnAttack = Globals.TurnAttack % 3;
+            turnAttack++;
+            turnAttack = turnAttack % 3;
             audioSource.PlayOneShot(attackClip);
 
-            if (Globals.TurnAttack == 0)
+            if (turnAttack == 0)
             {
                 if (Globals.AttackDirection)
                 {
@@ -91,7 +93,7 @@ namespace StonesGaming
                     }
                 }
             }
-            else if (Globals.TurnAttack == 1)
+            else if (turnAttack == 1)
             {
                 if (Globals.AttackDirection)
                 {
@@ -116,7 +118,7 @@ namespace StonesGaming
                     }
                 }
             }
-            else if (Globals.TurnAttack == 2)
+            else if (turnAttack == 2)
             {
                 if (Globals.AttackDirection)
                 {
@@ -150,8 +152,8 @@ namespace StonesGaming
 
         public void OnRetry()
         {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                Debug.Log(2222222222);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log(2222222222);
         }
 
         void OnJump()
@@ -161,6 +163,36 @@ namespace StonesGaming
                 audioSource.PlayOneShot(jumpClip);
             }
             isSkipJumpSe = false;
+        }
+
+        public bool IsDead()
+        {
+            if (health <= 0)
+                return true;
+            return false;
+        }
+
+        public void TakeDamage()
+        {
+            health -= damagePlayer;
+        }
+
+        public void Revival()
+        {
+            if (Globals.Checkpoint != Vector3.zero)
+            {
+                health = originalHealth;
+                //gameObject.SetActive(false);
+
+                transform.position = Globals.Checkpoint;
+                gameObject.SetActive(true);
+
+                Debug.Log(11111111111);
+            }
+            else
+            {
+                OnRetry();
+            }
         }
 
         void OnTriggerEnter2D(Collider2D collision)
@@ -181,7 +213,7 @@ namespace StonesGaming
 
             if (collision.CompareTag("FireOfBoss"))
             {
-                HealthPlayer -= DamagePlayer;
+                TakeDamage();
                 Globals.HurtFlag = true;
             }
         }
@@ -206,11 +238,11 @@ namespace StonesGaming
                 if (Mathf.Abs(engine.velocity.x) > 0)
                 {
                     Globals.PushFlag = true;
-                    engine.groundSpeed = 0.0001f;
+                    //engine.groundSpeed = 0.0001f;
                 }
                 else
                 {
-                    engine.groundSpeed = groundSpeed;
+                    //engine.groundSpeed = groundSpeed;
                     Globals.PushFlag = false;
                     transform.position -= offset;
                 }
