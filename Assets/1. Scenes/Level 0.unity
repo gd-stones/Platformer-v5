@@ -55553,6 +55553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpRotationSpeed: 0
   visualChild: {fileID: 8816708706690441767}
+  dashEffect: {fileID: 943505929}
+  slipEffect: {fileID: 184956179}
 --- !u!1 &1489183484639825025
 GameObject:
   m_ObjectHideFlags: 0
@@ -56725,7 +56727,7 @@ Transform:
   m_GameObject: {fileID: 4485071750757296584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 171, y: 31.5, z: 0}
+  m_LocalPosition: {x: 18.5, y: 18.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58478,8 +58480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be888c10dbbfc2439a40956ef13b4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashEffect: {fileID: 0}
-  slideEffect: {fileID: 0}
 --- !u!212 &9086276886581326234
 SpriteRenderer:
   m_ObjectHideFlags: 0

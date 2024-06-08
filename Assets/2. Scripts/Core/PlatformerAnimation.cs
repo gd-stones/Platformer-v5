@@ -20,6 +20,11 @@ namespace StonesGaming
         bool _isJumping;
         bool _currentFacingLeft;
 
+        bool isSlip;
+        bool isDash;
+        [SerializeField] GameObject dashEffect;
+        [SerializeField] GameObject slipEffect;
+
         void Start()
         {
             _engine = GetComponent<PlatformerEngine>();
@@ -29,6 +34,8 @@ namespace StonesGaming
 
             _engine.onJump += SetCurrentFacingLeft;
         }
+
+        
 
         void Update()
         {
@@ -81,10 +88,22 @@ namespace StonesGaming
                 else if (_engine.engineState == PlatformerEngine.EngineState.Slipping)
                 {
                     _animator.Play("Slip");
+
+                    if (!isSlip)
+                    {
+                        slipEffect.SetActive(true);
+                        isSlip = true;
+                    }
                 }
                 else if (_engine.engineState == PlatformerEngine.EngineState.Dashing)
                 {
                     _animator.Play("Dash");
+
+                    if (!isDash)
+                    {
+                        dashEffect.SetActive(true);
+                        isDash = true;
+                    }
                 }
                 else if (_engine.IsOnLadder() && Globals.LadderFlag)
                 {
@@ -176,6 +195,18 @@ namespace StonesGaming
                 newScale.x = Mathf.Abs(newScale.x) * ((valueCheck > 0) ? 1.0f : -1.0f);
                 visualChild.transform.localScale = newScale;
             }
+
+            if (!_engine.IsDashing())
+            {
+                dashEffect.SetActive(false);
+                isDash = false;
+            }
+
+            if (!_engine.IsSlipping())
+            {
+                slipEffect.SetActive(false);
+                isSlip = false;
+            }
         }
 
         void SetCurrentFacingLeft()
@@ -183,6 +214,6 @@ namespace StonesGaming
             _currentFacingLeft = _engine.facingLeft;
         }
 
-        
+
     }
 }
