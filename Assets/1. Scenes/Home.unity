@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 20422414}
   - component: {fileID: 20422413}
   - component: {fileID: 20422412}
+  - component: {fileID: 20422415}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -205,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 20422413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 20422415}
+        m_TargetAssemblyTypeName: StonesGaming.PlayButton, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &20422413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +257,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20422410}
   m_CullTransparentMesh: 1
+--- !u!114 &20422415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20422410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b400dfc3d083c24bb236e96872b0a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61312252
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,11 +326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 2065102122}
-  stars:
-  - {fileID: 1993856023}
-  - {fileID: 1664842219}
-  - {fileID: 864507400}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 2
+  levelName: Level 03
 --- !u!114 &61312255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,9 +373,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 61312254}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -438,7 +460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -295, y: -50}
+  m_AnchoredPosition: {x: -832, y: -26}
   m_SizeDelta: {x: 167, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &100057127
@@ -973,6 +995,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257854730}
   m_CullTransparentMesh: 0
+--- !u!1 &283621924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283621925}
+  - component: {fileID: 283621927}
+  - component: {fileID: 283621926}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &283621925
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283621924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 802643944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 822, y: 582}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &283621926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283621924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 60121822, guid: 7e1269428b72c004db37d677520feb1a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &283621927
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283621924}
+  m_CullTransparentMesh: 1
 --- !u!1 &284105215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1100,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1666288309}
   - {fileID: 974714306}
   - {fileID: 1145123099}
   - {fileID: 61312253}
@@ -1118,11 +1216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1385032347}
-  stars:
-  - {fileID: 973195950}
-  - {fileID: 992932737}
-  - {fileID: 1963438543}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 6
+  levelName: Level 01
 --- !u!114 &284977598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,9 +1263,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 284977597}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1218,51 +1313,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284977595}
   m_CullTransparentMesh: 0
---- !u!1 &285201316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 285201318}
-  - component: {fileID: 285201317}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &285201317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285201316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d690d9f5953e4f679486ee5eac12f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starsText: {fileID: 0}
---- !u!4 &285201318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285201316}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300889961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,11 +1445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1963218475}
-  stars:
-  - {fileID: 1123534122}
-  - {fileID: 1794710693}
-  - {fileID: 648832431}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 11
+  levelName: Level 01
 --- !u!114 &339959792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,9 +1492,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 339959791}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2614,11 +2661,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1839854666}
-  stars:
-  - {fileID: 257854730}
-  - {fileID: 1072449672}
-  - {fileID: 1810650508}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 8
+  levelName: Level 01
 --- !u!114 &789163190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2664,9 +2708,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 789163189}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2731,7 +2775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &802643944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2739,19 +2783,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802643943}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 283621925}
   - {fileID: 1348689169}
   - {fileID: 100057126}
-  m_Father: {fileID: 1849992828}
+  m_Father: {fileID: 1379324807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 0.0000076293945}
-  m_SizeDelta: {x: 822, y: 582}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1820, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802643945
 MonoBehaviour:
@@ -2766,14 +2811,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 60121822, guid: 7e1269428b72c004db37d677520feb1a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3331,9 +3376,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 974714310}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3395,11 +3440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 1
   unlockImage: {fileID: 586942594}
-  stars:
-  - {fileID: 835215569}
-  - {fileID: 401514133}
-  - {fileID: 1766195436}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 0
+  levelName: Level 01
 --- !u!1 &992932737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,11 +3800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 2066658415}
-  stars:
-  - {fileID: 967143745}
-  - {fileID: 1833404143}
-  - {fileID: 1574496985}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 1
+  levelName: Level 02
 --- !u!114 &1145123101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3808,9 +3847,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1145123100}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3991,11 +4030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 511053084}
-  stars:
-  - {fileID: 383984276}
-  - {fileID: 645482128}
-  - {fileID: 1465518813}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 12
+  levelName: Level 01
 --- !u!114 &1187319824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4041,9 +4077,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1187319823}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4253,6 +4289,7 @@ GameObject:
   - component: {fileID: 1266073773}
   - component: {fileID: 1266073772}
   - component: {fileID: 1266073771}
+  - component: {fileID: 1266073774}
   m_Layer: 5
   m_Name: Shop Button
   m_TagString: Untagged
@@ -4267,16 +4304,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266073769}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1849992828}
+  m_Father: {fileID: 1379324807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -560, y: 90}
+  m_AnchoredPosition: {x: 350, y: -400}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266073771
@@ -4322,7 +4359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1266073772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1266073774}
+        m_TargetAssemblyTypeName: StonesGaming.Shop, Assembly-CSharp
+        m_MethodName: ShopButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1266073772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,6 +4410,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266073769}
   m_CullTransparentMesh: 1
+--- !u!114 &1266073774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266073769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927e48d48cd01c34da4b3df7e18eed51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopPanel: {fileID: 802643943}
 --- !u!1 &1290912168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,7 +4610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -50}
+  m_AnchoredPosition: {x: 840, y: -26}
   m_SizeDelta: {x: 167, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348689170
@@ -4632,7 +4694,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1348689170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1266073774}
+        m_TargetAssemblyTypeName: StonesGaming.Shop, Assembly-CSharp
+        m_MethodName: ChooseCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1373643514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,11 +4764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 886884999}
-  stars:
-  - {fileID: 615492755}
-  - {fileID: 1265359112}
-  - {fileID: 1605896469}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 7
+  levelName: Level 01
 --- !u!114 &1373643517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4740,9 +4811,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1373643516}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4790,6 +4861,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373643514}
   m_CullTransparentMesh: 0
+--- !u!1 &1379324806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379324807}
+  m_Layer: 5
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1379324807
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379324806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1266073770}
+  - {fileID: 802643944}
+  m_Father: {fileID: 1849992828}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1385032345
 GameObject:
   m_ObjectHideFlags: 0
@@ -4923,11 +5031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1904000139}
-  stars:
-  - {fileID: 1806518852}
-  - {fileID: 692335998}
-  - {fileID: 1195208730}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 10
+  levelName: Level 01
 --- !u!114 &1440968200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4973,9 +5078,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1440968199}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5305,11 +5410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1175416440}
-  stars:
-  - {fileID: 1711745315}
-  - {fileID: 300889961}
-  - {fileID: 1687770310}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 9
+  levelName: Level 01
 --- !u!114 &1647290341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5355,9 +5457,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1647290340}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5480,6 +5582,132 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664842219}
   m_CullTransparentMesh: 0
+--- !u!1 &1666288308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666288309}
+  - component: {fileID: 1666288312}
+  - component: {fileID: 1666288311}
+  - component: {fileID: 1666288310}
+  - component: {fileID: 1666288313}
+  m_Layer: 5
+  m_Name: Pointer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1666288309
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666288308}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 284105216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 835, y: -189}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1666288310
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666288308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2b8bf58a2a7faf4bb373f017ead5ac9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1666288311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666288308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -6367560908665664636, guid: 50646ab358348164699a1ccd84e5fec6,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1666288312
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666288308}
+  m_CullTransparentMesh: 1
+--- !u!114 &1666288313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666288308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7fa8a02e713d7489d08c445d7f8956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 1666288309}
+  points:
+  - {x: -890, y: 310}
+  - {x: -600, y: 55}
+  - {x: -655, y: -405}
+  - {x: -165, y: -405}
+  - {x: -495, y: -260}
+  - {x: -290, y: 5}
+  - {x: 80, y: 210}
+  - {x: 70, y: 420}
+  - {x: 295, y: 415}
+  - {x: 585, y: 400}
+  - {x: 615, y: 170}
+  - {x: 185, y: -155}
+  - {x: 835, y: -190}
 --- !u!1 &1687261759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6253,8 +6481,7 @@ RectTransform:
   m_Children:
   - {fileID: 284105216}
   - {fileID: 20422411}
-  - {fileID: 1266073770}
-  - {fileID: 802643944}
+  - {fileID: 1379324807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6319,11 +6546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 924090603}
-  stars:
-  - {fileID: 139030277}
-  - {fileID: 2075325211}
-  - {fileID: 362108112}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 3
+  levelName: Level 01
 --- !u!114 &1867448676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6369,9 +6593,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1867448675}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6703,11 +6927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1687261761}
-  stars:
-  - {fileID: 132008602}
-  - {fileID: 493766230}
-  - {fileID: 778680459}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 5
+  levelName: Level 01
 --- !u!114 &1967212109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6753,9 +6974,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1967212108}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7010,11 +7231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1033711016}
-  stars:
-  - {fileID: 567466974}
-  - {fileID: 170715707}
-  - {fileID: 123642699}
-  starSprite: {fileID: 21300000, guid: 59278abb8ecb044318f411983ced6c30, type: 3}
+  pointIndex: 4
+  levelName: Level 01
 --- !u!114 &2059562534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7060,9 +7278,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2059562533}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: StonesGaming.LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7344,4 +7562,3 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1849992828}
   - {fileID: 783490171}
-  - {fileID: 285201318}

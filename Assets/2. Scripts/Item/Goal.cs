@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace StonesGaming
 {
     public class Goal : MonoBehaviour
     {
+        [SerializeField] int nextLevel;
         [SerializeField] AudioClip goalClip;
         bool _isGoal;
 
@@ -22,6 +24,14 @@ namespace StonesGaming
 
                     var audioSource = FindObjectOfType<AudioSource>();
                     audioSource.PlayOneShot(goalClip);
+
+                    int level = PlayerPrefs.GetInt("LevelUnlocked");
+                    if (level < nextLevel - 1)
+                    {
+                        PlayerPrefs.SetInt("LevelUnlocked", nextLevel);
+                    }
+
+                    SceneManager.LoadScene("Home");
                 }
             }
         }

@@ -1,27 +1,19 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 namespace StonesGaming
 {
     public class UIManager : MonoBehaviour
     {
-        public Text starsText;
+        int level;
 
-        private void Update()
+        void Update()
         {
-            UpdateStarsUI(); //TODO Not put inside the Update method later
-        }
+            level = PlayerPrefs.GetInt("LevelUnlocked");
 
-        public void UpdateStarsUI()
-        {
-            int sum = 0;
-
-            for (int i = 1; i < 14; i++)
+            if (level < Pointer.pointIndex)
             {
-                sum += PlayerPrefs.GetInt("Lv" + i.ToString()); //Add the level 1 stars number, level 2 stars number.....
+                PlayerPrefs.SetInt("LevelUnlocked", Pointer.pointIndex);
             }
-
-            starsText.text = sum + "/" + 39;
         }
     }
 }

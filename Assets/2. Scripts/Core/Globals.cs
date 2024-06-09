@@ -35,6 +35,7 @@ namespace StonesGaming
         public static bool HurtFlag = false;
 
         public static int Score = 0;
+        public static string LevelName = "Level 01";
 
         public static int GetFrameCount(float time)
         {

@@ -1,68 +1,61 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 namespace StonesGaming
 {
     public class LevelSelection : MonoBehaviour
     {
-        [SerializeField] private bool unlocked;//Default value is false;
-        public Image unlockImage;
-        public GameObject[] stars;
+        [SerializeField] bool unlocked;
+        [SerializeField] Image unlockImage;
+        [SerializeField] int pointIndex;
+        [SerializeField] string levelName;
 
-        public Sprite starSprite;
-
-        private void Start()
+        void Start()
         {
-            //PlayerPrefs.DeleteAll();
-        }
+            PlayerPrefs.SetInt("LevelUnlocked", 1);
+            int levelUnlocked = PlayerPrefs.GetInt("LevelUnlocked");
 
-        private void Update()
-        {
-            UpdateLevelImage(); //TODO MOve this method later
-            UpdateLevelStatus(); //TODO MOve this method later
-        }
-
-        private void UpdateLevelStatus()
-        {
-            //if the current lv is 5, the pre should be 4
-            int prevLevelNum = int.Parse(gameObject.name) - 1;
-            if (PlayerPrefs.GetInt("Lv" + prevLevelNum.ToString()) > 0)//If the firts level star is bigger than 0, second level can play
+            if (pointIndex < levelUnlocked)
             {
                 unlocked = true;
             }
         }
 
-        private void UpdateLevelImage()
+        void Update()
         {
-            if (!unlocked) //MARKER if unclock is false means This level is locked!
+            UpdateLevelImage();
+            UpdateLevelStatus();
+        }
+
+        void UpdateLevelStatus()
+        {
+            ////if the current lv is 5, the pre should be 4
+            //int prevLevelNum = int.Parse(gameObject.name) - 1;
+
+            //if (PlayerPrefs.GetInt("Lv" + prevLevelNum.ToString()) > 0)//If the firts level star is bigger than 0, second level can play
+            //{
+            //    unlocked = true;
+            //}
+        }
+
+        void UpdateLevelImage()
+        {
+            if (!unlocked)
             {
                 unlockImage.gameObject.SetActive(true);
-                for (int i = 0; i < stars.Length; i++)
-                {
-                    stars[i].gameObject.SetActive(false);
-                }
             }
-            else //if unlock is true means This level can play !
+            else
             {
                 unlockImage.gameObject.SetActive(false);
-                for (int i = 0; i < stars.Length; i++)
-                {
-                    stars[i].gameObject.SetActive(true);
-                }
-
-                for (int i = 0; i < PlayerPrefs.GetInt("Lv" + gameObject.name); i++)
-                {
-                    stars[i].gameObject.GetComponent<Image>().sprite = starSprite;
-                }
             }
         }
 
-        public void PressSelection(string _LevelName)//When we press this level, we can move to the corresponding Scene to play
+        public void PressSelection()
         {
             if (unlocked)
             {
-                SceneManager.LoadScene(_LevelName);
+                Pointer.pointIndex = pointIndex;
+                Globals.LevelName = levelName;
             }
         }
     }
