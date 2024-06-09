@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Play types btn 1_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 460
+        width: 171
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b17cac933a48ad4b9ace29960aa17fe
+      internalID: 1641395595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_1
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 458
+        width: 144
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f7e2f1d974fec42a6917158bf3959c
+      internalID: 1728087829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 378
+        width: 154
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c2261b719ec1644b7b8bf2fbf6c8dc
+      internalID: 1200674483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 376
+        width: 164
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1508f4ccd57e647bf09842322abce5
+      internalID: -468232554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 294
+        width: 158
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1ac53f4c8262f4aa71a5a33c687141
+      internalID: -1037028238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_5
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 293
+        width: 173
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4096a6b7ecaa064a93c43c7bf77a4d7
+      internalID: -365539878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_6
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 205
+        width: 170
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1778701ceb5ab4082a01127cc92755
+      internalID: -319868805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_7
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 209
+        width: 207
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31abaa078426d974fa5bc3decb5ad897
+      internalID: 368368592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 110
+        width: 200
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a08b6d13622674b8a85c88745285bb
+      internalID: 627096937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 112
+        width: 189
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6dbf84d50e111442b8e70fd38e970f3
+      internalID: -334895576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_10
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 22
+        width: 196
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bda518e77b1dd47bfd1742af9e25a1
+      internalID: 2083052663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play types btn 1_11
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 21
+        width: 179
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cae005826b588e4e972197930a59e9f
+      internalID: 1126468166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +410,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Play types btn 1_0: 1641395595
+      Play types btn 1_1: 1728087829
+      Play types btn 1_10: 2083052663
+      Play types btn 1_11: 1126468166
+      Play types btn 1_2: 1200674483
+      Play types btn 1_3: -468232554
+      Play types btn 1_4: -1037028238
+      Play types btn 1_5: -365539878
+      Play types btn 1_6: -319868805
+      Play types btn 1_7: 368368592
+      Play types btn 1_8: 627096937
+      Play types btn 1_9: -334895576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

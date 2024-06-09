@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 338
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6f872136d1d0e41bd0dd6da59c48f2
+      internalID: 2130950810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 338
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55606bb902a78342a20c3341c76326e
+      internalID: 573066091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_2
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 338
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e5c28c03b0a124ab4c0a29ccd411a9
+      internalID: -1381220714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 183
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5215b1bb9a53454d96c702257c0de7a
+      internalID: 315816672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_4
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 183
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f1e001b1a10c684484856663cc35e78
+      internalID: -1736523066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 183
+        width: 140
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15027a84a5a576349a6857c95f12e2a4
+      internalID: 797057919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 29
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5471a888e020e848bbaf41f0b14b2bb
+      internalID: 155068587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_7
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 29
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b71ca6605c38f41a0ad0bfc83cbe78
+      internalID: 1104519494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free_Vector___Dark_set_of_game_stone_button_8
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 29
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86754041b1020524d8c24ed990ce5510
+      internalID: -599079429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +347,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Free_Vector___Dark_set_of_game_stone_button_0: 2130950810
+      Free_Vector___Dark_set_of_game_stone_button_1: 573066091
+      Free_Vector___Dark_set_of_game_stone_button_2: -1381220714
+      Free_Vector___Dark_set_of_game_stone_button_3: 315816672
+      Free_Vector___Dark_set_of_game_stone_button_4: -1736523066
+      Free_Vector___Dark_set_of_game_stone_button_5: 797057919
+      Free_Vector___Dark_set_of_game_stone_button_6: 155068587
+      Free_Vector___Dark_set_of_game_stone_button_7: 1104519494
+      Free_Vector___Dark_set_of_game_stone_button_8: -599079429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

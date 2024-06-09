@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 395
+        width: 92
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee6fc80bdb756848b8ce3eeb8ff7fb3
+      internalID: 1770203751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 395
+        width: 93
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479c5797eaf0f484eaff9c85b50c8f0a
+      internalID: 643404071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_2
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 395
+        width: 93
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a105e46ffa5bd24299ebccf58e8ae8a
+      internalID: -1116403641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_3
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 395
+        width: 92
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebd7c4b456981248b44ef3f32f12161
+      internalID: -1675281427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 286
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 373445b795f529e4f8834c24d424330a
+      internalID: 26244392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_5
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 286
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f2e03898d1bbe747aebca5898c8687d
+      internalID: -1393449632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_6
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 286
+        width: 93
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaeee8d9cbfcc9f4eb5651462d502255
+      internalID: 909104126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_7
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 286
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151a106b1e08d3e40bf3ca662b25922b
+      internalID: 2068245886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 178
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b3cc1500712c84a9d3d8a95af16845
+      internalID: -503377268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 178
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe2ba9113d7953438635c3d4d4f0655
+      internalID: -924583963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_10
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 178
+        width: 92
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf32e2b635beaa4a920226afe5b8313
+      internalID: 1173786046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_11
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 178
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad0e08e1956da741af5815961c15f82
+      internalID: -560971419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 70
+        width: 92
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3044e000c2f1aaf4398425c6652f99b6
+      internalID: -1537159366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_13
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 69
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a36d08e0122dc8459cf6aa28fbc0878
+      internalID: -1974885136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_14
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 70
+        width: 92
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df60e103ba0c27141a1aab70b92a91c7
+      internalID: -2032880908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cartoon_stone_buttons_15
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 70
+        width: 92
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a1be26d2a9ec14cb18ee9d1522632c
+      internalID: -1923955031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +494,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cartoon_stone_buttons_0: 1770203751
+      Cartoon_stone_buttons_1: 643404071
+      Cartoon_stone_buttons_10: 1173786046
+      Cartoon_stone_buttons_11: -560971419
+      Cartoon_stone_buttons_12: -1537159366
+      Cartoon_stone_buttons_13: -1974885136
+      Cartoon_stone_buttons_14: -2032880908
+      Cartoon_stone_buttons_15: -1923955031
+      Cartoon_stone_buttons_2: -1116403641
+      Cartoon_stone_buttons_3: -1675281427
+      Cartoon_stone_buttons_4: 26244392
+      Cartoon_stone_buttons_5: -1393449632
+      Cartoon_stone_buttons_6: 909104126
+      Cartoon_stone_buttons_7: 2068245886
+      Cartoon_stone_buttons_8: -503377268
+      Cartoon_stone_buttons_9: -924583963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
