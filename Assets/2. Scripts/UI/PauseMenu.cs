@@ -27,6 +27,7 @@ namespace StonesGaming
         public void ReplayGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Globals.Score = 0;
             Time.timeScale = 1f;
         }
     }

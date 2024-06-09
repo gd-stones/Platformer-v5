@@ -7,6 +7,8 @@ namespace StonesGaming
     {
         public void PlayGame()
         {
+            Time.timeScale = 1.0f;
+            Globals.Score = 0;
             SceneManager.LoadScene(Globals.LevelName);
         }
     }
