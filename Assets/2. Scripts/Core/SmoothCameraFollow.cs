@@ -13,7 +13,7 @@ namespace StonesGaming
 
         void FixedUpdate()
         {
-            if (target.position.y >= 7.5)
+            if (target.position.y >= 9f)
             {
                 targetPosition = new Vector3(target.position.x + offset.x, target.position.y + offset.y, target.position.z + offset.z);
                 transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref cameraVelocity, 0.2f);
