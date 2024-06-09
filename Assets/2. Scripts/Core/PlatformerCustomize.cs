@@ -36,7 +36,7 @@ namespace StonesGaming
 
         [Header("Health")]
         [SerializeField] int originalHealth = 30;
-        int health;
+        public static int health;
         [SerializeField] int damagePlayer = 10;
 
         bool toggle = false;

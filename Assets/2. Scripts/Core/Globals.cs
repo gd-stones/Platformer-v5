@@ -31,10 +31,10 @@ namespace StonesGaming
         public static bool AttackFlag = false;
 
         public static bool CameraFadeFlag = false;
-
         public static Vector3 Checkpoint = Vector3.zero;
-
         public static bool HurtFlag = false;
+
+        public static int Score = 0;
 
         public static int GetFrameCount(float time)
         {
