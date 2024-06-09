@@ -15,6 +15,12 @@ namespace StonesGaming
 
         [SerializeField] PlatformerCustomize _engineCustomize;
 
+        [Header("Mobile Control")]
+        [SerializeField] bool isControlOnMobile = true;
+        [SerializeField] Joystick _joystick;
+        [SerializeField] JumpAndAttack _jumpAndAttack;
+        [SerializeField] DashCooldown _dashCooldown;
+
         void Start()
         {
             _engine = GetComponent<PlatformerEngine>();
@@ -53,10 +59,13 @@ namespace StonesGaming
 
             // Jump?
             // If you want to jump in ladders, leave it here, otherwise move it down
-            if (UnityEngine.Input.GetButtonDown(StonesGaming.Input.JUMP))
+            if (UnityEngine.Input.GetButtonDown(StonesGaming.Input.JUMP) || _jumpAndAttack.jump)
             {
+                _jumpAndAttack.jump = false;
+
                 _engine.Jump();
                 _engine.DisableRestrictedArea();
+
 
                 if (!_engine.IsInAir())
                 {
@@ -66,28 +75,52 @@ namespace StonesGaming
 
             _engine.jumpingHeld = UnityEngine.Input.GetButton(StonesGaming.Input.JUMP);
 
+            if (isControlOnMobile)
+            {
+                _engine.jumpingHeld = _jumpAndAttack.isInside;
+            }
+
             // XY freedom movement
             if (_engine.engineState == PlatformerEngine.EngineState.FreedomState)
             {
                 _engine.normalizedXMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL);
                 _engine.normalizedYMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL);
 
+                if (isControlOnMobile)
+                {
+                    _engine.normalizedXMovement = _joystick.Horizontal;
+                    _engine.normalizedYMovement = _joystick.Vertical;
+                }
+
                 return; // do nothing more
             }
 
             // X axis movement
-            if (Mathf.Abs(UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL)) > StonesGaming.Globals.INPUT_THRESHOLD)
+            if (Mathf.Abs(UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL)) > StonesGaming.Globals.INPUT_THRESHOLD ||
+                Mathf.Abs(_joystick.Horizontal) > StonesGaming.Globals.INPUT_THRESHOLD)
             {
                 _engine.normalizedXMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL);
+
+                if (isControlOnMobile)
+                {
+                    _engine.normalizedXMovement = _joystick.Horizontal;
+                }
             }
             else
             {
                 _engine.normalizedXMovement = 0;
             }
 
-            if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) != 0)
+            if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) != 0 ||
+                _joystick.Vertical != 0)
             {
-                bool up_pressed = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) > 0;
+                bool up_pressed;
+                up_pressed = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) > 0;
+
+                if (isControlOnMobile)
+                {
+                    up_pressed = _joystick.Vertical > 0;
+                }
 
                 if (_engine.IsOnLadder())
                 {
@@ -113,22 +146,32 @@ namespace StonesGaming
                         // start XY movement
                         _engine.normalizedXMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL);
                         _engine.normalizedYMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL);
+
+                        if (isControlOnMobile)
+                        {
+                            _engine.normalizedXMovement = _joystick.Horizontal;
+                            _engine.normalizedYMovement = _joystick.Vertical;
+                        }
                     }
                 }
             }
-            else if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) < -StonesGaming.Globals.FAST_FALL_THRESHOLD)
+            else if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) < -StonesGaming.Globals.FAST_FALL_THRESHOLD ||
+                    _joystick.Vertical < -StonesGaming.Globals.FAST_FALL_THRESHOLD)
             {
                 _engine.fallFast = false;
             }
 
-            if (UnityEngine.Input.GetKeyDown(KeyCode.E))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.E) || _dashCooldown.dash)
             {
                 _engine.Dash();
+                _dashCooldown.dash = false;
             }
 
             Globals.AttackDirection = !_engine.facingLeft;
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Q))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Q) || _jumpAndAttack.attack)
             {
+                _jumpAndAttack.attack = false;
+
                 Globals.AttackFlag = true;
                 _engineCustomize.Attack();
             }
