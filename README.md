@@ -8,3 +8,11 @@ https://drive.google.com/file/d/1ePPSeGifW8VlEpSRS7CIBsmYZVY6LGQW/view?usp=drive
 
 #### Level selection map
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.png)
+#### Choose character
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/2.png)
+#### In game
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/3.png)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/4.png)
+#### Boss fight
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.png)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6.png)
