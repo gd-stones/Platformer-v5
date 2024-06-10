@@ -7,4 +7,4 @@ https://drive.google.com/file/d/1ePPSeGifW8VlEpSRS7CIBsmYZVY6LGQW/view?usp=drive
 ### Gaming videos
 
 #### Level selection map
-![](https://github.com/gd-stones/Platformer-v5/blod/master/Screenshots/1.jpg)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.png)
