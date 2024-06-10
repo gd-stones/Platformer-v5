@@ -6,14 +6,20 @@ https://drive.google.com/file/d/1aEJ6TvA5UqwAdeb730cXnm6TzZTNZSJJ/view?usp=drive
 
 ### Gaming videos
 https://www.youtube.com/watch?v=aXrMb4OHAzc
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.gif)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/2.gif)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/3.gif)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/4.gif)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.gif)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6.gif)
 
 #### Level selection map
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.png)
 #### Choose character
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/2.png)
 #### In game
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/3.png)
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/4.png)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/3_.png)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/4_.png)
 #### Boss fight
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.png)
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6.png)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5_.png)
+![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6_.png)
