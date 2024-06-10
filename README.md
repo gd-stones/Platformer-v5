@@ -5,4 +5,6 @@ Below is a gaming video and some in-game images:
 https://drive.google.com/file/d/1ePPSeGifW8VlEpSRS7CIBsmYZVY6LGQW/view?usp=drive_link
 
 ### Gaming videos
-//////![](https://github.com/nguyen-duc-viet/Super-Mario-Alike/blob/master/GamePlayImages/1.jpg)
+
+#### Level selection map
+![](https://github.com/gd-stones/Platformer-v5/tree/master/Screenshots/1.jpg)
