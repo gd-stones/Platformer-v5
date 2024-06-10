@@ -1,6 +1,9 @@
 Welcome to "Epic Adventure", an enchanting journey akin to the renowned game "Oddmar"! In this game, you will embody a brave character exploring a vibrant world filled with challenges and mysteries. Get ready to experience these exciting features: 
-Dash, Slip, Climb Ladder, Standing on Ladder, Attack, Wall Sticking, Wall Sliding, Moving Platform. 
-Below is a gaming video and some in-game images:
+Dash, Slip, Climb Ladder, Standing on Ladder, Attack, Wall Sticking, Wall Sliding, Moving Platform.
+### Control
+Use your left index finger to control movement left, right and climb the ladder. 
+Use your right index finger to tap to perform an attack action, swipe up to perform a jumping action.
+
 ### Apk file
 https://drive.google.com/file/d/1aEJ6TvA5UqwAdeb730cXnm6TzZTNZSJJ/view?usp=drive_link
 
@@ -14,6 +17,7 @@ https://www.youtube.com/watch?v=aXrMb4OHAzc
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6.gif)
 
+### Below is a gaming video and some in-game images:
 #### Level selection map
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.png)
 #### Choose character
@@ -24,3 +28,5 @@ https://www.youtube.com/watch?v=aXrMb4OHAzc
 #### Boss fight
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5_.png)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6_.png)
+
+### Refer to the controller from the project: https://github.com/cjddmut/Unity-2D-Platformer-Controller
