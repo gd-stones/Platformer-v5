@@ -2,7 +2,7 @@ Welcome to "Epic Adventure", an enchanting journey akin to the renowned game "Od
 Dash, Slip, Climb Ladder, Standing on Ladder, Attack, Wall Sticking, Wall Sliding, Moving Platform. 
 Below is a gaming video and some in-game images:
 ### Apk file
-https://drive.google.com/file/d/1ePPSeGifW8VlEpSRS7CIBsmYZVY6LGQW/view?usp=drive_link
+drive.google.com/file/d/1aEJ6TvA5UqwAdeb730cXnm6TzZTNZSJJ/view?usp=drive_link
 
 ### Gaming videos
 
