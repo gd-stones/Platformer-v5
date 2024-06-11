@@ -8,7 +8,7 @@ Use your right index finger to tap to perform an attack action, swipe up to perf
 [Download APK for Android](https://github.com/gd-stones/Platformer-v5/releases/tag/apk_file_for_android)
 
 ### Gaming videos
-[Youtube video](https://www.youtube.com/watch?v=aXrMb4OHAzc)
+[Youtube video gameplay](https://www.youtube.com/watch?v=aXrMb4OHAzc)
 
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/2.gif)
