@@ -29,4 +29,4 @@ Use your right index finger to tap to perform an attack action, swipe up to perf
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5_.png)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6_.png)
 
-### [Refer to the controller from the project] (https://github.com/cjddmut/Unity-2D-Platformer-Controller)
+###[Refer to the controller from the project](https://github.com/cjddmut/Unity-2D-Platformer-Controller)
