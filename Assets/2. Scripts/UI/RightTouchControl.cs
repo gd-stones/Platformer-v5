@@ -2,14 +2,15 @@ using UnityEngine;
 
 namespace StonesGaming
 {
-    public class JumpAndAttack : MonoBehaviour
+    public class RightTouchControl : MonoBehaviour
     {
-        [SerializeField] RectTransform trackingArea;
         public bool isInside = false;
-        Vector2 startMousePosition;
-        Vector2 startTouchPosition;
         public bool jump;
         public bool attack;
+        [SerializeField] RectTransform trackingArea;
+        
+        Vector2 startMousePosition;
+        Vector2 startTouchPosition;
 
         private void Update()
         {

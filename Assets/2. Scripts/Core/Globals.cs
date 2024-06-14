@@ -21,6 +21,7 @@ namespace StonesGaming
         public const string PACKAGE_NAME = "StonesGaming";
         public const float MINIMUM_DISTANCE_CHECK = 0.01f;
 
+        // 
         public static bool LadderFlag = false;
         public static bool HighJumpFlag = false;
         public static bool PushFlag = false;

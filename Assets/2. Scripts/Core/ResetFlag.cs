@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace StonesGaming
 {
-    public class ResetFlag : MonoBehaviour
+    public class ResetFlag : MonoBehaviour // attached to the animations
     {
         public void ResetHurtFlag()
         {
