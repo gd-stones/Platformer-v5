@@ -20,28 +20,27 @@ namespace StonesGaming
         bool _isJumping;
         bool _currentFacingLeft;
 
-        bool isSlip;
-        bool isDash;
-        [SerializeField] GameObject dashEffect;
-        [SerializeField] GameObject slipEffect;
+        bool _isSlip;
+        bool _isDash;
+        [SerializeField] GameObject _dashEffect;
+        [SerializeField] GameObject _slipEffect;
 
         void Start()
         {
             _engine = GetComponent<PlatformerEngine>();
             _engineCustomize = GetComponent<PlatformerCustomize>();
+
             _animator = visualChild.GetComponent<Animator>();
             _animator.Play("Idle");
 
             _engine.onJump += SetCurrentFacingLeft;
         }
 
-        
+
 
         void Update()
         {
-            if (_engine.engineState == PlatformerEngine.EngineState.Jumping ||
-                _isJumping && (_engine.engineState == PlatformerEngine.EngineState.Falling ||
-                _engine.engineState == PlatformerEngine.EngineState.FallingFast))
+            if (_engine.IsJumping() || _isJumping && (_engine.IsFalling() || _engine.IsFallingFast()))
             {
                 _isJumping = true;
 
@@ -71,38 +70,36 @@ namespace StonesGaming
                 _isJumping = false;
                 visualChild.transform.rotation = Quaternion.identity;
 
-                if (_engine.engineState == PlatformerEngine.EngineState.Falling ||
-                    _engine.engineState == PlatformerEngine.EngineState.FallingFast)
+                if (_engine.IsFalling() || _engine.IsFallingFast())
                 {
                     _animator.Play("Fall");
                 }
-                else if (_engine.engineState == PlatformerEngine.EngineState.WallSliding ||
-                         _engine.engineState == PlatformerEngine.EngineState.WallSticking)
+                else if (_engine.IsWallSliding() || _engine.IsWallSticking())
                 {
                     _animator.Play("Cling");
                 }
-                else if (_engine.engineState == PlatformerEngine.EngineState.OnCorner)
+                else if (_engine.IsOnCorner())
                 {
                     _animator.Play("On Corner");
                 }
-                else if (_engine.engineState == PlatformerEngine.EngineState.Slipping)
+                else if (_engine.IsSlipping())
                 {
                     _animator.Play("Slip");
 
-                    if (!isSlip)
+                    if (!_isSlip)
                     {
-                        slipEffect.SetActive(true);
-                        isSlip = true;
+                        _slipEffect.SetActive(true);
+                        _isSlip = true;
                     }
                 }
-                else if (_engine.engineState == PlatformerEngine.EngineState.Dashing)
+                else if (_engine.IsDashing())
                 {
                     _animator.Play("Dash");
 
-                    if (!isDash)
+                    if (!_isDash)
                     {
-                        dashEffect.SetActive(true);
-                        isDash = true;
+                        _dashEffect.SetActive(true);
+                        _isDash = true;
                     }
                 }
                 else if (_engine.IsOnLadder() && Globals.LadderFlag)
@@ -182,9 +179,7 @@ namespace StonesGaming
             // Facing
             float valueCheck = _engine.normalizedXMovement;
 
-            if (_engine.engineState == PlatformerEngine.EngineState.Slipping ||
-                _engine.engineState == PlatformerEngine.EngineState.Dashing ||
-                _engine.engineState == PlatformerEngine.EngineState.Jumping)
+            if (_engine.IsSlipping() || _engine.IsDashing() || _engine.IsJumping())
             {
                 valueCheck = _engine.velocity.x;
             }
@@ -198,14 +193,14 @@ namespace StonesGaming
 
             if (!_engine.IsDashing())
             {
-                dashEffect.SetActive(false);
-                isDash = false;
+                _dashEffect.SetActive(false);
+                _isDash = false;
             }
 
             if (!_engine.IsSlipping())
             {
-                slipEffect.SetActive(false);
-                isSlip = false;
+                _slipEffect.SetActive(false);
+                _isSlip = false;
             }
         }
 
@@ -213,7 +208,5 @@ namespace StonesGaming
         {
             _currentFacingLeft = _engine.facingLeft;
         }
-
-
     }
 }

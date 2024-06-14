@@ -5,54 +5,67 @@ namespace StonesGaming
 {
     public class PlatformerCustomize : MonoBehaviour
     {
-        [SerializeField] PlatformerEngine engine;
-        [SerializeField] AudioSource audioSource;
+        // Core
+        [SerializeField] PlatformerEngine _engine;
+        [SerializeField] AudioSource _audioSource;
 
-        [Header("Attack")]
+        // Attack
         public int turnAttack = -1;
-        [SerializeField] GameObject fire1;
-        [SerializeField] GameObject fire2;
-        [SerializeField] GameObject fire3;
-        [SerializeField] GameObject fireRun1;
-        [SerializeField] GameObject fireRun2;
-        [SerializeField] GameObject fireRun3;
-        [SerializeField] Vector3 firePointRight;
-        [SerializeField] Vector3 firePointLeft;
-        [SerializeField] AudioClip attackClip;
+        public bool attackDirection;
+        [SerializeField] GameObject _fire1;
+        [SerializeField] GameObject _fire2;
+        [SerializeField] GameObject _fire3;
+        [SerializeField] GameObject _fireRun1;
+        [SerializeField] GameObject _fireRun2;
+        [SerializeField] GameObject _fireRun3;
+        [SerializeField] Vector3 _firePointRight;
+        [SerializeField] Vector3 _firePointLeft;
+        [SerializeField] AudioClip _attackClip;
 
-        [Header("Push")]
-        [SerializeField] float pushSpeed = 0.5f;
-        float groundSpeed;
+        // Push
+        [SerializeField] float _pushSpeed = 0.5f;
+        float _groundSpeed;
 
-        [Header("Dead")]
-        [SerializeField] GameObject playerHitPrefab;
-        [SerializeField] AudioClip hitClip;
+        // Hurt || hit
+        [SerializeField] GameObject _playerHitPrefab;
+        [SerializeField] AudioClip _hitClip;
 
-        [Header("Jump")]
-        [SerializeField] GameObject jumpVfx1;
-        [SerializeField] GameObject jumpVfx2;
-        [SerializeField] AudioClip jumpClip;
+        // Jump
         public bool isSkipJumpSe;
+        [SerializeField] GameObject _jumpVfx1;
+        [SerializeField] GameObject _jumpVfx2;
+        [SerializeField] AudioClip _jumpClip;
 
-        [Header("Health")]
-        [SerializeField] int originalHealth = 30;
+        // Health
+        [SerializeField] int _originalHealth = 30;
         public static int health;
-        [SerializeField] int damagePlayer = 10;
+        [SerializeField] int _damagePlayer = 10;
 
-        bool toggle = false;
-        Vector3 offset = new Vector3(0.4f, 0, 0);
+        bool _toggle = false;
+        Vector3 _offset = new Vector3(0.4f, 0, 0);
+        Vector3 _playerOriginPosition;
+        
+        public enum EngineCustomizeState
+        {
+            Attack,
+            Hurt,
+            Death,
+            Ladder,
+            HighJump,
+            Teleport,
+            Portal
+        }
 
         void Awake()
         {
-            engine.onJump += OnJump;
-            groundSpeed = engine.groundSpeed;
-            health = originalHealth;
+            _engine.onJump += OnJump;
+            _groundSpeed = _engine.groundSpeed;
+            health = _originalHealth;
         }
 
-        Vector3 playerOriginPosition;
         void Start()
         {
-            playerOriginPosition = transform.position;
+            _playerOriginPosition = transform.position;
         }
 
         public void Dead()
@@ -62,39 +75,39 @@ namespace StonesGaming
             cameraShake.Shake();
 
             Invoke("OnRetry", 2f);
-            Instantiate(playerHitPrefab, transform.position, Quaternion.identity);
+            Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
 
-            audioSource.PlayOneShot(hitClip);
+            _audioSource.PlayOneShot(_hitClip);
         }
 
         public void Attack()
         {
             turnAttack++;
             turnAttack = turnAttack % 3;
-            audioSource.PlayOneShot(attackClip);
+            _audioSource.PlayOneShot(_attackClip);
 
             if (turnAttack == 0)
             {
                 if (Globals.AttackDirection)
                 {
-                    if (engine.velocity.sqrMagnitude > 0)
+                    if (_engine.velocity.sqrMagnitude > 0)
                     {
-                        SimplePool.Spawn(fireRun1, transform.position + firePointRight, transform.rotation);
+                        SimplePool.Spawn(_fireRun1, transform.position + _firePointRight, transform.rotation);
                     }
                     else
                     {
-                        SimplePool.Spawn(fire1, transform.position + firePointRight, transform.rotation);
+                        SimplePool.Spawn(_fire1, transform.position + _firePointRight, transform.rotation);
                     }
                 }
                 else
                 {
-                    if (engine.velocity.sqrMagnitude > 0)
+                    if (_engine.velocity.sqrMagnitude > 0)
                     {
-                        SimplePool.Spawn(fireRun1, transform.position + firePointLeft, transform.rotation);
+                        SimplePool.Spawn(_fireRun1, transform.position + _firePointLeft, transform.rotation);
                     }
                     else
                     {
-                        SimplePool.Spawn(fire1, transform.position + firePointLeft, transform.rotation);
+                        SimplePool.Spawn(_fire1, transform.position + _firePointLeft, transform.rotation);
                     }
                 }
             }
@@ -102,24 +115,24 @@ namespace StonesGaming
             {
                 if (Globals.AttackDirection)
                 {
-                    if (engine.velocity.sqrMagnitude > 0)
+                    if (_engine.velocity.sqrMagnitude > 0)
                     {
-                        SimplePool.Spawn(fireRun2, transform.position + firePointRight, transform.rotation);
+                        SimplePool.Spawn(_fireRun2, transform.position + _firePointRight, transform.rotation);
                     }
                     else
                     {
-                        SimplePool.Spawn(fire2, transform.position + firePointRight, transform.rotation);
+                        SimplePool.Spawn(_fire2, transform.position + _firePointRight, transform.rotation);
                     }
                 }
                 else
                 {
-                    if (engine.velocity.sqrMagnitude > 0)
+                    if (_engine.velocity.sqrMagnitude > 0)
                     {
-                        SimplePool.Spawn(fireRun2, transform.position + firePointLeft, transform.rotation);
+                        SimplePool.Spawn(_fireRun2, transform.position + _firePointLeft, transform.rotation);
                     }
                     else
                     {
-                        SimplePool.Spawn(fire2, transform.position + firePointLeft, transform.rotation);
+                        SimplePool.Spawn(_fire2, transform.position + _firePointLeft, transform.rotation);
                     }
                 }
             }
@@ -127,24 +140,24 @@ namespace StonesGaming
             {
                 if (Globals.AttackDirection)
                 {
-                    if (engine.velocity.sqrMagnitude > 0)
+                    if (_engine.velocity.sqrMagnitude > 0)
                     {
-                        SimplePool.Spawn(fireRun3, transform.position + firePointRight, transform.rotation);
+                        SimplePool.Spawn(_fireRun3, transform.position + _firePointRight, transform.rotation);
                     }
                     else
                     {
-                        SimplePool.Spawn(fire3, transform.position + firePointRight, transform.rotation);
+                        SimplePool.Spawn(_fire3, transform.position + _firePointRight, transform.rotation);
                     }
                 }
                 else
                 {
-                    if (engine.velocity.sqrMagnitude > 0)
+                    if (_engine.velocity.sqrMagnitude > 0)
                     {
-                        SimplePool.Spawn(fireRun3, transform.position + firePointLeft, transform.rotation);
+                        SimplePool.Spawn(_fireRun3, transform.position + _firePointLeft, transform.rotation);
                     }
                     else
                     {
-                        SimplePool.Spawn(fire3, transform.position + firePointLeft, transform.rotation);
+                        SimplePool.Spawn(_fire3, transform.position + _firePointLeft, transform.rotation);
                     }
                 }
             }
@@ -152,7 +165,7 @@ namespace StonesGaming
 
         public void Jump()
         {
-            SimplePool.Spawn(jumpVfx1, transform.position, transform.rotation);
+            SimplePool.Spawn(_jumpVfx1, transform.position, transform.rotation);
         }
 
         public void OnRetry()
@@ -165,7 +178,7 @@ namespace StonesGaming
         {
             if (!isSkipJumpSe)
             {
-                audioSource.PlayOneShot(jumpClip);
+                _audioSource.PlayOneShot(_jumpClip);
             }
             isSkipJumpSe = false;
         }
@@ -179,12 +192,12 @@ namespace StonesGaming
 
         public void TakeDamage()
         {
-            health -= damagePlayer;
+            health -= _damagePlayer;
         }
 
         public void Revival()
         {
-            health = originalHealth;
+            health = _originalHealth;
 
             if (Globals.Checkpoint != Vector3.zero)
             {
@@ -192,7 +205,7 @@ namespace StonesGaming
             }
             else
             {
-                StartCoroutine(Globals.SetCameraFade(transform, playerOriginPosition));
+                StartCoroutine(Globals.SetCameraFade(transform, _playerOriginPosition));
             }
         }
 
@@ -200,15 +213,15 @@ namespace StonesGaming
         {
             if (collision.CompareTag("ToggleMovingPlatform"))
             {
-                toggle = !toggle;
+                _toggle = !_toggle;
 
-                if (toggle)
+                if (_toggle)
                 {
-                    engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+                    _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
                 }
                 else
                 {
-                    engine.movingPlatformLayerMask = 0;
+                    _engine.movingPlatformLayerMask = 0;
                 }
             }
 
@@ -223,29 +236,29 @@ namespace StonesGaming
         {
             if (collision.gameObject.CompareTag("Barrel"))
             {
-                if (Mathf.Abs(engine.velocity.x) > 0)
+                if (Mathf.Abs(_engine.velocity.x) > 0)
                 {
                     Globals.PushFlag = true;
-                    engine.groundSpeed = pushSpeed;
+                    _engine.groundSpeed = _pushSpeed;
                 }
                 else
                 {
-                    engine.groundSpeed = groundSpeed;
+                    _engine.groundSpeed = _groundSpeed;
                     Globals.PushFlag = false;
                 }
             }
             else if (collision.gameObject.CompareTag("Rock"))
             {
-                if (Mathf.Abs(engine.velocity.x) > 0)
+                if (Mathf.Abs(_engine.velocity.x) > 0)
                 {
                     Globals.PushFlag = true;
-                    engine.groundSpeed = 0.0001f;
+                    _engine.groundSpeed = 0.0001f;
                 }
                 else
                 {
-                    engine.groundSpeed = groundSpeed;
+                    _engine.groundSpeed = _groundSpeed;
                     Globals.PushFlag = false;
-                    transform.position -= offset;
+                    transform.position -= _offset;
                 }
             }
         }
@@ -255,7 +268,7 @@ namespace StonesGaming
             if (collision.gameObject.CompareTag("Barrel") || collision.gameObject.CompareTag("Rock"))
             {
                 Globals.PushFlag = false;
-                engine.groundSpeed = groundSpeed;
+                _engine.groundSpeed = _groundSpeed;
             }
         }
     }
