@@ -4,11 +4,11 @@ Dash, Slip, Climb Ladder, Standing on Ladder, Attack, Wall Sticking, Wall Slidin
 Use your left index finger to control movement left, right and climb the ladder. 
 Use your right index finger to tap to perform an attack action, swipe up to perform a jumping action.
 
-### Apk file
-https://drive.google.com/file/d/1aEJ6TvA5UqwAdeb730cXnm6TzZTNZSJJ/view?usp=drive_link
+### Apk file 
+[Download APK for Android](https://github.com/gd-stones/Platformer-v5/releases/tag/apk_file_for_android)
 
 ### Gaming videos
-https://www.youtube.com/watch?v=aXrMb4OHAzc
+[Youtube video gameplay](https://www.youtube.com/watch?v=aXrMb4OHAzc)
 
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/2.gif)
@@ -29,4 +29,4 @@ https://www.youtube.com/watch?v=aXrMb4OHAzc
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5_.png)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6_.png)
 
-### Refer to the controller from the project: https://github.com/cjddmut/Unity-2D-Platformer-Controller
+[Refer to the controller from the project](https://github.com/cjddmut/Unity-2D-Platformer-Controller)
