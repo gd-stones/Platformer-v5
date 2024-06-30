@@ -35,7 +35,7 @@ namespace StonesGaming
             if (_coreFoldout)
             {
                 EditorGUILayout.PropertyField(_properties["_engine"]);
-                EditorGUILayout.PropertyField(_properties["_audioSource"]);
+                //EditorGUILayout.PropertyField(_properties["_audioSource"]);
             }
 
             // Attack Header
@@ -51,7 +51,7 @@ namespace StonesGaming
                 EditorGUILayout.PropertyField(_properties["_fireRun3"]);
                 EditorGUILayout.PropertyField(_properties["_firePointRight"]);
                 EditorGUILayout.PropertyField(_properties["_firePointLeft"]);
-                EditorGUILayout.PropertyField(_properties["_attackClip"]);
+                //EditorGUILayout.PropertyField(_properties["_attackClip"]);
             }
 
             // Push Header
@@ -67,7 +67,7 @@ namespace StonesGaming
             if (_deadFoldout)
             {
                 EditorGUILayout.PropertyField(_properties["_playerHitPrefab"]);
-                EditorGUILayout.PropertyField(_properties["_hitClip"]);
+                //EditorGUILayout.PropertyField(_properties["_hitClip"]);
             }
 
             // Jump Header
@@ -76,7 +76,7 @@ namespace StonesGaming
             {
                 EditorGUILayout.PropertyField(_properties["_jumpVfx1"]);
                 EditorGUILayout.PropertyField(_properties["_jumpVfx2"]);
-                EditorGUILayout.PropertyField(_properties["_jumpClip"]);
+                //EditorGUILayout.PropertyField(_properties["_jumpClip"]);
                 EditorGUILayout.PropertyField(_properties["isSkipJumpSe"]);
             }
 
