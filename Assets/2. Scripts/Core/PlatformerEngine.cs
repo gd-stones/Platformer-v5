@@ -1037,9 +1037,9 @@ namespace StonesGaming
             return ((0x1 << obj.layer) & staticEnvLayerMask) != 0;
         }
 
-        #endregion
+        //#endregion
 
-        #region Private
+        //#region Private
 
         private LayerMask _collisionMask;
 

@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngineInternal;
 
 namespace StonesGaming
 {
@@ -43,10 +41,7 @@ namespace StonesGaming
 
         public void Dash()
         {
-            if (isCooldown)
-            {
-                return;
-            }
+            if (isCooldown) return;
 
             dash = true;
             isCooldown = true;

@@ -7,7 +7,6 @@ namespace StonesGaming
     {
         // Core
         [SerializeField] PlatformerEngine _engine;
-        [SerializeField] AudioSource _audioSource;
 
         // Attack
         public int turnAttack = -1;
@@ -20,7 +19,6 @@ namespace StonesGaming
         [SerializeField] GameObject _fireRun3;
         [SerializeField] Vector3 _firePointRight;
         [SerializeField] Vector3 _firePointLeft;
-        [SerializeField] AudioClip _attackClip;
 
         // Push
         [SerializeField] float _pushSpeed = 0.5f;
@@ -28,13 +26,11 @@ namespace StonesGaming
 
         // Hurt || hit
         [SerializeField] GameObject _playerHitPrefab;
-        [SerializeField] AudioClip _hitClip;
 
         // Jump
         public bool isSkipJumpSe;
         [SerializeField] GameObject _jumpVfx1;
         [SerializeField] GameObject _jumpVfx2;
-        [SerializeField] AudioClip _jumpClip;
 
         // Health
         [SerializeField] int _originalHealth = 30;
@@ -76,15 +72,12 @@ namespace StonesGaming
 
             Invoke("OnRetry", 2f);
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
-
-            _audioSource.PlayOneShot(_hitClip);
         }
 
         public void Attack()
         {
             turnAttack++;
             turnAttack = turnAttack % 3;
-            _audioSource.PlayOneShot(_attackClip);
 
             if (turnAttack == 0)
             {
@@ -176,17 +169,16 @@ namespace StonesGaming
 
         void OnJump()
         {
-            if (!isSkipJumpSe)
-            {
-                _audioSource.PlayOneShot(_jumpClip);
-            }
+            //if (!isSkipJumpSe)
+            //{
+            //    _audioSource.PlayOneShot(_jumpClip);
+            //}
             isSkipJumpSe = false;
         }
 
         public bool IsDead()
         {
-            if (health <= 0)
-                return true;
+            if (health <= 0) return true;
             return false;
         }
 

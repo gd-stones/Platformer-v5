@@ -36,8 +36,6 @@ namespace StonesGaming
             _engine.onJump += SetCurrentFacingLeft;
         }
 
-
-
         void Update()
         {
             if (_engine.IsJumping() || _isJumping && (_engine.IsFalling() || _engine.IsFallingFast()))
