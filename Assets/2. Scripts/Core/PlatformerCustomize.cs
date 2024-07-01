@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.Loading;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace StonesGaming
@@ -74,87 +75,101 @@ namespace StonesGaming
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
         }
 
+        //public void Attack()
+        //{
+        //    turnAttack++;
+        //    turnAttack = turnAttack % 3;
+
+        //    if (turnAttack == 0)
+        //    {
+        //        if (Globals.AttackDirection)
+        //        {
+        //            if (_engine.velocity.sqrMagnitude > 0)
+        //            {
+        //                SimplePool.Spawn(_fireRun1, transform.position + _firePointRight, transform.rotation);
+        //            }
+        //            else
+        //            {
+        //                SimplePool.Spawn(_fire1, transform.position + _firePointRight, transform.rotation);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (_engine.velocity.sqrMagnitude > 0)
+        //            {
+        //                SimplePool.Spawn(_fireRun1, transform.position + _firePointLeft, transform.rotation);
+        //            }
+        //            else
+        //            {
+        //                SimplePool.Spawn(_fire1, transform.position + _firePointLeft, transform.rotation);
+        //            }
+        //        }
+        //    }
+        //    else if (turnAttack == 1)
+        //    {
+        //        if (Globals.AttackDirection)
+        //        {
+        //            if (_engine.velocity.sqrMagnitude > 0)
+        //            {
+        //                SimplePool.Spawn(_fireRun2, transform.position + _firePointRight, transform.rotation);
+        //            }
+        //            else
+        //            {
+        //                SimplePool.Spawn(_fire2, transform.position + _firePointRight, transform.rotation);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (_engine.velocity.sqrMagnitude > 0)
+        //            {
+        //                SimplePool.Spawn(_fireRun2, transform.position + _firePointLeft, transform.rotation);
+        //            }
+        //            else
+        //            {
+        //                SimplePool.Spawn(_fire2, transform.position + _firePointLeft, transform.rotation);
+        //            }
+        //        }
+        //    }
+        //    else if (turnAttack == 2)
+        //    {
+        //        if (Globals.AttackDirection)
+        //        {
+        //            if (_engine.velocity.sqrMagnitude > 0)
+        //            {
+        //                SimplePool.Spawn(_fireRun3, transform.position + _firePointRight, transform.rotation);
+        //            }
+        //            else
+        //            {
+        //                SimplePool.Spawn(_fire3, transform.position + _firePointRight, transform.rotation);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (_engine.velocity.sqrMagnitude > 0)
+        //            {
+        //                SimplePool.Spawn(_fireRun3, transform.position + _firePointLeft, transform.rotation);
+        //            }
+        //            else
+        //            {
+        //                SimplePool.Spawn(_fire3, transform.position + _firePointLeft, transform.rotation);
+        //            }
+        //        }
+        //    }
+        //}
         public void Attack()
         {
             turnAttack++;
             turnAttack = turnAttack % 3;
 
-            if (turnAttack == 0)
-            {
-                if (Globals.AttackDirection)
-                {
-                    if (_engine.velocity.sqrMagnitude > 0)
-                    {
-                        SimplePool.Spawn(_fireRun1, transform.position + _firePointRight, transform.rotation);
-                    }
-                    else
-                    {
-                        SimplePool.Spawn(_fire1, transform.position + _firePointRight, transform.rotation);
-                    }
-                }
-                else
-                {
-                    if (_engine.velocity.sqrMagnitude > 0)
-                    {
-                        SimplePool.Spawn(_fireRun1, transform.position + _firePointLeft, transform.rotation);
-                    }
-                    else
-                    {
-                        SimplePool.Spawn(_fire1, transform.position + _firePointLeft, transform.rotation);
-                    }
-                }
-            }
-            else if (turnAttack == 1)
-            {
-                if (Globals.AttackDirection)
-                {
-                    if (_engine.velocity.sqrMagnitude > 0)
-                    {
-                        SimplePool.Spawn(_fireRun2, transform.position + _firePointRight, transform.rotation);
-                    }
-                    else
-                    {
-                        SimplePool.Spawn(_fire2, transform.position + _firePointRight, transform.rotation);
-                    }
-                }
-                else
-                {
-                    if (_engine.velocity.sqrMagnitude > 0)
-                    {
-                        SimplePool.Spawn(_fireRun2, transform.position + _firePointLeft, transform.rotation);
-                    }
-                    else
-                    {
-                        SimplePool.Spawn(_fire2, transform.position + _firePointLeft, transform.rotation);
-                    }
-                }
-            }
-            else if (turnAttack == 2)
-            {
-                if (Globals.AttackDirection)
-                {
-                    if (_engine.velocity.sqrMagnitude > 0)
-                    {
-                        SimplePool.Spawn(_fireRun3, transform.position + _firePointRight, transform.rotation);
-                    }
-                    else
-                    {
-                        SimplePool.Spawn(_fire3, transform.position + _firePointRight, transform.rotation);
-                    }
-                }
-                else
-                {
-                    if (_engine.velocity.sqrMagnitude > 0)
-                    {
-                        SimplePool.Spawn(_fireRun3, transform.position + _firePointLeft, transform.rotation);
-                    }
-                    else
-                    {
-                        SimplePool.Spawn(_fire3, transform.position + _firePointLeft, transform.rotation);
-                    }
-                }
-            }
+            GameObject[] fireRun = { _fireRun1, _fireRun2, _fireRun3 };
+            GameObject[] fire = { _fire1, _fire2, _fire3 };
+
+            Vector3 firePoint = Globals.AttackDirection ? _firePointRight : _firePointLeft;
+            GameObject selectedFire = (_engine.velocity.sqrMagnitude > 0) ? fireRun[turnAttack] : fire[turnAttack];
+
+            SimplePool.Spawn(selectedFire, transform.position + firePoint, transform.rotation);
         }
+
 
         public void Jump()
         {
@@ -203,18 +218,24 @@ namespace StonesGaming
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("ToggleMovingPlatform"))
-            {
-                _toggle = !_toggle;
+            //if (collision.CompareTag("ToggleMovingPlatform"))
+            //{
+            //    _toggle = !_toggle;
 
-                if (_toggle)
-                {
-                    _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
-                }
-                else
-                {
-                    _engine.movingPlatformLayerMask = 0;
-                }
+            //    if (_toggle)
+            //    {
+            //        _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+            //    }
+            //    else
+            //    {
+            //        _engine.movingPlatformLayerMask = 0;
+            //    }
+            //}
+
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Moving Platforms"))
+            {
+                _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+                Debug.Log("dddd");
             }
 
             if (collision.CompareTag("FireOfBoss"))
@@ -224,33 +245,69 @@ namespace StonesGaming
             }
         }
 
+        //void OnCollisionStay2D(Collision2D collision)
+        //{
+        //    if (collision.gameObject.CompareTag("Barrel"))
+        //    {
+        //        if (Mathf.Abs(_engine.velocity.x) > 0)
+        //        {
+        //            Globals.PushFlag = true;
+        //            _engine.groundSpeed = _pushSpeed;
+        //        }
+        //        else
+        //        {
+        //            _engine.groundSpeed = _groundSpeed;
+        //            Globals.PushFlag = false;
+        //        }
+        //    }
+        //    else if (collision.gameObject.CompareTag("Rock"))
+        //    {
+        //        if (Mathf.Abs(_engine.velocity.x) > 0)
+        //        {
+        //            Globals.PushFlag = true;
+        //            _engine.groundSpeed = 0.0001f;
+        //        }
+        //        else
+        //        {
+        //            _engine.groundSpeed = _groundSpeed;
+        //            Globals.PushFlag = false;
+        //            transform.position -= _offset;
+        //        }
+        //    }
+        //}
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Moving Platforms"))
+            {
+                _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
+                Debug.Log("dddd");
+            }
+            else
+            {
+                _engine.movingPlatformLayerMask = 0;
+            }
+        }
+
         void OnCollisionStay2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Barrel"))
+            bool isPushing = Mathf.Abs(_engine.velocity.x) > 0;
+            string tag = collision.gameObject.tag;
+
+            if (tag == "Barrel" || tag == "Rock")
             {
-                if (Mathf.Abs(_engine.velocity.x) > 0)
+                Globals.PushFlag = isPushing;
+                if (isPushing)
                 {
-                    Globals.PushFlag = true;
-                    _engine.groundSpeed = _pushSpeed;
+                    _engine.groundSpeed = tag == "Barrel" ? _pushSpeed : 0.0001f;
                 }
                 else
                 {
                     _engine.groundSpeed = _groundSpeed;
-                    Globals.PushFlag = false;
-                }
-            }
-            else if (collision.gameObject.CompareTag("Rock"))
-            {
-                if (Mathf.Abs(_engine.velocity.x) > 0)
-                {
-                    Globals.PushFlag = true;
-                    _engine.groundSpeed = 0.0001f;
-                }
-                else
-                {
-                    _engine.groundSpeed = _groundSpeed;
-                    Globals.PushFlag = false;
-                    transform.position -= _offset;
+                    if (tag == "Rock")
+                    {
+                        transform.position -= _offset;
+                    }
                 }
             }
         }

@@ -42,7 +42,7 @@ namespace StonesGaming
             {
                 _isJumping = true;
 
-                if (Globals.HighJumpFlag)
+                if (_engine.IsHighJumping())
                 {
                     _animator.Play("High Jump");
                 }

@@ -198,8 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpRotationSpeed: 0
   visualChild: {fileID: 4491939788170506665}
-  _dashEffect: {fileID: 0}
-  _slipEffect: {fileID: 0}
+  _dashEffect: {fileID: 7009935905580581226}
+  _slipEffect: {fileID: 6731520478804408831}
 --- !u!114 &8129100661173983012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,26 +212,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d7cc8c457e2ff489f9bfa2cc050f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _engine: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _engine: {fileID: 7313433882246081374}
   turnAttack: -1
   attackDirection: 0
-  _fire1: {fileID: 0}
-  _fire2: {fileID: 0}
-  _fire3: {fileID: 0}
-  _fireRun1: {fileID: 0}
-  _fireRun2: {fileID: 0}
-  _fireRun3: {fileID: 0}
-  _firePointRight: {x: 0, y: 0, z: 0}
-  _firePointLeft: {x: 0, y: 0, z: 0}
-  _attackClip: {fileID: 0}
+  _fire1: {fileID: 8029949848555817942, guid: 9a17f1d0a0ceb3049a9ad4872b37fa06, type: 3}
+  _fire2: {fileID: 4193902741256691330, guid: bf812f04b037be04d90a0dcc6833a1de, type: 3}
+  _fire3: {fileID: 275528029521917798, guid: daaf7a1f86b3bf2439e63e08b9383675, type: 3}
+  _fireRun1: {fileID: 8029949848555817942, guid: d070d9691e84409428dc6f4fa209aaaf,
+    type: 3}
+  _fireRun2: {fileID: 4193902741256691330, guid: 4ffa0e5cb4873ba4d859fc528bbce629,
+    type: 3}
+  _fireRun3: {fileID: 275528029521917798, guid: 5019cc64d1a96a044b6febf20729dd75,
+    type: 3}
+  _firePointRight: {x: 0.75, y: 0.25, z: 0}
+  _firePointLeft: {x: -0.75, y: 0.25, z: 0}
   _pushSpeed: 0.5
-  _playerHitPrefab: {fileID: 0}
-  _hitClip: {fileID: 0}
+  _playerHitPrefab: {fileID: 2011833101734743391, guid: bb12d88d9f022f846803fef842fc12f8,
+    type: 3}
   isSkipJumpSe: 0
-  _jumpVfx1: {fileID: 0}
-  _jumpVfx2: {fileID: 0}
-  _jumpClip: {fileID: 0}
+  _jumpVfx1: {fileID: 3598980018088323424, guid: 899c7481a67268a41a8c3155e8ce3a4d,
+    type: 3}
+  _jumpVfx2: {fileID: 4362900140151480817, guid: 1ee25802ffd2d2e429683fedf7c0818b,
+    type: 3}
   _originalHealth: 30
   _damagePlayer: 10
 --- !u!114 &378353338352869517
@@ -247,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _engineCustomize: {fileID: 8129100661173983012}
-  isControlOnMobile: 1
+  isControlOnMobile: 0
   _leftJoystick: {fileID: 0}
   _rightTouchControl: {fileID: 0}
   _dashCooldown: {fileID: 0}
@@ -498,7 +500,7 @@ GameObject:
   - component: {fileID: 4644458957217953133}
   - component: {fileID: 7666745051332998195}
   m_Layer: 0
-  m_Name: Slide Effect
+  m_Name: Slip Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
