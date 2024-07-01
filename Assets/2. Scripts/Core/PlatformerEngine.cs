@@ -6,7 +6,7 @@ namespace StonesGaming
     [RequireComponent(typeof(BoxCollider2D))]
     public class PlatformerEngine : MonoBehaviour
     {
-        #region Public
+        //#region Public
 
         /// <summary>
         /// The static environment check mask. This should only be environment that doesn't move.
@@ -931,6 +931,11 @@ namespace StonesGaming
             return engineState == EngineState.Jumping;
         }
 
+        public bool IsHighJumping() // customize
+        {
+            return _jumping.highJumpFlag;
+        }
+
         ///<summary>
         /// is the _engine Jumping? include walljumps and airjumps.
         ///</summary>
@@ -1111,6 +1116,7 @@ namespace StonesGaming
 
             public float jumpGraceFrames;
             public bool jumpTypeChanged;
+            public bool highJumpFlag; // customize
 
             public JumpType lastValidJump
             {
@@ -1232,7 +1238,7 @@ namespace StonesGaming
             SetSlopeDegreeAllowed();
 
             ladderZone = LadderZone.Bottom;
-            _collisionMask = staticEnvLayerMask | movingPlatformLayerMask;
+            _collisionMask = staticEnvLayerMask | movingPlatformLayerMask; // 0x0001001
         }
 
         private void OnEnable()
@@ -1369,8 +1375,7 @@ namespace StonesGaming
 
                     if (fallFast)
                     {
-                        float increaseBy = -slopeDir.y * fastFallGravityMultiplier *
-                            Mathf.Abs(Physics2D.gravity.y) * GetDeltaTime();
+                        float increaseBy = -slopeDir.y * fastFallGravityMultiplier * Mathf.Abs(Physics2D.gravity.y) * GetDeltaTime();
 
                         _velocity += slopeDir * increaseBy;
 
@@ -1381,8 +1386,7 @@ namespace StonesGaming
                     }
                     else
                     {
-                        float increaseBy = -slopeDir.y * gravityMultiplier *
-                            Mathf.Abs(Physics2D.gravity.y) * GetDeltaTime();
+                        float increaseBy = -slopeDir.y * gravityMultiplier * Mathf.Abs(Physics2D.gravity.y) * GetDeltaTime();
 
                         _velocity += slopeDir * increaseBy;
 
@@ -1563,6 +1567,7 @@ namespace StonesGaming
             if (!IsInAir())
             {
                 _jumping.numAirJumps = 0;
+                _jumping.highJumpFlag = false; // customize
             }
 
             if (_velocity.y > 0 && HasFlag(CollidedSurface.Ceiling))
@@ -2067,7 +2072,7 @@ namespace StonesGaming
                         onWallJump(Vector2.right);
                     }
                 }
-                else if (enableWallJumps && 
+                else if (enableWallJumps &&
                     ((_jumping.lastValidJump == JumpState.JumpType.RightWall && _jumping.jumpGraceFrames >= 0) ||
                     (_isValidWallInteraction && PressingIntoRightWall())))
                 {
@@ -2087,7 +2092,7 @@ namespace StonesGaming
                 {
                     _velocity.y = CalculateSpeedNeeded(_jumping.height);
                     _jumping.numAirJumps++;
-                    Globals.HighJumpFlag = true;
+                    _jumping.highJumpFlag = true; // customize
 
                     if (onAirJump != null)
                     {
@@ -2384,7 +2389,7 @@ namespace StonesGaming
 
                         if (speed > 0 && normalizedXMovement > 0 && speed > normalizedXMovement * maxSpeed ||
                             speed < 0 && normalizedXMovement < 0 && speed < normalizedXMovement * maxSpeed ||
-                            speed < 0 && normalizedXMovement > 0 || 
+                            speed < 0 && normalizedXMovement > 0 ||
                             speed > 0 && normalizedXMovement < 0)
                         {
                             float deceleration = (maxSpeed * maxSpeed) / (2 * groundStopDistance);
@@ -3155,10 +3160,16 @@ namespace StonesGaming
                             surfaces &= ~(CollidedSurface.SlopeLeft | CollidedSurface.SlopeRight);
                             surfaces |= CollidedSurface.Ground;
                             _collidedNormals[DIRECTION_DOWN] = Vector2.up;
+
+                            Debug.Log("1111111111");
+                            //movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms"); //C
                         }
                         else if (leftDot >= _dotAllowedForSlopes && rightDot >= _dotAllowedForSlopes)
                         {
                             onSlope = true;
+                            //movingPlatformLayerMask = 0; //C
+
+                            Debug.Log("22222");
 
                             if (facingLeft)
                             {
@@ -3173,12 +3184,20 @@ namespace StonesGaming
                         }
                         else if (leftDot >= _dotAllowedForSlopes)
                         {
+                            Debug.Log("33333");
+                            //movingPlatformLayerMask = 0; //C
+
+
                             onSlope = true;
                             slopeNormal = leftNormal;
                             surfaces &= ~CollidedSurface.SlopeRight;
                         }
                         else
                         {
+                            Debug.Log("4444");
+                            //movingPlatformLayerMask = 0; //C
+
+
                             onSlope = true;
                             slopeNormal = rightNormal;
                             surfaces &= ~CollidedSurface.SlopeLeft;
@@ -3380,6 +3399,6 @@ namespace StonesGaming
             }
         }
 
-        #endregion
+        //#endregion
     }
 }
