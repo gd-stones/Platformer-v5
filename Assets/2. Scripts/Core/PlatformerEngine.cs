@@ -805,7 +805,7 @@ namespace StonesGaming
         }
 
         //
-        // Ladder specific
+        // OnLadder specific
         //
 
         public void LadderAreaEnter(Bounds area, float topHeight = 0, float bottomHeight = 0)

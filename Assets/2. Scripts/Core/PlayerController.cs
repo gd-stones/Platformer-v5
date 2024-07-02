@@ -127,12 +127,12 @@ namespace StonesGaming
                         (!up_pressed && _engine.ladderZone == PlatformerEngine.LadderZone.Bottom))
                     {
                         // do nothing!
-                        Globals.LadderFlag = false;
+                        _engineCustomize.ResetStateEngineCustomize();
                     }
                     // if player hit up, while on the top do not enter in freeMode or a nasty short jump occurs
                     else
                     {
-                        Globals.LadderFlag = true;
+                        _engineCustomize.SetStateEngineCustomize(PlatformerCustomize.EngineCState.OnLadder);
 
                         _engine.FreedomStateEnter(); // enter freedomState to disable gravity
                         _engine.EnableRestrictedArea();  // movements is retricted to a specific sprite bounds
@@ -171,7 +171,6 @@ namespace StonesGaming
             {
                 _rightTouchControl.attack = false;
 
-                Globals.AttackFlag = true;
                 _engineCustomize.Attack();
             }
         }

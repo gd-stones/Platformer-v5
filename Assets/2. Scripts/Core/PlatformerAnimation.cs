@@ -24,6 +24,7 @@ namespace StonesGaming
         bool _isDash;
         [SerializeField] GameObject _dashEffect;
         [SerializeField] GameObject _slipEffect;
+        float squareOfVelocity;
 
         void Start()
         {
@@ -67,8 +68,21 @@ namespace StonesGaming
             {
                 _isJumping = false;
                 visualChild.transform.rotation = Quaternion.identity;
+                squareOfVelocity = _engine.velocity.sqrMagnitude;
 
-                if (_engine.IsFalling() || _engine.IsFallingFast())
+                if (_engineCustomize.IsHurt())
+                {
+                    if (_engineCustomize.IsDead())
+                    {
+                        _animator.Play("Death");
+                        _engineCustomize.Revival();
+                    }
+                    else
+                    {
+                        _animator.Play("Hurt");
+                    }
+                }
+                else if (_engine.IsFalling() || _engine.IsFallingFast())
                 {
                     _animator.Play("Fall");
                 }
@@ -83,24 +97,26 @@ namespace StonesGaming
                 else if (_engine.IsSlipping())
                 {
                     _animator.Play("Slip");
+                    _slipEffect.SetActive(true);
 
-                    if (!_isSlip)
-                    {
-                        _slipEffect.SetActive(true);
-                        _isSlip = true;
-                    }
+                    //if (!_isSlip)
+                    //{
+                    //    _slipEffect.SetActive(true);
+                    //    _isSlip = true;
+                    //}
                 }
                 else if (_engine.IsDashing())
                 {
                     _animator.Play("Dash");
+                    _dashEffect.SetActive(true);
 
-                    if (!_isDash)
-                    {
-                        _dashEffect.SetActive(true);
-                        _isDash = true;
-                    }
+                    //if (!_isDash)
+                    //{
+                    //    _dashEffect.SetActive(true);
+                    //    _isDash = true;
+                    //}
                 }
-                else if (_engine.IsOnLadder() && Globals.LadderFlag)
+                else if (_engine.IsOnLadder() && _engineCustomize.IsOnLadder())
                 {
                     if (UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) == 0)
                     {
@@ -111,13 +127,13 @@ namespace StonesGaming
                         _animator.Play("Climb");
                     }
                 }
-                else if (Globals.PushFlag)
+                else if (_engineCustomize.IsPush())
                 {
                     _animator.Play("Push");
                 }
-                else if (Globals.TeleportFlag)
+                else if (_engineCustomize.IsTeleport())
                 {
-                    if (Globals.PortalIn)
+                    if (_engineCustomize.portalIn)
                     {
                         _animator.Play("Portal In");
                     }
@@ -126,17 +142,17 @@ namespace StonesGaming
                         _animator.Play("Portal Out");
                     }
                 }
-                else if (Globals.AttackFlag)
+                else if (_engineCustomize.IsAttack())
                 {
                     if (_engineCustomize.turnAttack == 2)
                     {
                         _animator.Play("Attack Extra");
                     }
-                    else if (_engine.velocity.sqrMagnitude >= 4f)
+                    else if (squareOfVelocity >= 4f)
                     {
                         _animator.Play("Run Attack");
                     }
-                    else if (_engine.velocity.sqrMagnitude >= 0.1f * 0.1f)
+                    else if (squareOfVelocity >= 0.01f)
                     {
                         _animator.Play("Walk Attack");
                     }
@@ -145,25 +161,13 @@ namespace StonesGaming
                         _animator.Play("Attack");
                     }
                 }
-                else if (Globals.HurtFlag)
-                {
-                    if (!_engineCustomize.IsDead())
-                    {
-                        _animator.Play("Hurt");
-                    }
-                    else
-                    {
-                        _animator.Play("Death");
-                        _engineCustomize.Revival();
-                    }
-                }
                 else
                 {
-                    if (_engine.velocity.sqrMagnitude >= 4f)
+                    if (squareOfVelocity >= 4f)
                     {
                         _animator.Play("Run");
                     }
-                    else if (_engine.velocity.sqrMagnitude >= 0.1f * 0.1f)
+                    else if (squareOfVelocity >= 0.01f)
                     {
                         _animator.Play("Walk");
                     }
