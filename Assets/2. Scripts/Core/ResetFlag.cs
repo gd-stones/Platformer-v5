@@ -6,28 +6,28 @@ namespace StonesGaming
     {
         public void ResetHurtFlag()
         {
-            Globals.HurtFlag = false;
+            //Globals.HurtFlag = false;
         }
 
         public void ResetAttackFlag()
         {
-            Globals.AttackFlag = false;
+            //Globals.AttackFlag = false;
         }
 
         public void ResetLadderFlag()
         {
-            Globals.LadderFlag = false;
+            //Globals.LadderFlag = false;
         }
 
         public void ResetLadderFlagAndHighJumpFlag()
         {
-            Globals.LadderFlag = false;
-            Globals.HighJumpFlag = false;
+            //Globals.LadderFlag = false;
+            //Globals.HighJumpFlag = false;
         }
 
         public void ResetTeleportFlag()
         {
-            Globals.TeleportFlag = false;
+            //Globals.TeleportFlag = false;
         }
     }
 }

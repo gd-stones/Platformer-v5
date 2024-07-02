@@ -41,12 +41,12 @@ namespace StonesGaming
 
         IEnumerator PortalIn(GameObject player)
         {
-            Globals.TeleportFlag = true;
-            Globals.PortalIn = true;
+            var engineCustomize = player.GetComponent<PlatformerCustomize>();
+            engineCustomize.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Teleport);
 
             yield return new WaitForSeconds(0.5f);
             player.transform.position = destination.position;
-            Globals.PortalIn = false;
+            engineCustomize.ResetStateEngineCustomize();
         }
     }
 }

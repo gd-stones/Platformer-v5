@@ -15,8 +15,10 @@ namespace StonesGaming
         {
             _engine = GetComponent<PlatformerEngine>();
             _engine.normalizedXMovement = -1;
+
             _renderer = GetComponent<SpriteRenderer>();
             _renderer.flipX = false;
+            
             _collider = GetComponent<BoxCollider2D>();
         }
 
@@ -58,7 +60,7 @@ namespace StonesGaming
                 else
                 {
                     player.TakeDamage();
-                    Globals.HurtFlag = true;
+                    player.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Hurt);
                 }
             }
         }

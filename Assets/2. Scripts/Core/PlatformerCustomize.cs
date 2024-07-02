@@ -1,6 +1,6 @@
-﻿using Unity.Loading;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using static StonesGaming.PlatformerEngine;
 
 namespace StonesGaming
 {
@@ -35,27 +35,72 @@ namespace StonesGaming
 
         // Health
         [SerializeField] int _originalHealth = 30;
-        public static int health;
+        private int _health;
         [SerializeField] int _damagePlayer = 10;
 
         Vector3 _offset = new Vector3(0.4f, 0, 0);
         Vector3 _playerOriginPosition;
-        
-        public enum EngineCustomizeState
+
+        public enum EngineCState
         {
+            None,
             Attack,
             Hurt,
-            Death,
-            Ladder,
+            OnLadder,
+            Push,
             Teleport,
-            Portal
+        }
+        public EngineCState engineCState { get; private set; }
+        public bool portalIn;
+
+        public void SetStateEngineCustomize(EngineCState state)
+        {
+            engineCState = state;
+
+            if (IsTeleport()) portalIn = true;
+        }
+
+        public void ResetStateEngineCustomize()
+        {
+            engineCState = EngineCState.None;
+            portalIn = false;
+        }
+
+        public bool IsPush()
+        {
+            return engineCState == EngineCState.Push;
+        }
+
+        public bool IsAttack()
+        {
+            return engineCState == EngineCState.Attack;
+        }
+
+        public bool IsHurt()
+        {
+            return engineCState == EngineCState.Hurt;
+        }
+
+        public bool IsOnLadder()
+        {
+            return engineCState == EngineCState.OnLadder;
+        }
+
+        public bool IsTeleport()
+        {
+            return engineCState == EngineCState.Teleport;
+        }
+
+        public int CalculateLives()
+        {
+            return _health / _damagePlayer;
         }
 
         void Awake()
         {
             _engine.onJump += OnJump;
             _groundSpeed = _engine.groundSpeed;
-            health = _originalHealth;
+            _health = _originalHealth;
         }
 
         void Start()
@@ -73,89 +118,10 @@ namespace StonesGaming
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
         }
 
-        //public void Attack()
-        //{
-        //    turnAttack++;
-        //    turnAttack = turnAttack % 3;
-
-        //    if (turnAttack == 0)
-        //    {
-        //        if (Globals.AttackDirection)
-        //        {
-        //            if (_engine.velocity.sqrMagnitude > 0)
-        //            {
-        //                SimplePool.Spawn(_fireRun1, transform.position + _firePointRight, transform.rotation);
-        //            }
-        //            else
-        //            {
-        //                SimplePool.Spawn(_fire1, transform.position + _firePointRight, transform.rotation);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (_engine.velocity.sqrMagnitude > 0)
-        //            {
-        //                SimplePool.Spawn(_fireRun1, transform.position + _firePointLeft, transform.rotation);
-        //            }
-        //            else
-        //            {
-        //                SimplePool.Spawn(_fire1, transform.position + _firePointLeft, transform.rotation);
-        //            }
-        //        }
-        //    }
-        //    else if (turnAttack == 1)
-        //    {
-        //        if (Globals.AttackDirection)
-        //        {
-        //            if (_engine.velocity.sqrMagnitude > 0)
-        //            {
-        //                SimplePool.Spawn(_fireRun2, transform.position + _firePointRight, transform.rotation);
-        //            }
-        //            else
-        //            {
-        //                SimplePool.Spawn(_fire2, transform.position + _firePointRight, transform.rotation);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (_engine.velocity.sqrMagnitude > 0)
-        //            {
-        //                SimplePool.Spawn(_fireRun2, transform.position + _firePointLeft, transform.rotation);
-        //            }
-        //            else
-        //            {
-        //                SimplePool.Spawn(_fire2, transform.position + _firePointLeft, transform.rotation);
-        //            }
-        //        }
-        //    }
-        //    else if (turnAttack == 2)
-        //    {
-        //        if (Globals.AttackDirection)
-        //        {
-        //            if (_engine.velocity.sqrMagnitude > 0)
-        //            {
-        //                SimplePool.Spawn(_fireRun3, transform.position + _firePointRight, transform.rotation);
-        //            }
-        //            else
-        //            {
-        //                SimplePool.Spawn(_fire3, transform.position + _firePointRight, transform.rotation);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (_engine.velocity.sqrMagnitude > 0)
-        //            {
-        //                SimplePool.Spawn(_fireRun3, transform.position + _firePointLeft, transform.rotation);
-        //            }
-        //            else
-        //            {
-        //                SimplePool.Spawn(_fire3, transform.position + _firePointLeft, transform.rotation);
-        //            }
-        //        }
-        //    }
-        //}
         public void Attack()
         {
+            SetStateEngineCustomize(EngineCState.Attack);
+
             turnAttack++;
             turnAttack = turnAttack % 3;
 
@@ -168,7 +134,6 @@ namespace StonesGaming
             SimplePool.Spawn(selectedFire, transform.position + firePoint, transform.rotation);
         }
 
-
         public void Jump()
         {
             SimplePool.Spawn(_jumpVfx1, transform.position, transform.rotation);
@@ -176,7 +141,8 @@ namespace StonesGaming
 
         public void OnRetry()
         {
-            Globals.HurtFlag = false;
+            //Globals.HurtFlag = false;
+            ResetStateEngineCustomize();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
@@ -191,18 +157,18 @@ namespace StonesGaming
 
         public bool IsDead()
         {
-            if (health <= 0) return true;
+            if (_health <= 0) return true;
             return false;
         }
 
         public void TakeDamage()
         {
-            health -= _damagePlayer;
+            _health -= _damagePlayer;
         }
 
         public void Revival()
         {
-            health = _originalHealth;
+            _health = _originalHealth;
 
             if (Globals.Checkpoint != Vector3.zero)
             {
@@ -224,40 +190,10 @@ namespace StonesGaming
             if (collision.CompareTag("FireOfBoss"))
             {
                 TakeDamage();
-                Globals.HurtFlag = true;
+                //Globals.HurtFlag = true;
+                SetStateEngineCustomize(EngineCState.Hurt);
             }
         }
-
-        //void OnCollisionStay2D(Collision2D collision)
-        //{
-        //    if (collision.gameObject.CompareTag("Barrel"))
-        //    {
-        //        if (Mathf.Abs(_engine.velocity.x) > 0)
-        //        {
-        //            Globals.PushFlag = true;
-        //            _engine.groundSpeed = _pushSpeed;
-        //        }
-        //        else
-        //        {
-        //            _engine.groundSpeed = _groundSpeed;
-        //            Globals.PushFlag = false;
-        //        }
-        //    }
-        //    else if (collision.gameObject.CompareTag("Rock"))
-        //    {
-        //        if (Mathf.Abs(_engine.velocity.x) > 0)
-        //        {
-        //            Globals.PushFlag = true;
-        //            _engine.groundSpeed = 0.0001f;
-        //        }
-        //        else
-        //        {
-        //            _engine.groundSpeed = _groundSpeed;
-        //            Globals.PushFlag = false;
-        //            transform.position -= _offset;
-        //        }
-        //    }
-        //}
 
         void OnCollisionStay2D(Collision2D collision)
         {
@@ -266,9 +202,10 @@ namespace StonesGaming
 
             if (tag == "Barrel" || tag == "Rock")
             {
-                Globals.PushFlag = isPushing;
+                //Globals.PushFlag = isPushing;
                 if (isPushing)
                 {
+                    SetStateEngineCustomize(EngineCState.Push);
                     _engine.groundSpeed = tag == "Barrel" ? _pushSpeed : 0.0001f;
                 }
                 else
@@ -286,7 +223,8 @@ namespace StonesGaming
         {
             if (collision.gameObject.CompareTag("Barrel") || collision.gameObject.CompareTag("Rock"))
             {
-                Globals.PushFlag = false;
+                //Globals.PushFlag = false;
+                ResetStateEngineCustomize();
                 _engine.groundSpeed = _groundSpeed;
             }
         }
