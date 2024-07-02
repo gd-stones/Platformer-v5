@@ -1238,7 +1238,7 @@ namespace StonesGaming
             SetSlopeDegreeAllowed();
 
             ladderZone = LadderZone.Bottom;
-            _collisionMask = staticEnvLayerMask | movingPlatformLayerMask; // 0x0001001
+            _collisionMask = staticEnvLayerMask | movingPlatformLayerMask;
         }
 
         private void OnEnable()
@@ -2998,12 +2998,17 @@ namespace StonesGaming
         {
             CollidedSurface surfaces = CollidedSurface.None;
             RaycastHit2D closestHit = GetClosestHit(_collider2D.bounds.center, Vector3.down, distance);
-
+            
             _collidersUpAgainst[DIRECTION_DOWN] = closestHit.collider;
             _collidedNormals[DIRECTION_DOWN] = closestHit.normal;
 
             if (closestHit.collider != null)
             {
+                if (!IsMovingPlatform(closestHit.transform.gameObject)) // customize
+                {
+                    movingPlatformLayerMask = 0;
+                }
+
                 surfaces |= CollidedSurface.Ground;
 
                 if (IsUserHandled())
@@ -3098,15 +3103,12 @@ namespace StonesGaming
             }
 
             // Ground
-            if (forceCheck ||
-                -vecToCheck.y >= -NEAR_ZERO ||
-                onSlope ||
-                (HasFlag(CollidedSurface.Ground) && IsJumping()))
+            if (forceCheck || -vecToCheck.y >= -NEAR_ZERO ||
+                onSlope || (HasFlag(CollidedSurface.Ground) && IsJumping()))
             {
                 surfaces |= CheckGround(envCheckDistance);
 
-                if (enableSlopes &&
-                    stickOnGround &&
+                if (enableSlopes && stickOnGround &&
                     (IsOnGround() || IsSlipping()) &&
                     surfaces == CollidedSurface.None)
                 {
@@ -3160,16 +3162,10 @@ namespace StonesGaming
                             surfaces &= ~(CollidedSurface.SlopeLeft | CollidedSurface.SlopeRight);
                             surfaces |= CollidedSurface.Ground;
                             _collidedNormals[DIRECTION_DOWN] = Vector2.up;
-
-                            Debug.Log("1111111111");
-                            //movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms"); //C
                         }
                         else if (leftDot >= _dotAllowedForSlopes && rightDot >= _dotAllowedForSlopes)
                         {
                             onSlope = true;
-                            //movingPlatformLayerMask = 0; //C
-
-                            Debug.Log("22222");
 
                             if (facingLeft)
                             {
@@ -3184,20 +3180,12 @@ namespace StonesGaming
                         }
                         else if (leftDot >= _dotAllowedForSlopes)
                         {
-                            Debug.Log("33333");
-                            //movingPlatformLayerMask = 0; //C
-
-
                             onSlope = true;
                             slopeNormal = leftNormal;
                             surfaces &= ~CollidedSurface.SlopeRight;
                         }
                         else
                         {
-                            Debug.Log("4444");
-                            //movingPlatformLayerMask = 0; //C
-
-
                             onSlope = true;
                             slopeNormal = rightNormal;
                             surfaces &= ~CollidedSurface.SlopeLeft;

@@ -38,7 +38,6 @@ namespace StonesGaming
         public static int health;
         [SerializeField] int _damagePlayer = 10;
 
-        bool _toggle = false;
         Vector3 _offset = new Vector3(0.4f, 0, 0);
         Vector3 _playerOriginPosition;
         
@@ -48,7 +47,6 @@ namespace StonesGaming
             Hurt,
             Death,
             Ladder,
-            HighJump,
             Teleport,
             Portal
         }
@@ -218,24 +216,9 @@ namespace StonesGaming
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            //if (collision.CompareTag("ToggleMovingPlatform"))
-            //{
-            //    _toggle = !_toggle;
-
-            //    if (_toggle)
-            //    {
-            //        _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
-            //    }
-            //    else
-            //    {
-            //        _engine.movingPlatformLayerMask = 0;
-            //    }
-            //}
-
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Moving Platforms"))
+            if (collision.gameObject.CompareTag("ToggleMovingPlatform"))
             {
                 _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
-                Debug.Log("dddd");
             }
 
             if (collision.CompareTag("FireOfBoss"))
@@ -275,19 +258,6 @@ namespace StonesGaming
         //        }
         //    }
         //}
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Moving Platforms"))
-            {
-                _engine.movingPlatformLayerMask = LayerMask.GetMask("Moving Platforms");
-                Debug.Log("dddd");
-            }
-            else
-            {
-                _engine.movingPlatformLayerMask = 0;
-            }
-        }
 
         void OnCollisionStay2D(Collision2D collision)
         {
