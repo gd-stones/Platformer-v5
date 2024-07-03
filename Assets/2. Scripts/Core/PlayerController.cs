@@ -13,17 +13,22 @@ namespace StonesGaming
         private bool _enableOneWayPlatforms;
         private bool _oneWayPlatformsAreWalls;
 
-        [SerializeField] PlatformerCustomize _engineCustomize;
+        PlatformerCustomize _engineCustomize;
 
-        [Header("Mobile Control")]
-        [SerializeField] bool isControlOnMobile = true;
-        [SerializeField] Joystick _leftJoystick;
-        [SerializeField] RightTouchControl _rightTouchControl; // Controls attack or jump actions
-        [SerializeField] DashCooldown _dashCooldown;
+        bool _isControlOnMobile = true;
+        Joystick _leftJoystick;
+        RightTouchControl _rightTouchControl; // Controls attack or jump actions
+        DashCooldown _dashCooldown;
 
         void Start()
         {
             _engine = GetComponent<PlatformerEngine>();
+            _engineCustomize = GetComponent<PlatformerCustomize>();
+
+            _isControlOnMobile = MobileController.Instance.isControlOnMobile;
+            _leftJoystick = MobileController.Instance.leftJoystick;
+            _rightTouchControl = MobileController.Instance.rightTouchControl;
+            _dashCooldown = MobileController.Instance.dashCooldown;
         }
 
         // Before enter en freedom state for ladders
@@ -74,7 +79,7 @@ namespace StonesGaming
 
             _engine.jumpingHeld = UnityEngine.Input.GetButton(StonesGaming.Input.JUMP);
 
-            if (isControlOnMobile)
+            if (_isControlOnMobile)
             {
                 _engine.jumpingHeld = _rightTouchControl.isInside;
             }
@@ -85,7 +90,7 @@ namespace StonesGaming
                 _engine.normalizedXMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL);
                 _engine.normalizedYMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL);
 
-                if (isControlOnMobile)
+                if (_isControlOnMobile)
                 {
                     _engine.normalizedXMovement = _leftJoystick.Horizontal;
                     _engine.normalizedYMovement = _leftJoystick.Vertical;
@@ -100,7 +105,7 @@ namespace StonesGaming
             {
                 _engine.normalizedXMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL);
 
-                if (isControlOnMobile)
+                if (_isControlOnMobile)
                 {
                     _engine.normalizedXMovement = _leftJoystick.Horizontal;
                 }
@@ -116,7 +121,7 @@ namespace StonesGaming
                 bool up_pressed;
                 up_pressed = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL) > 0;
 
-                if (isControlOnMobile)
+                if (_isControlOnMobile)
                 {
                     up_pressed = _leftJoystick.Vertical > 0;
                 }
@@ -146,7 +151,7 @@ namespace StonesGaming
                         _engine.normalizedXMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL);
                         _engine.normalizedYMovement = UnityEngine.Input.GetAxis(StonesGaming.Input.VERTICAL);
 
-                        if (isControlOnMobile)
+                        if (_isControlOnMobile)
                         {
                             _engine.normalizedXMovement = _leftJoystick.Horizontal;
                             _engine.normalizedYMovement = _leftJoystick.Vertical;
