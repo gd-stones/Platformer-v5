@@ -20,6 +20,11 @@ namespace StonesGaming
         RightTouchControl _rightTouchControl; // Controls attack or jump actions
         DashCooldown _dashCooldown;
 
+        private void Awake()
+        {
+           
+        }
+
         void Start()
         {
             _engine = GetComponent<PlatformerEngine>();
@@ -55,6 +60,12 @@ namespace StonesGaming
 
         void Update()
         {
+            // debug
+            //if(UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL) !=0)
+            //{
+            //    Debug.Log("eeeee");
+            //}
+
             // use last state to restore some ladder specific values
             if (_engine.engineState != PlatformerEngine.EngineState.FreedomState)
             {

@@ -80,6 +80,12 @@ namespace StonesGaming
                     else
                     {
                         _animator.Play("Hurt");
+                        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+
+                        if (stateInfo.IsName("Hurt") && stateInfo.normalizedTime >= 1.0f)
+                        {
+                            _engineCustomize.ResetStateEngineCustomize();
+                        }
                     }
                 }
                 else if (_engine.IsFalling() || _engine.IsFallingFast())
@@ -159,6 +165,15 @@ namespace StonesGaming
                     else
                     {
                         _animator.Play("Attack");
+                    }
+
+                    AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+
+                    if ((stateInfo.IsName("Attack Extra") || stateInfo.IsName("Run Attack") || 
+                        stateInfo.IsName("Walk Attack") || stateInfo.IsName("Attack")) 
+                        && stateInfo.normalizedTime >= 1.0f)
+                    {
+                        _engineCustomize.ResetStateEngineCustomize();
                     }
                 }
                 else
