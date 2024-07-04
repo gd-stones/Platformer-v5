@@ -236,6 +236,7 @@ MonoBehaviour:
     type: 3}
   _originalHealth: 30
   _damagePlayer: 10
+  portalIn: 0
 --- !u!114 &378353338352869517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,11 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee1224ee819bd6418867d9a5171806d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _engineCustomize: {fileID: 8129100661173983012}
-  isControlOnMobile: 0
-  _leftJoystick: {fileID: 0}
-  _rightTouchControl: {fileID: 0}
-  _dashCooldown: {fileID: 0}
 --- !u!82 &4200165886441134555
 AudioSource:
   m_ObjectHideFlags: 0

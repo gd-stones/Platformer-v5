@@ -18,7 +18,7 @@ namespace StonesGaming
 
             _renderer = GetComponent<SpriteRenderer>();
             _renderer.flipX = false;
-            
+
             _collider = GetComponent<BoxCollider2D>();
         }
 
@@ -60,7 +60,8 @@ namespace StonesGaming
                 else
                 {
                     player.TakeDamage();
-                    player.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Hurt);
+                    if (!player.IsOnLadder())
+                        player.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Hurt);
                 }
             }
         }
