@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Analytics;
 
 public class LevelLoggingBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelEnd);
     }
 }

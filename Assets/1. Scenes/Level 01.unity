@@ -387,7 +387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &153057163
 Transform:
   m_ObjectHideFlags: 0
@@ -633,6 +633,50 @@ MonoBehaviour:
   imageCooldown: {fileID: 1389086043}
   cooldownTime: 3
   dash: 0
+--- !u!1 &202787727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 202787728}
+  - component: {fileID: 202787729}
+  m_Layer: 0
+  m_Name: Level Logging Behaviour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &202787728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202787727}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 649275559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &202787729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202787727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4664fd52a91604a9b8975fccb90ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &210985976
 GameObject:
   m_ObjectHideFlags: 0
@@ -6801,6 +6845,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616023469}
   m_CullTransparentMesh: 1
+--- !u!1 &649275558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649275559}
+  m_Layer: 0
+  m_Name: Firebase Analytics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649275559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649275558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 202787728}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &649634299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7222077544838162272, guid: 9d345baad1a1b184c8511a70008a4f4e,
@@ -14201,7 +14277,6 @@ MonoBehaviour:
   destination: {fileID: 560064964}
   vfx: {fileID: 1738694997}
   boxCollider: {fileID: 1641016586}
-<<<<<<< HEAD
 --- !u!1 &1647165859
 GameObject:
   m_ObjectHideFlags: 0
@@ -14253,7 +14328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1647165862}
-  levelMessage: Level 2
+  levelMessage: Level 1
   displayTime: 2
 --- !u!114 &1647165862
 MonoBehaviour:
@@ -14352,8 +14427,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647165859}
   m_CullTransparentMesh: 1
-=======
->>>>>>> ec8a5fc0a61a1200747fa3a3d6fc58860eb11591
 --- !u!4 &1657599621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7222077544838162272, guid: 9d345baad1a1b184c8511a70008a4f4e,
@@ -24393,7 +24466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bbc967e799ce14f95ebbf0a937b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlOnMobile: 0
+  isControlOnMobile: 1
   leftJoystick: {fileID: 1723477231}
   rightTouchControl: {fileID: 1889859958}
   dashCooldown: {fileID: 192305825}
@@ -75787,3 +75860,4 @@ SceneRoots:
   - {fileID: 153057163}
   - {fileID: 2102173119}
   - {fileID: 2020706070}
+  - {fileID: 649275559}

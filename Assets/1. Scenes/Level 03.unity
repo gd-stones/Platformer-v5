@@ -387,7 +387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &153057163
 Transform:
   m_ObjectHideFlags: 0
@@ -14252,7 +14252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1647165862}
-  levelMessage: Level 3
+  levelMessage: Level 1
   displayTime: 2
 --- !u!114 &1647165862
 MonoBehaviour:
