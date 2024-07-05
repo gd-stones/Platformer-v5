@@ -123,7 +123,7 @@ namespace StonesGaming
             var cameraShake = FindObjectOfType<CameraShaker>();
             cameraShake.Shake();
 
-            Invoke("OnRetry", 2f);
+            Invoke("OnRetry", 2.25f);
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
             StartCoroutine(Globals.SetCameraFade(1f));
         }
@@ -150,6 +150,8 @@ namespace StonesGaming
         {
             ResetStateEngineCustomize();
             Globals.Score = 0;
+            Transform firstChild = transform.GetChild(0);
+            firstChild.gameObject.SetActive(true);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
