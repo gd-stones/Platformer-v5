@@ -14201,6 +14201,7 @@ MonoBehaviour:
   destination: {fileID: 560064964}
   vfx: {fileID: 1738694997}
   boxCollider: {fileID: 1641016586}
+<<<<<<< HEAD
 --- !u!1 &1647165859
 GameObject:
   m_ObjectHideFlags: 0
@@ -14351,6 +14352,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647165859}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> ec8a5fc0a61a1200747fa3a3d6fc58860eb11591
 --- !u!4 &1657599621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7222077544838162272, guid: 9d345baad1a1b184c8511a70008a4f4e,
@@ -24390,7 +24393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bbc967e799ce14f95ebbf0a937b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlOnMobile: 1
+  isControlOnMobile: 0
   leftJoystick: {fileID: 1723477231}
   rightTouchControl: {fileID: 1889859958}
   dashCooldown: {fileID: 192305825}
