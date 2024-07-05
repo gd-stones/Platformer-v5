@@ -243,3 +243,4 @@ MonoBehaviour:
   hitPrefab: {fileID: 2454777174175965747, guid: 2f92cf2fdd697224d967e02df4aa33a9,
     type: 3}
   hitClip: {fileID: 8300000, guid: 4d9c8b87aef5b0d4bbeb0463c33782dc, type: 3}
+  coefficient: -0.5

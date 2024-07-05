@@ -37,6 +37,12 @@ namespace StonesGaming
 
         void Update()
         {
+            if (_engineCustomize.IsDead())
+            {
+                _animator.Play("Death");
+                _engineCustomize.Revival();
+            }
+
             if (_engine.IsJumping() || _isJumping && (_engine.IsFalling() || _engine.IsFallingFast()))
             {
                 _isJumping = true;
@@ -70,20 +76,12 @@ namespace StonesGaming
 
                 if (_engineCustomize.IsHurt())
                 {
-                    if (_engineCustomize.IsDead())
-                    {
-                        _animator.Play("Death");
-                        _engineCustomize.Revival();
-                    }
-                    else
-                    {
-                        _animator.Play("Hurt");
-                        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+                    _animator.Play("Hurt");
+                    AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
 
-                        if (stateInfo.IsName("Hurt") && stateInfo.normalizedTime >= 1.0f)
-                        {
-                            _engineCustomize.ResetStateEngineCustomize();
-                        }
+                    if (stateInfo.IsName("Hurt") && stateInfo.normalizedTime >= 1.0f)
+                    {
+                        _engineCustomize.ResetStateEngineCustomize();
                     }
                 }
                 else if (_engine.IsFalling() || _engine.IsFallingFast())
@@ -155,8 +153,8 @@ namespace StonesGaming
 
                     AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
 
-                    if ((stateInfo.IsName("Attack Extra") || stateInfo.IsName("Run Attack") || 
-                        stateInfo.IsName("Walk Attack") || stateInfo.IsName("Attack")) 
+                    if ((stateInfo.IsName("Attack Extra") || stateInfo.IsName("Run Attack") ||
+                        stateInfo.IsName("Walk Attack") || stateInfo.IsName("Attack"))
                         && stateInfo.normalizedTime >= 1.0f)
                     {
                         _engineCustomize.ResetStateEngineCustomize();
@@ -164,6 +162,8 @@ namespace StonesGaming
                 }
                 else
                 {
+                    _engineCustomize.ResetStateEngineCustomize();
+
                     if (_squareOfVelocity >= 4f)
                     {
                         _animator.Play("Run");

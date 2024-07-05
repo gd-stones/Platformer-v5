@@ -60,12 +60,6 @@ namespace StonesGaming
 
         void Update()
         {
-            // debug
-            //if(UnityEngine.Input.GetAxis(StonesGaming.Input.HORIZONTAL) !=0)
-            //{
-            //    Debug.Log("eeeee");
-            //}
-
             // use last state to restore some ladder specific values
             if (_engine.engineState != PlatformerEngine.EngineState.FreedomState)
             {

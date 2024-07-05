@@ -6,6 +6,7 @@ namespace StonesGaming
     {
         [SerializeField] GameObject hitPrefab;
         [SerializeField] AudioClip hitClip;
+        [SerializeField] float coefficient;
 
         PlatformerEngine _engine;
         SpriteRenderer _renderer;
@@ -25,13 +26,13 @@ namespace StonesGaming
         void Update()
         {
             var direction = 0 < _engine.normalizedXMovement ? Vector3.right : Vector3.left;
-            var offset = _collider.size.y * 0.15f;
+            var offset = _collider.size.y * coefficient;
 
             var start = transform.position + new Vector3(0, offset, 0);
             var hit = Physics2D.Raycast(start, direction, _collider.size.x * 1f, Globals.ENV_MASK);
 
-            //var end = start + direction * _collider.size.x * .7f;
-            //Debug.DrawLine(start, end, Color.red);
+            var end = start + direction * _collider.size.x * 1f;
+            Debug.DrawLine(start, end, Color.red);
 
             if (hit.collider != null)
             {
@@ -65,6 +66,7 @@ namespace StonesGaming
                 else
                 {
                     playerEngineCustomize.TakeDamage();
+
                     if (!playerEngineCustomize.IsOnLadder())
                         playerEngineCustomize.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Hurt);
                 }

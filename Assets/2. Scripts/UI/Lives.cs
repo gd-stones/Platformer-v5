@@ -10,14 +10,11 @@ namespace StonesGaming
 
         private void Update()
         {
-            if (engineCustomize.IsHurt())
-            {
-                lives = engineCustomize.CalculateLives();
+            lives = engineCustomize.CalculateLives();
 
-                for (int i = 0; i < imagesHeart.Length; i++)
-                {
-                    imagesHeart[i].SetActive(i < lives);
-                }
+            for (int i = 0; i < imagesHeart.Length; i++)
+            {
+                imagesHeart[i].SetActive(i < lives);
             }
         }
     }

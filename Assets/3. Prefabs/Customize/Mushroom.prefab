@@ -171,13 +171,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   envCheckDistance: 0.04
-  minDistanceFromEnv: 0.02
+  minDistanceFromEnv: 0.04
   numOfIterations: 2
   enableOneWayPlatforms: 1
   oneWayPlatformsAreWalls: 1
   movingPlatformLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   additionalRaycastsPerSide: 1
   groundSpeed: 1.5
   timeToGroundSpeed: 0
@@ -243,3 +243,4 @@ MonoBehaviour:
   hitPrefab: {fileID: 2454777174175965747, guid: 0b82415380345764da849aa2af52153b,
     type: 3}
   hitClip: {fileID: 8300000, guid: 4d9c8b87aef5b0d4bbeb0463c33782dc, type: 3}
+  coefficient: 0.15
