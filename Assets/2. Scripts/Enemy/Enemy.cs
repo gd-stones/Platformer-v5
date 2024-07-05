@@ -25,8 +25,13 @@ namespace StonesGaming
         void Update()
         {
             var direction = 0 < _engine.normalizedXMovement ? Vector3.right : Vector3.left;
-            var offset = _collider.size.y * .5f;
-            var hit = Physics2D.Raycast(transform.position - new Vector3(0, offset, 0), direction, _collider.size.x * 1f, Globals.ENV_MASK);
+            var offset = _collider.size.y * 0.15f;
+
+            var start = transform.position + new Vector3(0, offset, 0);
+            var hit = Physics2D.Raycast(start, direction, _collider.size.x * 1f, Globals.ENV_MASK);
+
+            //var end = start + direction * _collider.size.x * .7f;
+            //Debug.DrawLine(start, end, Color.red);
 
             if (hit.collider != null)
             {
@@ -39,13 +44,13 @@ namespace StonesGaming
         {
             if (other.name.Contains("Player") || other.CompareTag("Player"))
             {
-                var engine = other.GetComponent<PlatformerEngine>();
-                var player = other.GetComponent<PlatformerCustomize>();
+                var playerEngine = other.GetComponent<PlatformerEngine>();
+                var playerEngineCustomize = other.GetComponent<PlatformerCustomize>();
 
-                if (engine.IsFalling())
+                if (playerEngine.IsFalling())
                 {
                     Destroy(gameObject);
-                    engine.ForceJump();
+                    playerEngine.ForceJump();
 
                     var cameraShake = FindObjectOfType<CameraShaker>();
                     cameraShake.Shake();
@@ -55,13 +60,13 @@ namespace StonesGaming
                     var audioSource = FindObjectOfType<AudioSource>();
                     audioSource.PlayOneShot(hitClip);
 
-                    player.isSkipJumpSe = true;
+                    playerEngineCustomize.isSkipJumpSe = true;
                 }
                 else
                 {
-                    player.TakeDamage();
-                    if (!player.IsOnLadder())
-                        player.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Hurt);
+                    playerEngineCustomize.TakeDamage();
+                    if (!playerEngineCustomize.IsOnLadder())
+                        playerEngineCustomize.SetStateEngineCustomize(PlatformerCustomize.EngineCState.Hurt);
                 }
             }
         }
