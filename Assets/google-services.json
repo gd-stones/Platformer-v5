@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "475679436323",
+    "project_id": "epic-adventure-8dc3c",
+    "storage_bucket": "epic-adventure-8dc3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475679436323:android:4ba721f6037925abd10b96",
+        "android_client_info": {
+          "package_name": "com.stonesgaming.epicadventure"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWP9d0aNsHHjx_ff5Y1WaqWFcyWbMlVXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
