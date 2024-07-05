@@ -21,18 +21,9 @@ namespace StonesGaming
         public const string PACKAGE_NAME = "StonesGaming";
         public const float MINIMUM_DISTANCE_CHECK = 0.01f;
 
-        //public static bool LadderFlag = false;
-        //public static bool HighJumpFlag = false;
-        //public static bool PushFlag = false;
-        //public static bool TeleportFlag = false;
-        //public static bool PortalIn = true;
-
         public static bool AttackDirection = true; // true <=> right; false <=> left
-        //public static bool AttackFlag = false;
-
         public static bool CameraFadeFlag = false;
         public static Vector3 Checkpoint = Vector3.zero;
-        //public static bool HurtFlag = false;
 
         public static int Score = 0;
         public static string LevelName = "Level 01";
@@ -86,6 +77,15 @@ namespace StonesGaming
             playerTransform.position = destination;
 
             yield return new WaitForSeconds(1f);
+            Globals.CameraFadeFlag = true;
+        }
+
+        public static IEnumerator SetCameraFade(float time)
+        {
+            yield return new WaitForSeconds(time);
+            Globals.CameraFadeFlag = true;
+
+            yield return new WaitForSeconds(time);
             Globals.CameraFadeFlag = true;
         }
     }

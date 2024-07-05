@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 3efef4657b5061448894ba6ca77b2646, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,10 +114,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.043576807}
+  m_Offset: {x: 0, y: -0.047469348}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.130744}
+  m_Size: {x: 1, y: 1.1229589}
   m_EdgeRadius: 0
 --- !u!1 &5188121775961815738
 GameObject:
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3386593}
+  m_Offset: {x: 0, y: -0.29191852}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 9.815453}
+  m_Size: {x: 1, y: 9.908934}
   m_EdgeRadius: 0
 --- !u!114 &2167687706252406105
 MonoBehaviour:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  triggerColor: {r: 0, g: 0.9852941, b: 0, a: 0.2509804}
+  triggerColor: {r: 1, g: 1, b: 1, a: 1}
   enableRestrictedArea: 1
   restrictedArea: {fileID: 8184972132219057006}
   disableRestrictedTop: 1
@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4045715865390335305
 Transform:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6225033591555648949}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 82.9, y: 6.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -584,7 +584,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11236167, y: 1.0643709}
+  m_Offset: {x: 0.0020942688, y: 1.0643709}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -595,7 +595,7 @@ BoxCollider2D:
     adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9499488, y: 0.79896307}
+  m_Size: {x: 0.19933319, y: 0.79896307}
   m_EdgeRadius: 0
 --- !u!114 &1706817508354289246
 MonoBehaviour:
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  triggerColor: {r: 0, g: 0, b: 0, a: 0}
+  triggerColor: {r: 1, g: 1, b: 1, a: 1}
   zone: 0
 --- !u!1 &8310225566132303699
 GameObject:
@@ -730,7 +730,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015232086, y: -0.16753983}
+  m_Offset: {x: -0.0033836365, y: -0.16753983}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -741,7 +741,7 @@ BoxCollider2D:
     adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4873886, y: 0.66492033}
+  m_Size: {x: 0.35271454, y: 0.66492033}
   m_EdgeRadius: 0
 --- !u!114 &6731617243433830403
 MonoBehaviour:
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  triggerColor: {r: 0, g: 0, b: 0, a: 0}
+  triggerColor: {r: 1, g: 1, b: 1, a: 1}
   RestrictedAreaOnEnter: 3
   RestrictedAreaOnExit: 0
   RestrictedAreaOnStay: 0

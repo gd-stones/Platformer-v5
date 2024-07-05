@@ -16,6 +16,7 @@ namespace StonesGaming
         public void ReturnHome()
         {
             SceneManager.LoadScene("Home");
+            Globals.Score = 0;
         }
 
         public void Resume()

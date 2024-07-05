@@ -6989,12 +6989,12 @@ PrefabInstance:
     - target: {fileID: 3561471347320313021, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.89071655
+      value: 0.3455963
       objectReference: {fileID: 0}
     - target: {fileID: 3561471347320313021, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.050735474
+      value: 0.033851624
       objectReference: {fileID: 0}
     - target: {fileID: 4045715865390335305, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
@@ -7049,12 +7049,12 @@ PrefabInstance:
     - target: {fileID: 4974041891534089868, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.8419647
+      value: 0.49075317
       objectReference: {fileID: 0}
     - target: {fileID: 4974041891534089868, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.0070266724
+      value: -0.006477356
       objectReference: {fileID: 0}
     - target: {fileID: 5610262400085574770, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
@@ -24466,7 +24466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bbc967e799ce14f95ebbf0a937b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlOnMobile: 1
+  isControlOnMobile: 0
   leftJoystick: {fileID: 1723477231}
   rightTouchControl: {fileID: 1889859958}
   dashCooldown: {fileID: 192305825}
@@ -25900,6 +25900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796185948370167202, guid: db05fac59485c85499732c6f1fba7d17,
         type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796185948370167202, guid: db05fac59485c85499732c6f1fba7d17,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 5372734726856509109}
@@ -26495,7 +26500,7 @@ PrefabInstance:
     - target: {fileID: 616720114058974602, guid: 6433c04dd914e5e4fb802b18b52948c1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3390059566117914732, guid: 6433c04dd914e5e4fb802b18b52948c1,
         type: 3}
@@ -74330,71 +74335,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2102173119}
     m_Modifications:
-    - target: {fileID: 1157945944627787870, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.1229589
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157945944627787870, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.047469348
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157945944627787870, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1706817508354289246, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1706817508354289246, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1706817508354289246, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1706817508354289246, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167687706252406105, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167687706252406105, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167687706252406105, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167687706252406105, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561471347320313021, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.8985748
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561471347320313021, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0034561157
-      objectReference: {fileID: 0}
     - target: {fileID: 4045715865390335305, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74445,60 +74385,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4974041891534089868, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.79649353
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974041891534089868, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.021873474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5610262400085574770, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 9.908934
-      objectReference: {fileID: 0}
-    - target: {fileID: 5610262400085574770, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.29191852
-      objectReference: {fileID: 0}
     - target: {fileID: 6225033591555648949, guid: e22440458c9a24849aaff57fcd4ca0cc,
         type: 3}
       propertyPath: m_Name
       value: Ladder v1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6225033591555648949, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731617243433830403, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731617243433830403, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731617243433830403, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731617243433830403, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: triggerColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184972132219057006, guid: e22440458c9a24849aaff57fcd4ca0cc,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

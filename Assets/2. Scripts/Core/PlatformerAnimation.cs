@@ -20,11 +20,9 @@ namespace StonesGaming
         bool _isJumping;
         bool _currentFacingLeft;
 
-        bool _isSlip;
-        bool _isDash;
         [SerializeField] GameObject _dashEffect;
         [SerializeField] GameObject _slipEffect;
-        float squareOfVelocity;
+        float _squareOfVelocity;
 
         void Start()
         {
@@ -68,7 +66,7 @@ namespace StonesGaming
             {
                 _isJumping = false;
                 visualChild.transform.rotation = Quaternion.identity;
-                squareOfVelocity = _engine.velocity.sqrMagnitude;
+                _squareOfVelocity = _engine.velocity.sqrMagnitude;
 
                 if (_engineCustomize.IsHurt())
                 {
@@ -104,23 +102,11 @@ namespace StonesGaming
                 {
                     _animator.Play("Slip");
                     _slipEffect.SetActive(true);
-
-                    //if (!_isSlip)
-                    //{
-                    //    _slipEffect.SetActive(true);
-                    //    _isSlip = true;
-                    //}
                 }
                 else if (_engine.IsDashing())
                 {
                     _animator.Play("Dash");
                     _dashEffect.SetActive(true);
-
-                    //if (!_isDash)
-                    //{
-                    //    _dashEffect.SetActive(true);
-                    //    _isDash = true;
-                    //}
                 }
                 else if (_engine.IsOnLadder() && _engineCustomize.IsOnLadder())
                 {
@@ -154,11 +140,11 @@ namespace StonesGaming
                     {
                         _animator.Play("Attack Extra");
                     }
-                    else if (squareOfVelocity >= 4f)
+                    else if (_squareOfVelocity >= 4f)
                     {
                         _animator.Play("Run Attack");
                     }
-                    else if (squareOfVelocity >= 0.01f)
+                    else if (_squareOfVelocity >= 0.01f)
                     {
                         _animator.Play("Walk Attack");
                     }
@@ -178,11 +164,11 @@ namespace StonesGaming
                 }
                 else
                 {
-                    if (squareOfVelocity >= 4f)
+                    if (_squareOfVelocity >= 4f)
                     {
                         _animator.Play("Run");
                     }
-                    else if (squareOfVelocity >= 0.01f)
+                    else if (_squareOfVelocity >= 0.01f)
                     {
                         _animator.Play("Walk");
                     }
@@ -211,13 +197,11 @@ namespace StonesGaming
             if (!_engine.IsDashing())
             {
                 _dashEffect.SetActive(false);
-                _isDash = false;
             }
 
             if (!_engine.IsSlipping())
             {
                 _slipEffect.SetActive(false);
-                _isSlip = false;
             }
         }
 

@@ -7,7 +7,7 @@ namespace StonesGaming
     public class PlatformerCustomize : MonoBehaviour
     {
         // Core
-        [SerializeField] PlatformerEngine _engine;
+        PlatformerEngine _engine;
 
         // Attack
         public int turnAttack = -1;
@@ -40,6 +40,8 @@ namespace StonesGaming
 
         Vector3 _offset = new Vector3(0.4f, 0, 0);
         Vector3 _playerOriginPosition;
+        GameObject[] _fireRun;
+        GameObject[] _fire;
 
         public enum EngineCState
         {
@@ -98,24 +100,31 @@ namespace StonesGaming
 
         void Awake()
         {
+            _engine = GetComponent<PlatformerEngine>();
             _engine.onJump += OnJump;
             _groundSpeed = _engine.groundSpeed;
+            
             _health = _originalHealth;
         }
 
         void Start()
         {
             _playerOriginPosition = transform.position;
+            _fireRun = new GameObject[] { _fireRun1, _fireRun2, _fireRun3 };
+            _fire = new GameObject[] { _fire1, _fire2, _fire3 };
         }
 
         public void Dead()
         {
-            gameObject.SetActive(false);
+            Transform firstChild = transform.GetChild(0);
+            firstChild.gameObject.SetActive(false);
+
             var cameraShake = FindObjectOfType<CameraShaker>();
             cameraShake.Shake();
 
             Invoke("OnRetry", 2f);
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(Globals.SetCameraFade(1f));
         }
 
         public void Attack()
@@ -125,11 +134,8 @@ namespace StonesGaming
             turnAttack++;
             turnAttack = turnAttack % 3;
 
-            GameObject[] fireRun = { _fireRun1, _fireRun2, _fireRun3 };
-            GameObject[] fire = { _fire1, _fire2, _fire3 };
-
             Vector3 firePoint = Globals.AttackDirection ? _firePointRight : _firePointLeft;
-            GameObject selectedFire = (_engine.velocity.sqrMagnitude > 0) ? fireRun[turnAttack] : fire[turnAttack];
+            GameObject selectedFire = (_engine.velocity.sqrMagnitude > 0) ? _fireRun[turnAttack] : _fire[turnAttack];
 
             SimplePool.Spawn(selectedFire, transform.position + firePoint, transform.rotation);
         }
@@ -141,23 +147,21 @@ namespace StonesGaming
 
         public void OnRetry()
         {
-            //Globals.HurtFlag = false;
             ResetStateEngineCustomize();
+            Globals.Score = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         void OnJump()
         {
-            //if (!isSkipJumpSe)
-            //{
-            //    _audioSource.PlayOneShot(_jumpClip);
-            //}
             isSkipJumpSe = false;
         }
 
         public bool IsDead()
         {
-            if (_health <= 0) return true;
+            if (_health <= 0) 
+                return true;
+
             return false;
         }
 
@@ -169,6 +173,7 @@ namespace StonesGaming
         public void Revival()
         {
             _health = _originalHealth;
+            Globals.Score = 0;
 
             if (Globals.Checkpoint != Vector3.zero)
             {
@@ -190,7 +195,6 @@ namespace StonesGaming
             if (collision.CompareTag("FireOfBoss"))
             {
                 TakeDamage();
-                //Globals.HurtFlag = true;
                 SetStateEngineCustomize(EngineCState.Hurt);
             }
         }
@@ -202,7 +206,6 @@ namespace StonesGaming
 
             if (tag == "Barrel" || tag == "Rock")
             {
-                //Globals.PushFlag = isPushing;
                 if (isPushing)
                 {
                     SetStateEngineCustomize(EngineCState.Push);
@@ -223,7 +226,6 @@ namespace StonesGaming
         {
             if (collision.gameObject.CompareTag("Barrel") || collision.gameObject.CompareTag("Rock"))
             {
-                //Globals.PushFlag = false;
                 ResetStateEngineCustomize();
                 _engine.groundSpeed = _groundSpeed;
             }
