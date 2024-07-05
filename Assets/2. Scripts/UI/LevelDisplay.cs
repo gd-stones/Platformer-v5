@@ -18,7 +18,7 @@ public class LevelDisplay : MonoBehaviour
         }
     }
 
-    private IEnumerator HideLevelTextAfterDelay(float delay)
+    IEnumerator HideLevelTextAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         if (levelText != null)

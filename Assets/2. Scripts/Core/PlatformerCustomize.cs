@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Firebase.Analytics;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using static StonesGaming.PlatformerEngine;
 
@@ -170,8 +171,12 @@ namespace StonesGaming
             _health -= _damagePlayer;
         }
 
+        private int reviveCount = 0;
         public void Revival()
         {
+            reviveCount++;
+            LogRevivalEvent(reviveCount);
+
             _health = _originalHealth;
             Globals.Score = 0;
 
@@ -183,6 +188,12 @@ namespace StonesGaming
             {
                 StartCoroutine(Globals.SetCameraFade(transform, _playerOriginPosition));
             }
+        }
+
+        private void LogRevivalEvent(int count)
+        {
+            FirebaseAnalytics.LogEvent("revival_count", new Parameter("level_name", SceneManager.GetActiveScene().name), 
+                new Parameter("revive_count", count));
         }
 
         void OnTriggerEnter2D(Collider2D collision)

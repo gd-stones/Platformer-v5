@@ -1,15 +1,18 @@
 using UnityEngine;
 using Firebase.Analytics;
+using UnityEngine.SceneManagement;
 
 public class LevelLoggingBehaviour : MonoBehaviour
 {
     void Start()
     {
-        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart);
+        string levelName = SceneManager.GetActiveScene().name;
+        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart, new Parameter("level_name", levelName));
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
-        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelEnd);
+        string levelName = SceneManager.GetActiveScene().name;
+        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelEnd, new Parameter("level_name", levelName));
     }
 }

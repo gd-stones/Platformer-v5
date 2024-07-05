@@ -1,32 +1,46 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public FirebaseManager firebaseManager;
-    private float playTime;
+    private float startTime;
     private bool isPlaying;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
-        playTime = 0;
+        startTime = Time.time;
         isPlaying = true;
-        StartCoroutine(TrackPlayTime());
     }
 
-    private IEnumerator TrackPlayTime()
+    private void OnApplicationPause(bool pauseStatus)
     {
-        while (isPlaying)
+        if (pauseStatus)
         {
-            playTime += Time.deltaTime;
-            yield return null;
+            isPlaying = false;
+            SavePlayTime();
+        }
+        else
+        {
+            startTime = Time.time;
+            isPlaying = true;
         }
     }
 
     void OnApplicationQuit()
     {
         isPlaying = false;
+        SavePlayTime();
+    }
+
+    private void SavePlayTime()
+    {
+        float playTime = Time.time - startTime;
         string userId = SystemInfo.deviceUniqueIdentifier;
         firebaseManager.SavePlayTime(userId, Mathf.FloorToInt(playTime));
     }
