@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3d4faa977ed23488539ffcb9b921ff, type: 3}
+  m_Name: Ads Data
+  m_EditorClassIdentifier: 
+  _interstitialAdInterval: 0
+  _minDelayBetweenInterstitial: 1
+  _rewardedAdFrequency: 1
+  _minDelayBetweenRewarded: 1
+  _GDPR: 0
+  _adsType: 0
+  _enableBanner: 1
+  _enableInterstitial: 1
+  _enableRewarded: 1
+  controlBanner: 1
+  controlInterstitial: 1
+  controlRewarded: 1
+  idBanner: ca-app-pub-3940256099942544/6300978111
+  idInterstitial: ca-app-pub-3940256099942544/1033173712
+  idReward: ca-app-pub-3940256099942544/5224354917
