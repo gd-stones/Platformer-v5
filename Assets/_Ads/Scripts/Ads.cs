@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public abstract class Ads : MonoBehaviour
 {
     public abstract bool IsRewardedAdLoaded();

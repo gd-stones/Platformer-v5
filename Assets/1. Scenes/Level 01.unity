@@ -24573,7 +24573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bbc967e799ce14f95ebbf0a937b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlOnMobile: 1
+  isControlOnMobile: 0
   leftJoystick: {fileID: 1723477231}
   rightTouchControl: {fileID: 1889859958}
   dashCooldown: {fileID: 192305825}

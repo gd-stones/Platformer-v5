@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace StonesGaming
 {
     public class Goal : MonoBehaviour
     {
-        [SerializeField] int nextLevel;
-        [SerializeField] AudioClip goalClip;
+        [SerializeField] int _nextLevel;
+        [SerializeField] AudioClip _goalClip;
         bool _isGoal;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -23,17 +24,24 @@ namespace StonesGaming
                     animator.Play("Pressed");
 
                     var audioSource = FindObjectOfType<AudioSource>();
-                    audioSource.PlayOneShot(goalClip);
+                    audioSource.PlayOneShot(_goalClip);
 
-                    int level = PlayerPrefs.GetInt("LevelUnlocked");
-                    if (level < nextLevel - 1)
-                    {
-                        PlayerPrefs.SetInt("LevelUnlocked", nextLevel);
-                    }
-
-                    SceneManager.LoadScene("Home");
+                    AdsManager.Instance.ShowInterstitial(LevelUnlock);
                 }
             }
+        }
+
+        void LevelUnlock()
+        {
+            int level = PlayerPrefs.GetInt("LevelUnlocked");
+
+            if (level < _nextLevel - 1)
+            {
+                PlayerPrefs.SetInt("LevelUnlocked", _nextLevel);
+            }
+
+            StartCoroutine(Globals.SetCameraFade(0.5f));
+            SceneManager.LoadScene("Home");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Loading1 : MonoBehaviour
 {
     [SerializeField] private float _splashDelay = 2f;
@@ -40,7 +41,7 @@ public class Loading1 : MonoBehaviour
 
     private void CheckForGDPR()
     {
-        if(PlayerPrefs.GetInt("npa", -1) == -1)
+        if (PlayerPrefs.GetInt("npa", -1) == -1)
         {
             //show gdpr popup
             GDPR.SetActive(true);

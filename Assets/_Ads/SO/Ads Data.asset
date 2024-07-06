@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ads Data
   m_EditorClassIdentifier: 
   _interstitialAdInterval: 0
-  _minDelayBetweenInterstitial: 1
+  _minDelayBetweenInterstitial: 30
   _rewardedAdFrequency: 1
   _minDelayBetweenRewarded: 1
   _GDPR: 0

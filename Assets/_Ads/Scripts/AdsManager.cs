@@ -30,7 +30,7 @@ public class AdsManager : Singleton<AdsManager>
     {
         ShoudShow();
 
-        ShowBanner();
+        //ShowBanner();
     }
 
     void ShoudShow()
@@ -49,7 +49,7 @@ public class AdsManager : Singleton<AdsManager>
     {
         base.Awake();
 
-        if(_ads == null)
+        if (_ads == null)
         {
             _ads = GetAdsChoice();
         }

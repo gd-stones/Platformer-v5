@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/Privacy Policy", fileName = "Policy Data")]
-public class PolicyDataSO : ScriptableObject
-{
-    [SerializeField] [TextArea(2,2)] string _privacyPolicyLink;
 
-    public void OpenPolicyURL()
+    [CreateAssetMenu(menuName = "ScriptableObject/Privacy Policy", fileName = "Policy Data")]
+    public class PolicyDataSO : ScriptableObject
     {
-        string policy = _privacyPolicyLink;
-        string protocol = "https://";
-        if (policy.Contains(protocol))
+        [SerializeField][TextArea(2, 2)] string _privacyPolicyLink;
+
+        public void OpenPolicyURL()
         {
-            policy = policy.Replace(protocol, "");
+            string policy = _privacyPolicyLink;
+            string protocol = "https://";
+            if (policy.Contains(protocol))
+            {
+                policy = policy.Replace(protocol, "");
+            }
+            Application.OpenURL($"https://{policy}");
         }
-        Application.OpenURL($"https://{policy}");
     }
-}
