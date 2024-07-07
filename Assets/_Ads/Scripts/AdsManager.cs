@@ -104,7 +104,7 @@ public class AdsManager : Singleton<AdsManager>
             }
             else
             {
-                close();
+                close.Invoke();
             }
         }
         catch

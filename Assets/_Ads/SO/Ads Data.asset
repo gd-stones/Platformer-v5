@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3d4faa977ed23488539ffcb9b921ff, type: 3}
   m_Name: Ads Data
   m_EditorClassIdentifier: 
-  _interstitialAdInterval: 0
-  _minDelayBetweenInterstitial: 30
+  _interstitialAdInterval: 1
+  _minDelayBetweenInterstitial: 0
   _rewardedAdFrequency: 1
   _minDelayBetweenRewarded: 1
   _GDPR: 0
   _adsType: 0
-  _enableBanner: 1
+  _enableBanner: 0
   _enableInterstitial: 1
   _enableRewarded: 1
   controlBanner: 1

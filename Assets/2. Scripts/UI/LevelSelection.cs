@@ -14,6 +14,7 @@ namespace StonesGaming
         {
             //PlayerPrefs.SetInt("LevelUnlocked", 1);
             int levelUnlocked = PlayerPrefs.GetInt("LevelUnlocked");
+            Debug.Log(levelUnlocked);
 
             if (pointIndex < levelUnlocked)
             {

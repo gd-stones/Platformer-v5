@@ -123,9 +123,21 @@ namespace StonesGaming
             var cameraShake = FindObjectOfType<CameraShaker>();
             cameraShake.Shake();
 
-            Invoke("OnRetry", 2.25f);
+            Invoke("OnRetry", 2f);
+            gameObject.GetComponent<PlayerController>().enabled = false;
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
-            StartCoroutine(Globals.SetCameraFade(1f));
+            //StartCoroutine(Globals.SetCameraFade(1f));
+        }
+
+        public void OnRetry()
+        {
+            ResetStateEngineCustomize();
+            Globals.Score = 0;
+
+            //Transform firstChild = transform.GetChild(0);
+            //firstChild.gameObject.SetActive(true);
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void Attack()
@@ -144,15 +156,6 @@ namespace StonesGaming
         public void Jump()
         {
             SimplePool.Spawn(_jumpVfx1, transform.position, transform.rotation);
-        }
-
-        public void OnRetry()
-        {
-            ResetStateEngineCustomize();
-            Globals.Score = 0;
-            Transform firstChild = transform.GetChild(0);
-            firstChild.gameObject.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         void OnJump()

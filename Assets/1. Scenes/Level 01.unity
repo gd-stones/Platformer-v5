@@ -14282,7 +14282,7 @@ Transform:
   m_GameObject: {fileID: 1528432790}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.211112, y: 1.0000002, z: -10}
+  m_LocalPosition: {x: -7.844446, y: 5.6000004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24573,7 +24573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bbc967e799ce14f95ebbf0a937b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isControlOnMobile: 0
+  isControlOnMobile: 1
   leftJoystick: {fileID: 1723477231}
   rightTouchControl: {fileID: 1889859958}
   dashCooldown: {fileID: 192305825}
@@ -26302,12 +26302,12 @@ PrefabInstance:
     - target: {fileID: 1419068817118314732, guid: d5c386aa2a3fc8c4ca0ad753e95447ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.7
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 1419068817118314732, guid: d5c386aa2a3fc8c4ca0ad753e95447ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 1419068817118314732, guid: d5c386aa2a3fc8c4ca0ad753e95447ca,
         type: 3}
@@ -26861,12 +26861,12 @@ PrefabInstance:
     - target: {fileID: 3390059566117914732, guid: 6433c04dd914e5e4fb802b18b52948c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.211112
+      value: -7.844446
       objectReference: {fileID: 0}
     - target: {fileID: 3390059566117914732, guid: 6433c04dd914e5e4fb802b18b52948c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0000002
+      value: 5.6000004
       objectReference: {fileID: 0}
     - target: {fileID: 3390059566117914732, guid: 6433c04dd914e5e4fb802b18b52948c1,
         type: 3}

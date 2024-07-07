@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace StonesGaming
-{
+
 	public class CameraShaker : MonoBehaviour
 	{
 		public float duration = 0.25f;
@@ -32,4 +31,3 @@ namespace StonesGaming
 			transform.localPosition = pos;
 		}
 	}
-}
