@@ -16,11 +16,11 @@ Use your right index finger to tap to perform an attack action, swipe up to perf
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6.gif)
 
-### Below is a gaming video and some in-game images:
 ### Firebase integration to view real-time in-game events
 ![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/firebase1.png)
 ![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/firebase2.png)
 ![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/firebase3.png)
+### Below is a gaming video and some in-game images:
 #### Level selection map
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.png)
 #### Choose character
