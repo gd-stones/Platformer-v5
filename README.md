@@ -5,18 +5,21 @@ Use your left index finger to control movement left, right and climb the ladder.
 Use your right index finger to tap to perform an attack action, swipe up to perform a jumping action.
 
 ### Apk file 
-[Download APK for Android](https://github.com/gd-stones/Platformer-v5/releases/tag/apk_file_for_android)
+[Download APK for Android](https://github.com/gdstones/Platformer-v5/releases)
 
 ### Gaming videos
-[Youtube video gameplay](https://www.youtube.com/watch?v=aXrMb4OHAzc)
+[Youtube video gameplay](https://www.youtube.com/watch?v=6OMi2AWub1Q)
 
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.gif)
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/2.gif)
+![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/output1.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/3.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/4.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/6.gif)
 
+### Firebase integration to view real-time in-game events
+![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/firebase1.png)
+![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/firebase2.png)
+![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/firebase3.png)
 ### Below is a gaming video and some in-game images:
 #### Level selection map
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/1.png)
