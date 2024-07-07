@@ -10,7 +10,7 @@ Use your right index finger to tap to perform an attack action, swipe up to perf
 ### Gaming videos
 [Youtube video gameplay](https://www.youtube.com/watch?v=6OMi2AWub1Q)
 
-![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/output1.gif)
+![](https://github.com/gdstones/Platformer-v5/blob/master/Screenshots/output1.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/3.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/4.gif)
 ![](https://github.com/gd-stones/Platformer-v5/blob/master/Screenshots/5.gif)
