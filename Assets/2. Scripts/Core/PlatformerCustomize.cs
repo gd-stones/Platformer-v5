@@ -126,16 +126,12 @@ namespace StonesGaming
             Invoke("OnRetry", 2f);
             gameObject.GetComponent<PlayerController>().enabled = false;
             Instantiate(_playerHitPrefab, transform.position, Quaternion.identity);
-            //StartCoroutine(Globals.SetCameraFade(1f));
         }
 
         public void OnRetry()
         {
             ResetStateEngineCustomize();
             Globals.Score = 0;
-
-            //Transform firstChild = transform.GetChild(0);
-            //firstChild.gameObject.SetActive(true);
             
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
